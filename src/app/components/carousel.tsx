@@ -1,4 +1,3 @@
-import Carousel3d from "react-spring-3d-carousel";
 import { useState } from "react";
 import { config } from "react-spring";
 import ProjectCard from "./projectCard";
@@ -7,6 +6,11 @@ import useStyles from "../hooks/useStyles";
 import styles from "./styles";
 import useSwipe from "../hooks/useSwipe";
 import { JourneyInterface } from "../home/Projects/model";
+import dynamic from "next/dynamic";
+
+const Carousel3d = dynamic(() => import("react-spring-3d-carousel"), {
+  ssr: false,
+});
 
 const Carousel = (props: { journeyList: JourneyInterface[] }) => {
   const classes = useStyles(styles);
@@ -30,6 +34,7 @@ const Carousel = (props: { journeyList: JourneyInterface[] }) => {
       <Carousel3d
         slides={cards}
         goToSlide={goToSlide}
+        goToSlideDelay={0}
         offsetRadius={2}
         showNavigation={false}
         animationConfig={config.gentle}
