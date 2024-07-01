@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import useDidUpdateEffect from "./useDidUpdateEffect";
 
 export const useIntersection = (element, rootMargin = "0px") => {
   const [isVisible, setState] = useState(false);
 
-  useDidUpdateEffect(() => {
+  useEffect(() => {
     const current = element?.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -15,7 +14,7 @@ export const useIntersection = (element, rootMargin = "0px") => {
     current && observer?.observe(current);
 
     return () => current && observer.unobserve(current);
-  }, []);
+  }, [element]);
 
   return isVisible;
 };
