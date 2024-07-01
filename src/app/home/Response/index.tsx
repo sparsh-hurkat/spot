@@ -28,8 +28,10 @@ const Response = ({
       <CloseIcon onClick={handleClose} sx={classes.closeIconPosition} />
       <Grid sx={classes.dialogTitle} container>
         <Grid sx={classes.dialogBox} item>
-          <Typography variant="h5">Hey!! I am Spot</Typography>
-          <Typography variant="body2">Sparsh's virtual assistant</Typography>
+          <Typography variant="h5">{"Hey!! I am Spot"}</Typography>
+          <Typography variant="body2">
+            {"Sparsh's virtual assistant"}
+          </Typography>
         </Grid>
       </Grid>
       <DialogContent sx={classes.dialogContent}>

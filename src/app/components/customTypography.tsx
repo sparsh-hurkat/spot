@@ -6,12 +6,13 @@ const useCustomTypography = (text: string) => {
   const bulletRegex = /\*/g; // Matches individual asterisks for bullets
 
   const parts = text.split(regex);
-  return parts.map((part, index) =>
-    index % 2 === 0 ? (
-      part.replace(bulletRegex, "•") // Replace single asterisks with bullet point
-    ) : (
-      <b>{part}</b>
-    ) // Wrap bold text in bold tags
+  return parts.map(
+    (part, index) =>
+      index % 2 === 0 ? (
+        part.replace(bulletRegex, "•") // Replace single asterisks with bullet point
+      ) : (
+        <b key={index}>{part}</b>
+      ) // Wrap bold text in bold tags
   );
 };
 
