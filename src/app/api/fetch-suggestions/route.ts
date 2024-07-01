@@ -21,8 +21,9 @@ export async function GET() {
   } catch (error) {
     conn.end();
     return NextResponse.json({
+      data: [],
       error,
-      status: "SUCCESS",
+      status: "ERROR",
     });
   }
 }
