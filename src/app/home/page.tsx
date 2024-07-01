@@ -3,13 +3,16 @@ import { Grid } from "@mui/material";
 import TitleContainer from "./Title";
 import ProjectsContainer from "./Projects";
 import ChatBox from "./ChatBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Response from "./Response";
 import SkillsContainer from "./Skills";
 import { useChat } from "ai/react";
+import useDidUpdateEffect from "../hooks/useDidUpdateEffect";
 
 const HomePage = () => {
   const [isResponseOpen, setResponseOpen] = useState(false);
+  const [lastGeneratedResponse, setLastGeneratedResponse] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   const {
     messages,
@@ -18,21 +21,78 @@ const HomePage = () => {
     handleInputChange,
     handleSubmit,
     append,
-  } = useChat();
-  const handleOpen = (args: any) => {
-    setResponseOpen(true);
-    handleSubmit(args);
+  } = useChat({
+    onFinish: (message) => setLastGeneratedResponse(message),
+  });
+
+  useEffect(() => {
+    const loadSuggestions = async () => {
+      const suggestionsData = await fetchSuggestions();
+      setSuggestions(suggestionsData);
+    };
+
+    loadSuggestions();
+  }, []);
+
+  useDidUpdateEffect(() => {
+    if (!!lastGeneratedResponse) {
+      saveResponse(messages.at(-2)?.content, lastGeneratedResponse);
+      setLastGeneratedResponse(null);
+    }
+  }, [lastGeneratedResponse]);
+
+  const saveResponse = async (query, response) => {
+    await fetch("/api/save-response", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+        response,
+      }),
+    });
   };
+
+  const fetchSuggestions = async () => {
+    try {
+      const response = await fetch("/api/fetch-suggestions", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch suggestions");
+      }
+      const data = await response.json();
+      return data.data;
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+      return [];
+    }
+  };
+
   const handleClose = () => {
     setResponseOpen(false);
     setMessages([]);
   };
-  const handleSelectCard = (value: string) => {
+
+  const handleSubmitChat = (type, event, value) => {
     setResponseOpen(true);
-    append({
-      role: "user",
-      content: value,
-    });
+    switch (type) {
+      case "SUBMIT_FORM":
+        handleSubmit(event);
+        break;
+      case "SELECT_CARD":
+        append({
+          role: "user",
+          content: value,
+        });
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -41,16 +101,19 @@ const HomePage = () => {
         <Response
           input={input}
           handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
+          handleSubmit={handleSubmitChat}
           messages={messages}
           isResponseOpen={isResponseOpen}
           handleClose={handleClose}
         />
-        <TitleContainer handleSelectCard={handleSelectCard} />
+        <TitleContainer
+          suggestions={suggestions}
+          handleSelectCard={handleSubmitChat}
+        />
         <ProjectsContainer />
         <SkillsContainer />
         <ChatBox
-          handleSubmit={handleOpen}
+          handleSubmit={handleSubmitChat}
           input={input}
           handleInputChange={handleInputChange}
         />

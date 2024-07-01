@@ -27,8 +27,8 @@ const SkillsContainer = () => {
           <Grid sx={classes.skillsContent} container>
             <Grid xs item>
               <Typography>
-                I am a web developer with a solid <b>two years</b>{" "}
-                of experience under my belt as of 2024.
+                I am a web developer with a solid <b>two years</b> of experience
+                under my belt as of 2024.
                 <br />
                 <b>Javascript</b> is my playground, and I'm always diving deeper
                 into its intricacies to push the boundaries of what's possible.

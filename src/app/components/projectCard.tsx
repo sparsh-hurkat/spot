@@ -40,17 +40,19 @@ const ProjectCard = (props: { journeyItem: JourneyInterface }) => {
             expandIcon={<ExpandLessIcon />}
           >
             <Grid xs item>
-              <Typography sx={classes.journeyTitle}>{journeyItem.name}</Typography>
+              <Typography sx={classes.journeyTitle}>
+                {journeyItem.name}
+              </Typography>
               <Typography variant="caption">{journeyItem.duration}</Typography>
             </Grid>
           </AccordionSummary>
           <AccordionDetails sx={{ textAlign: "left" }}>
             <Typography sx={classes.descrptionText} variant="body1">
-              {journeyItem.description.map((line) => (
-                <span>
+              {journeyItem.description.map((line, index) => (
+                <Grid component="span" key={index}>
                   {line}
                   <br />
-                </span>
+                </Grid>
               ))}
             </Typography>
           </AccordionDetails>

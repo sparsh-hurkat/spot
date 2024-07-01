@@ -11,15 +11,20 @@ const ChatBox = ({ handleSubmit, input, handleInputChange }) => {
     <Grid sx={classes.textfieldContainer} container>
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        onSubmit={(e) => handleSubmit("SUBMIT_FORM", e)}
         sx={{ width: "100%", textAlign: "center" }}
       >
         <TextField
+          name="chatbox"
           value={input}
           onChange={handleInputChange}
           sx={classes.textfield}
           placeholder="Ask me anything"
-          InputProps={{ endAdornment: <SendIcon onClick={handleSubmit} /> }}
+          InputProps={{
+            endAdornment: (
+              <SendIcon onClick={(e) => handleSubmit("SUBMIT_FORM", e)} />
+            ),
+          }}
           autoComplete="off"
         />
       </Box>

@@ -6,7 +6,7 @@ import { suggestions } from "../../models/commonModel";
 import styles from "./styles";
 import useStyles from "@/app/hooks/useStyles";
 
-const TitleContainer = ({ handleSelectCard }) => {
+const TitleContainer = ({ suggestions, handleSelectCard }) => {
   const classes = useStyles(styles);
   return (
     <Grid container sx={classes.titleContainer}>

@@ -11,7 +11,7 @@ const Cards = ({ handleSelectCard, suggestions }) => {
         <Grid key={index} xs={5} sx={classes.cardContainer} item>
           <Grid
             sx={{ cursor: "pointer" }}
-            onClick={() => handleSelectCard(label)}
+            onClick={() => handleSelectCard("SELECT_CARD", null, label)}
             container
           >
             <Grid xs={11} item>

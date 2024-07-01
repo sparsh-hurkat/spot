@@ -1,9 +1,9 @@
 export const suggestions = [
-  "What are my skills?",
-  "What experience do I have?",
-  "What is my educational background?",
-  "Where am I from?",
-  "Where makes you unique?",
+  "What are your skills?",
+  "What experience do you have?",
+  "What is your educational background?",
+  "Where are you from?",
+  "What makes you unique?",
   "Why should we hire you?",
 ];
 
