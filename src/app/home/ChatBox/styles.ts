@@ -49,7 +49,7 @@ const styles = (theme: Theme) => {
       fontSize: "12px",
     },
     footerLink: {
-      color: theme.palette.text.primary,
+      color: theme.palette.success.main,
       cursor: "pointer",
     },
   };

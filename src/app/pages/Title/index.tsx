@@ -1,7 +1,8 @@
 "use client";
 import { Grid, Typography } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
-import SuggestionCards from "../../components/suggestionCards/suggestionsCards";
+import Cards from "../../components/suggestionCards/suggestionsCards";
+import { suggestions } from "../../models/commonModel";
 import styles from "./styles";
 import useStyles from "@/app/hooks/useStyles";
 
@@ -13,10 +14,10 @@ const TitleContainer = ({ suggestions, handleSelectCard }) => {
         <Grid item>
           <Typography sx={classes.topHeader}>Hi! I am</Typography>
         </Grid>
-        <Grid sx={{ marginBottom: "16px", textAlign: "center" }} item>
+        <Grid sx={{ marginBottom: "16px" }} item>
           <Typography sx={classes.letters}>Sparsh Hurkat</Typography>
         </Grid>
-        <Grid sx={{ textAlign: "center" }} item>
+        <Grid item>
           <TypeAnimation
             style={classes.subheader}
             sequence={[
@@ -28,10 +29,7 @@ const TitleContainer = ({ suggestions, handleSelectCard }) => {
         </Grid>
       </Grid>
       <Grid sx={{ marginTop: "50px" }} item>
-        <SuggestionCards
-          handleSelectCard={handleSelectCard}
-          suggestions={suggestions}
-        />
+        <Cards handleSelectCard={handleSelectCard} suggestions={suggestions} />
       </Grid>
     </Grid>
   );

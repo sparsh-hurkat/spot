@@ -1,13 +1,14 @@
 "use client";
 import { Grid } from "@mui/material";
 import TitleContainer from "./Title";
-import ProjectsContainer from "./Projects";
 import ChatBox from "./ChatBox";
 import { useEffect, useState } from "react";
 import Response from "./Response";
 import SkillsContainer from "./Skills";
 import { useChat } from "ai/react";
 import useDidUpdateEffect from "../hooks/useDidUpdateEffect";
+import JourneyContainer from "./Journey";
+import ProjectsContainer from "./Projects";
 
 const HomePage = () => {
   const [isResponseOpen, setResponseOpen] = useState(false);
@@ -110,6 +111,7 @@ const HomePage = () => {
           suggestions={suggestions}
           handleSelectCard={handleSubmitChat}
         />
+        <JourneyContainer />
         <ProjectsContainer />
         <SkillsContainer />
         <ChatBox

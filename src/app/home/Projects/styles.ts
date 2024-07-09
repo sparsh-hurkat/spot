@@ -4,17 +4,25 @@ const styles = (theme: Theme) => {
   return {
     projectsContainer: {
       padding: "64px 96px",
-      width: "100%",
-      height: "max-content",
-      flexDirection: "column",
+      width: "100vw",
+      justifyContent: "center",
       gap: "1",
-      backgroundColor: theme.palette.background.paper,
-      boxShadow: "inset 0px 1px 4px 0px rgba(0, 0, 0, 0.1)",
+      backgroundColor: theme.palette.background.default,
+      color: theme.palette.text.primary,
       [theme.breakpoints.down("md")]: {
         padding: "64px 32px",
       },
       [theme.breakpoints.down("sm")]: {
         padding: "64px 16px",
+      },
+    },
+
+    sectionLayout: {
+      width: "75vw",
+      justifyContent: "center",
+      flexDirection: "column",
+      [theme.breakpoints.down("sm")]: {
+        width: "100vw",
       },
     },
 

@@ -16,7 +16,7 @@ const styles = (theme: Theme) => {
     },
     responseContainer: {
       width: "70%",
-      backgroundColor: "black",
+      backgroundColor: theme.palette.common.black,
       borderRadius: "8px",
       overflowY: "auto",
       maxHeight: "71vh",
@@ -43,6 +43,7 @@ const styles = (theme: Theme) => {
       flexWrap: "nowrap",
       padding: "24px",
       gap: "16px",
+      color: theme.palette.text.tertiary,
       [theme.breakpoints.down("sm")]: {
         padding: "12px",
       },

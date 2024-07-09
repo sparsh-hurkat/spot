@@ -5,26 +5,17 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import styles from "./styles";
-import useStyles from "../hooks/useStyles";
+import useStyles from "../../hooks/useStyles";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { JourneyInterface } from "../home/Projects/model";
+import { JourneyInterface } from "../../models/commonModel";
+import styles from "./styles";
 
-const ProjectCard = (props: { journeyItem: JourneyInterface }) => {
+const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
   const { journeyItem } = props;
   const classes = useStyles(styles);
   return (
-    <Grid sx={classes.projectCardContainer} item>
-      <Grid
-        sx={{
-          padding: "16px",
-          justifyContent: "center",
-          textAlign: "center",
-          flexDirection: "column",
-          height: "100%",
-        }}
-        container
-      >
+    <Grid sx={classes.journeyCardBox} item>
+      <Grid sx={classes.journeyCardContainer} container>
         <Grid
           item
           sx={{
@@ -34,7 +25,7 @@ const ProjectCard = (props: { journeyItem: JourneyInterface }) => {
           }}
           xs
         ></Grid>
-        <Accordion sx={classes.accordion}>
+        <Accordion elevation={0} sx={classes.accordion}>
           <AccordionSummary
             sx={{ height: "50px", fontSize: "10px" }}
             expandIcon={<ExpandLessIcon />}
@@ -62,4 +53,4 @@ const ProjectCard = (props: { journeyItem: JourneyInterface }) => {
   );
 };
 
-export default ProjectCard;
+export default JourneyCard;

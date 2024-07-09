@@ -1,5 +1,21 @@
 import { createTheme } from "@mui/material/styles";
 
+import "@mui/material/styles";
+
+declare module "@mui/material/styles" {
+  interface TypeText {
+    tertiary?: string;
+  }
+
+  interface Palette {
+    text: TypeText;
+  }
+
+  interface PaletteOptions {
+    text?: Partial<TypeText>;
+  }
+}
+
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -10,6 +26,7 @@ export const darkTheme = createTheme({
     text: {
       primary: "#adadad",
       secondary: "#ffffff",
+      tertiary: "#adadad",
     },
     primary: {
       main: "#525252",
@@ -32,8 +49,9 @@ export const lightTheme = createTheme({
       paper: "#ECECEC",
     },
     text: {
-      primary: "#9b9b9b",
-      secondary: "black",
+      primary: "#000000",
+      secondary: "#000000",
+      tertiary: "#c9c9c9",
     },
     primary: {
       main: "#c9c9c9",

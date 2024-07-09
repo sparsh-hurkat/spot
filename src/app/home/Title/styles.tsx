@@ -10,6 +10,10 @@ const styles = (theme: Theme) => {
       justifyContent: "center",
       gap: "1",
       backgroundColor: theme.palette.background.default,
+      [theme.breakpoints.down("sm")]: {
+        padding: "32px",
+        paddingTop: "64px",
+      },
     },
     letters: {
       color: theme.palette.text.secondary,
@@ -17,6 +21,9 @@ const styles = (theme: Theme) => {
       fontSize: "110px",
       padding: "16px 0",
       lineHeight: ".8",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "80px",
+      },
     },
     subheader: {
       fontFamily: "Akshar, sans-serif",
