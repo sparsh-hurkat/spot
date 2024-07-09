@@ -138,17 +138,17 @@ export const projectsModel = [
     description:
       "The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications.\n\nChallenges:-\n* Working out the user and vendor flow\n* Handling different vendors and their requirements\n* Secure and dynamic authentication\n* Optimizing data and document management.",
   },
-  // {
-  //   title: "E-Voting system",
-  //   date: "January 2019 - April 2019",
-  //   link: "",
-  //   imageConfig: {
-  //     src: "/e-voting.jpeg",
-  //     alt: "E-Voting System",
-  //   },
-  //   description:
-  //     "A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.\n\nChallenges:-\n* Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.\n* Creating an electronic voting machine using arduino and bluetooth module.\n* Learning Javascript concepts since i only knew html/css by this point.",
-  // },
+  {
+    title: "E-Voting system",
+    date: "January 2019 - April 2019",
+    link: "",
+    imageConfig: {
+      src: "/e-voting.jpeg",
+      alt: "E-Voting System",
+    },
+    description:
+      "A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.\n\nChallenges:-\n* Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.\n* Creating an electronic voting machine using arduino and bluetooth module.\n* Learning Javascript concepts since i only knew html/css by this point.",
+  },
   {
     title: "An e-commerce website",
     date: "May 2019",
