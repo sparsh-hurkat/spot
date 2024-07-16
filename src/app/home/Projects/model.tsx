@@ -6,6 +6,7 @@ import CallIcon from "@mui/icons-material/Call";
 import StoreIcon from "@mui/icons-material/Store";
 import CarCrashIcon from "@mui/icons-material/CarCrash";
 import { Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 export const projectsSlider = [
   {
@@ -34,7 +35,9 @@ export const projectsSlider = [
   {
     key: "moneyview",
     value: 40,
-    valueIcon: <img src="/moneyview_icon.png" width="32px"></img>,
+    valueIcon: (
+      <Image src="/moneyview_icon.png" alt="moneyview-icon" width={32}></Image>
+    ),
     label: "July 2022",
   },
   {

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 
-export const useCustomTypography = (text: string) => {
+export const formatCustomTypography = (text: string) => {
   const regex = /\*\*(.*?)\*\*/g; // Matches bold text with double asterisks
   const bulletRegex = /\*/g; // Matches individual asterisks for bullets
 
@@ -17,7 +17,7 @@ export const useCustomTypography = (text: string) => {
 };
 
 const CustomTypography = ({ text, ...rest }) => {
-  let formattedText = useCustomTypography(text);
+  let formattedText = formatCustomTypography(text);
 
   return (
     <Typography {...rest} sx={{ ...rest.sx, whiteSpace: "pre-wrap" }}>

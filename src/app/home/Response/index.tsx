@@ -14,7 +14,7 @@ import styles from "./styles";
 import ChatBox from "../ChatBox";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CycloneIcon from "@mui/icons-material/Cyclone";
-import { useCustomTypography } from "@/app/components/customTypography";
+import { formatCustomTypography } from "@/app/components/customTypography";
 import Link from "next/link";
 
 const Response = ({
@@ -125,7 +125,7 @@ const Response = ({
           <Grid sx={classes.responseContainer} item>
             <Grid sx={classes.responseBox} container>
               {messages.map((m) => {
-                const formattedText = useCustomTypography(m.content);
+                const formattedText = formatCustomTypography(m.content);
                 const formattedTextWithLink =
                   appendRedirectionLinks(formattedText);
                 return (
