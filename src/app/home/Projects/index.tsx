@@ -15,7 +15,6 @@ import CustomTypography from "@/app/components/customTypography";
 import { projectsModel } from "@/app/models/commonModel";
 import { projectsSlider, projectsSliderMobile } from "./model";
 import { keyframes } from "@emotion/react";
-import Image from "next/image";
 
 const ProjectsContainer = () => {
   const theme = useTheme();
@@ -116,15 +115,14 @@ const ProjectsContainer = () => {
                   >
                     {project.imageConfig ? (
                       <Grid sx={classes.projectImage} xs item>
-                        <Image
+                        <img
                           style={{
                             borderRadius: "20px",
-                            height: "100%",
                           }}
-                          // height="100%"
+                          height="100%"
                           src={project.imageConfig.src}
                           alt={project.imageConfig.alt}
-                        ></Image>
+                        />
                       </Grid>
                     ) : null}
                     <Grid xs item>

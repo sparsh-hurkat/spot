@@ -148,7 +148,9 @@ const Response = ({
                       </Grid>
                     )}
                     <Grid sx={{ paddingLeft: "36px" }} container>
-                      <Typography>{formattedTextWithLink}</Typography>
+                      <Typography sx={{ whiteSpace: "pre-wrap" }}>
+                        {formattedTextWithLink}
+                      </Typography>
                     </Grid>
                   </Grid>
                 );
