@@ -7,9 +7,8 @@ const styles = (theme: Theme) => {
       width: "100vw",
       justifyContent: "center",
       gap: "1",
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.default,
       color: theme.palette.text.primary,
-      marginBottom: "90px",
       [theme.breakpoints.down("md")]: {
         padding: "64px 32px",
       },

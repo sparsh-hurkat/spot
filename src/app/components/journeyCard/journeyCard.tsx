@@ -9,6 +9,7 @@ import useStyles from "../../hooks/useStyles";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { JourneyInterface } from "../../models/commonModel";
 import styles from "./styles";
+import CustomTypography from "../customTypography";
 
 const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
   const { journeyItem } = props;
@@ -27,25 +28,18 @@ const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
         ></Grid>
         <Accordion elevation={0} sx={classes.accordion}>
           <AccordionSummary
-            sx={{ height: "50px", fontSize: "10px" }}
+            sx={{ height: "70px", fontSize: "10px" }}
             expandIcon={<ExpandLessIcon />}
           >
             <Grid xs item>
               <Typography sx={classes.journeyTitle}>
                 {journeyItem.name}
               </Typography>
-              <Typography variant="caption">{journeyItem.duration}</Typography>
+              <Typography>{journeyItem.duration}</Typography>
             </Grid>
           </AccordionSummary>
           <AccordionDetails sx={{ textAlign: "left" }}>
-            <Typography sx={classes.descrptionText} variant="body1">
-              {journeyItem.description.map((line, index) => (
-                <Grid component="span" key={index}>
-                  {line}
-                  <br />
-                </Grid>
-              ))}
-            </Typography>
+            <CustomTypography sx={classes.descriptionText} text={journeyItem.description} />
           </AccordionDetails>
         </Accordion>
       </Grid>

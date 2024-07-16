@@ -10,49 +10,43 @@ export const suggestions = [
 export interface JourneyInterface {
   name: string;
   duration: string;
-  description: string[];
+  description: string;
   image: string;
   color: string;
 }
 
 export const journeyList: JourneyInterface[] = [
   {
-    name: "Some other projects I have worked on",
-    duration: "In my free time",
-    description: [
-      "Building web applications and learning new technologies has always been a passion of mine. Some interesting things i have worked on are :-",
-      " • This website is primarily to apply concepts of NextJS in a real-world application. SPOT is built on the gemini api",
-      " • Design, development & SEO of an E-commerce website (www.thegiftangels.in)[deprecated] for a local company called The Gift Angels",
-    ],
-    image: "/sparsh.jpg",
-    color: "",
-  },
-  {
     name: "Software developer at Moneyview",
     duration: "March 2022 - Present",
-    description: [
-      "Moneyview is a dynamic fintech startup providing lucrative solutions for instant loans and money management. In my two years at moneyview, I have been deeply involved in the development and enhancement of various financial products and services. I am a part of the company's growth pod functioned with release of all new company features and products.",
-      "Some of my primary responsibilities included - ",
-      " • Developing a web application for store vendors to view and manage transactions. This application is a feature of the company's new Buy-Now-Pay-Later product line.",
-      " • Developing a calling portal used by the company's agents to perform all company incoming and outgoing calling operations.",
-      " • Additionally, I worked on building and maintaining several features that would automate, streamline and enhance several server and client sided processes.",
-    ],
+    description:
+      "**Moneyview** is a dynamic **FinTech** startup providing lucrative solutions for instant loans and money management. In my 2 years at moneyview, I have been deeply involved in the development and enhancement of various financial and technical products and services.\nI am a part of the company's **Growth Pod** functioned with release of all new company features and products. I also work on building and maintaining several features that automate, streamline and enhance several server and client sided processes.\nCheck out some of the work I have done in the Recent Projects section.",
     image: "/moneyview_logo.png",
-    color: "#0B8C4C",
+    color: "#164937",
   },
   {
-    name: "Electronics engineering at Vellore Institute of technology(VIT)",
+    name: "B.Tech at Vellore Institute of technology(VIT)",
     duration: "2018 - 2022",
-    description: [
-      //   "The hands-on lab sessions, engaging with cutting-edge research, participating in tech fests along with the rigorous curriculum at VIT prepared me for a dynamic career in engineering.",
-      "During my time at VIT, I had the opportunity to work on various projects and participate in numerous events, including:",
-      " • Developed a transfer learning model for drowsy driver detection using facial feature recognition. Implemented an IOT solution using Arduino and machine learning model using Python, OpenCV & Keras.",
-      " • A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine",
-      " • A sensor based posture correction device integrated with a bluetooth controlled mobile application",
-      " • Helped establish and served as a core committee member of the IEEE EMCS(Electromagnetic compatibility society)",
-    ],
+    description:
+      "I majored in **Electronics and Communications Engineering(ECE)** with a specialization in sensors and wearable technology. Even though my major was in electronics, I knew I wanted to pursue a career as a software developer. Therefore, I took extra courses and learned coding in my free time.\nDuring my time at VIT, I had the opportunity to work on various projects and participate in numerous events and several hackathons. You can find some of my academic/hackathon projects in the Recent Projects section.\nAdditionally, I was a founding member and core committee member of the **IEEE EMCS**(Electromagnetic compatibility society) in VIT.\nI also volunteered in the **Youth Red Cross Society** in my free time.",
     image: "/vit_logo.png",
     color: "#302F7D",
+  },
+  {
+    name: "Arya Vidya Mandir Bandra(W) | Pace Jr. Science college, Dadar",
+    duration: "2004 - 2016",
+    description:
+      "* I completed my schooling at **Arya Vidya Mandir**, a place that significantly shaped my academic foundation and personal growth. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering. My experience at AVM laid the groundwork for my future ambitions in the tech industry.\n* After my time at AVM, I moved on to **Pace Junior Science College** for my high school education. Pace was a dynamic and challenging environment that pushed me to elevate my academic performance, particularly in the sciences. It not only prepared me for the highly competitive entrance exams for engineering colleges but also enabled me to excel in the rigorous demands of my bachelor's degree",
+    image: "/schools_logo.png",
+    color: "#F5F5F5",
+  },
+  {
+    name: "About Me",
+    duration: "A bit of my personal side",
+    description:
+      "I'm **Sparsh Hurkat**, a budding software developer hailing from Mumbai, currently residing in Bangalore.\nI have a deep love for **sports**. I've played basketball for 5 years and badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and football every now and then?\nI am an avid **traveller**, I love going to new places, eating different kinds of food, going on new adventures and making unforgettable memories\nI have a very **creative** side. I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to remote corners of the world will probably be a huge part of my retired life.\nMy love for art and coding landed me in the world of frontend development, a perfect blend of the 2 worlds.",
+    image: "/sparsh.jpg",
+    color: "",
   },
 ];
 
@@ -85,79 +79,115 @@ export const bars = [
   },
 ];
 
-export const projectsModel = [
-  {
-    title: "This website(SPOT)",
-    date: "June 2024 - July 2024",
-    linkPreText: "Check it out on ",
-    link: "https://github.com/sparsh-hurkat/spot",
-    linkDisplayMessage: "Github",
-    imageConfig: {
-      src: "/spot.png",
-      alt: "SPOT",
+export const projectsModel = {
+  spot: [
+    {
+      title: "This website(SPOT)",
+      date: "June 2024 - July 2024",
+      linkPreText: "Check it out on ",
+      link: "https://github.com/sparsh-hurkat/spot",
+      linkDisplayMessage: "Github",
+      imageConfig: {
+        src: "/spot.png",
+        alt: "SPOT",
+      },
+      description:
+        "SPOT(**SP**arsh's **O**nline **T**ransformer) is made of NextJS, with a mySQL database powered by TiDB and the Gemini API to generate the LLM responses. I always wanted to have a virtual presence ever since i saw Iron Man create JARVIS and hope to improve upon SPOT in the years to come. If there is slowness in the responses it is because i am using the free of charge API's.\n\nChallenges:-\n* Learning and implementing NextJS\n* Design and user experience\n* Handling Gemini API and its responses\n* Search engine optimization",
     },
-    description:
-      "SPOT(**SP**arsh's **O**nline **T**ransformer) is made of NextJS, with a mySQL database powered by TiDB and the Gemini API to generate the LLM responses. I always wanted to have a virtual presence ever since i saw Iron Man create JARVIS and hope to improve upon SPOT in the years to come. If there is slowness in the responses it is because i am using the free of charge API's.\n\nChallenges:-\n* Learning and implementing NextJS\n* Design and user experience\n* Handling Gemini API and its responses\n* Search engine optimization",
-  },
-  {
-    title: "Video KYC portal",
-    date: "May 2024 - July 2024",
-    linkPreText: "Go check out some of my work on the ",
-    link: "https://moneyview.in/",
-    linkDisplayMessage: "Moneyview website",
-    imageConfig: {
-      src: "/vkyc-portal.png",
-      alt: "VKYC",
+    {
+      title: "Video KYC portal",
+      date: "May 2024 - July 2024",
+      linkPreText: "Go check out some of my work on the ",
+      link: "https://moneyview.in/",
+      linkDisplayMessage: "Moneyview website",
+      imageConfig: {
+        src: "/vkyc-portal.png",
+        alt: "VKYC",
+      },
+      description:
+        "Video KYC is an integral feature of modern digital banking using which banking officials can complete the Know Your Customer process over video call. This internal portal is a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.\n\nChallenges:-\n* Real-time video verification using Amazon Chime\n* Document Verification using Optical Character Recognition (OCR) technology to validate document information\n* Google SSO authentication\n* Working out the customer and agent side flow\n* Real-time management of high customer volume with available agents",
     },
-    description:
-      "Video KYC is an integral feature of modern digital banking using which banking officials can complete the Know Your Customer process over video call. This internal portal is a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.\n\nChallenges:-\n* Real-time video verification using Amazon Chime\n* Document Verification using Optical Character Recognition (OCR) technology to validate document information\n* Google SSO authentication\n* Working out the customer and agent side flow\n* Real-time management of high customer volume with available agents",
-  },
-  {
-    title: "Calling portal",
-    date: "November 2023 - February 2024",
-    linkPreText: "Go check out some of my work on the ",
-    link: "https://moneyview.in/",
-    linkDisplayMessage: "Moneyview website",
-    imageConfig: {
-      src: "/calling-portal.png",
-      alt: "Calling",
+  ],
+  calling: [
+    {
+      title: "Calling portal",
+      date: "November 2023 - February 2024",
+      linkPreText: "Go check out some of my work on the ",
+      link: "https://moneyview.in/",
+      linkDisplayMessage: "Moneyview website",
+      imageConfig: {
+        src: "/calling-portal.png",
+        alt: "Calling",
+      },
+      description:
+        "The calling portal is an internal web application used by the company's agents to perform all company incoming and outgoing calling operations. This included Customer Service, Operations and Collections calls. For calling we used a VoIP tool with WebRTC from a local calling service provider called 'Ameyo'.\n\nChallenges:-\n* Integrating the third party software and coordination with external teams\n* Displaying user details as soon as call is connected\n* Working out the user flows for different types of calling operations\n* Handling various calling operations such as auto-dial, manual dial, redial features.",
     },
-    description:
-      "The calling portal is an internal web application used by the company's agents to perform all company incoming and outgoing calling operations. This included Customer Service, Operations and Collections calls. For calling we used a VoIP tool with WebRTC from a local calling service provider called 'Ameyo'.\n\nChallenges:-\n* Integrating the third party software and coordination with external teams\n* Displaying user details as soon as call is connected\n* Working out the user flows for different types of calling operations\n* Handling various calling operations such as auto-dial, manual dial, redial features.",
-  },
-  {
-    title: "A buy-now-pay-later interface",
-    date: "September 2023 - November 2023",
-    linkPreText: "Go check out some of my work on the ",
-    link: "https://moneyview.in/",
-    linkDisplayMessage: "Moneyview website",
-    imageConfig: {
-      src: "/bnpl-portal.png",
-      alt: "BNPL",
+  ],
+  bnpl: [
+    {
+      title: "A buy-now-pay-later interface",
+      date: "September 2023 - November 2023",
+      linkPreText: "Go check out some of my work on the ",
+      link: "https://moneyview.in/",
+      linkDisplayMessage: "Moneyview website",
+      imageConfig: {
+        src: "/bnpl-portal.png",
+        alt: "BNPL",
+      },
+      description:
+        "The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications.\n\nChallenges:-\n* Working out the user and vendor flow\n* Handling different vendors and their requirements\n* Secure and dynamic authentication\n* Optimizing data and document management.",
     },
-    description:
-      "The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications.\n\nChallenges:-\n* Working out the user and vendor flow\n* Handling different vendors and their requirements\n* Secure and dynamic authentication\n* Optimizing data and document management.",
-  },
-  {
-    title: "E-Voting system",
-    date: "January 2019 - April 2019",
-    link: "",
-    imageConfig: {
-      src: "/e-voting.jpeg",
-      alt: "E-Voting System",
+  ],
+  moneyview: [
+    {
+      title: "I joined Moneyview",
+      date: "March 2022",
+      link: "",
+      imageConfig: {
+        src: "/moneyview_logo.png",
+        alt: "Moneyview logo",
+      },
+      description:
+        "I joined moneyview as an intern in March for my final semester of college. I was converted to a full-time employee in July after my graduation.",
     },
-    description:
-      "A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.\n\nChallenges:-\n* Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.\n* Creating an electronic voting machine using arduino and bluetooth module.\n* Learning Javascript concepts since i only knew html/css by this point.",
-  },
-  {
-    title: "An e-commerce website",
-    date: "May 2019",
-    link: "",
-    imageConfig: {
-      src: "/gift-angels.png",
-      alt: "Gift angels",
+  ],
+  drowsy: [
+    {
+      title: "Drowsy driver detection",
+      date: "May 2019",
+      link: "",
+      imageConfig: {
+        src: "/drowsy-driver.jpeg",
+        alt: "Drowsy driver",
+      },
+      description:
+        "I developed a wearable solution that utilized an infrared sensor planted on safety glasses to detect drowsiness. In case fatigue was detected in the driver an alarm/buzzer would ring and using a bluetooth module and Twilio it would send out an alert SMS.\n\nChallenges:-\n* Learning arduino software and hardware implementation.\n* Developing an IOT + wearable solution.\n* Handling the false positive scenarios\n* The literature survey for previous implementations.",
     },
-    description:
-      "One of the first websites i made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before i took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code.\n\nChallenges:-\n* Creating designs and handling the user flow.\n* Development with pure HTML, CSS and some JS\n* Hosting and SEO.\n* Inventory management\n* Maintenance and scalability",
-  },
-];
+  ],
+  evoting: [
+    {
+      title: "E-Voting system",
+      date: "January 2019 - April 2019",
+      link: "",
+      imageConfig: {
+        src: "/e-voting.jpeg",
+        alt: "E-Voting System",
+      },
+      description:
+        "A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.\n\nChallenges:-\n* Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.\n* Creating an electronic voting machine using arduino and bluetooth module.\n* Learning Javascript concepts since i only knew html/css by this point.",
+    },
+  ],
+  ecommerce: [
+    {
+      title: "An e-commerce website",
+      date: "May 2019",
+      link: "",
+      imageConfig: {
+        src: "/gift-angels.png",
+        alt: "Gift angels",
+      },
+      description:
+        "One of the first websites i made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before i took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code.\n\nChallenges:-\n* Creating designs and handling the user flow.\n* Development with pure HTML, CSS and some JS\n* Hosting and SEO.\n* Inventory management\n* Maintenance and scalability",
+    },
+  ],
+};

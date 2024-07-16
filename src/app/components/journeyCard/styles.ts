@@ -9,7 +9,7 @@ const styles = (theme: Theme) => {
       backgroundColor: theme.palette.background.default,
       flexDirection: "row",
       [theme.breakpoints.down("sm")]: {
-        height: "500px",
+        height: "600px",
         width: "300px",
       },
     },
@@ -40,11 +40,12 @@ const styles = (theme: Theme) => {
       backgroundImage: "none",
       boxShadow: "none",
     },
-    descrptionText: {
-      [theme.breakpoints.down("sm")]: { fontSize: "10px" },
+    descriptionText: {
+      [theme.breakpoints.down("sm")]: { fontSize: "12px" },
     },
     journeyTitle: {
-      [theme.breakpoints.down("sm")]: { fontSize: "12px" },
+      fontWeight: "600",
+      [theme.breakpoints.down("sm")]: { fontSize: "14px" },
     },
     video: {
       width: "100%",

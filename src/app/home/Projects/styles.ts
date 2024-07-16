@@ -7,8 +7,9 @@ const styles = (theme: Theme) => {
       width: "100vw",
       justifyContent: "center",
       gap: "1",
-      backgroundColor: theme.palette.background.default,
-      color: theme.palette.text.primary,
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.secondary,
+      marginBottom: "90px",
       [theme.breakpoints.down("md")]: {
         padding: "64px 32px",
       },
@@ -34,6 +35,12 @@ const styles = (theme: Theme) => {
       lineHeight: ".8",
       marginBottom: "64px",
       letterSpacing: "1px",
+    },
+    projectImage: {
+      height: "400px",
+      [theme.breakpoints.down("md")]: {
+        height: "300px",
+      },
     },
   };
 };

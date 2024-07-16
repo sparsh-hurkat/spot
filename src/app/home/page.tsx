@@ -112,8 +112,8 @@ const HomePage = () => {
           handleSelectCard={handleSubmitChat}
         />
         <JourneyContainer />
-        <ProjectsContainer />
         <SkillsContainer />
+        <ProjectsContainer />
         <ChatBox
           handleSubmit={handleSubmitChat}
           input={input}
