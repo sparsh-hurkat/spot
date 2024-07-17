@@ -81,10 +81,21 @@ const ProjectsContainer = () => {
                   width: "90%",
                   [theme.breakpoints.down("sm")]: { width: "80%" },
                   "& .MuiSlider-thumb": {
-                    color: theme.palette.primary.light,
+                    color: theme.palette.background.default,
                     borderRadius: "5px",
                     width: "15px",
-                    height: "25px"
+                    height: "25px",
+                  },
+                  "& .MuiSlider-track": {
+                    color: theme.palette.background.default,
+                  },
+                  "& .MuiSlider-rail": {
+                    color: theme.palette.primary.light,
+                  },
+                  "& .MuiSlider-valueLabel": {
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.text.secondary,
+                    paddingTop: "12px",
                   },
                 }}
               />
