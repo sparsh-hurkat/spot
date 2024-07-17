@@ -37,9 +37,11 @@ const styles = (theme: Theme) => {
       letterSpacing: "1px",
     },
     projectImage: {
+      textAlign: "center",
       height: "400px",
       [theme.breakpoints.down("md")]: {
         height: "300px",
+        marginBottom: "32px",
       },
     },
   };

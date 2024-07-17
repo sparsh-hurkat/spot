@@ -3,7 +3,6 @@ import { Theme } from "@mui/material";
 const styles = (theme: Theme) => {
   return {
     titleContainer: {
-      alignItems: "center",
       padding: "96px",
       minHeight: "100vh",
       width: "100%",
@@ -33,6 +32,15 @@ const styles = (theme: Theme) => {
     },
     topHeader: {
       color: theme.palette.text.primary,
+      [theme.breakpoints.down("sm")]: {
+        textAlign: "center",
+      },
+    },
+    suggesionCardsContainer: {
+      marginTop: "104px",
+      [theme.breakpoints.down("sm")]: {
+        marginTop: "64px",
+      },
     },
   };
 };

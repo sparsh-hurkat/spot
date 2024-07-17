@@ -27,11 +27,6 @@ const HomePage = () => {
   });
 
   useEffect(() => {
-    const loadSuggestions = async () => {
-      const suggestionsData = await fetchSuggestions();
-      setSuggestions(suggestionsData);
-    };
-
     loadSuggestions();
   }, []);
 
@@ -41,6 +36,11 @@ const HomePage = () => {
       setLastGeneratedResponse(null);
     }
   }, [lastGeneratedResponse]);
+
+  const loadSuggestions = async () => {
+    const suggestionsData = await fetchSuggestions();
+    setSuggestions(suggestionsData);
+  };
 
   const saveResponse = async (query, response) => {
     await fetch("/api/save-response", {

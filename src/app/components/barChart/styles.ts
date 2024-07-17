@@ -11,7 +11,7 @@ const styles = (theme: Theme) => {
       minWidth: "200px",
       width: "85%",
       height: "12px",
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.paper,
       zIndex: 1,
     },
     barSection: {
@@ -96,7 +96,7 @@ const styles = (theme: Theme) => {
       },
     },
     yAxis: {
-      borderTop: `2px solid ${theme.palette.background.default}`,
+      borderTop: `2px solid ${theme.palette.background.paper}`,
       width:"85%"
     },
   };

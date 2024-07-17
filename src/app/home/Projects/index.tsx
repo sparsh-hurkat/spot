@@ -80,6 +80,12 @@ const ProjectsContainer = () => {
                 sx={{
                   width: "90%",
                   [theme.breakpoints.down("sm")]: { width: "80%" },
+                  "& .MuiSlider-thumb": {
+                    color: theme.palette.primary.light,
+                    borderRadius: "5px",
+                    width: "15px",
+                    height: "25px"
+                  },
                 }}
               />
             </Grid>

@@ -12,7 +12,7 @@ const JourneyContainer = () => {
   const triggerRef = useRef(null);
   const isVisible = useIntersection(triggerRef, "0px");
   return (
-    <Grid container sx={classes.journeyContainer}>
+    <Grid id="journey" container sx={classes.journeyContainer}>
       <Grid ref={triggerRef} textAlign="center" item>
         {isVisible && (
           <TypeAnimation
