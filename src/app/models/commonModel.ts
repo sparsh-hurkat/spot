@@ -26,7 +26,7 @@ export const journeyList: JourneyInterface[] = [
   },
   {
     name: "B.Tech at Vellore Institute of technology(VIT)",
-    duration: "2018 - 2022",
+    duration: "2018 - 2022 | GPA : 8.3/10",
     description:
       "I majored in **Electronics and Communications Engineering(ECE)** with a specialization in sensors and wearable technology. Even though my major was in electronics, I knew I wanted to pursue a career as a software developer. Therefore, I took extra courses and learned coding in my free time.\nDuring my time at VIT, I had the opportunity to work on various projects and participate in numerous events and several hackathons. You can find some of my academic/hackathon projects in the Recent Projects section.\nAdditionally, I was a founding member and core committee member of the **IEEE EMCS**(Electromagnetic compatibility society) in VIT.\nI also volunteered in the **Youth Red Cross Society** in my free time.",
     image: "/vit_logo.png",
@@ -34,9 +34,10 @@ export const journeyList: JourneyInterface[] = [
   },
   {
     name: "Arya Vidya Mandir Bandra(W) | Pace Jr. Science college, Dadar",
-    duration: "2004 - 2016",
+    duration:
+      "2004 - 2016",
     description:
-      "I completed my schooling at **Arya Vidya Mandir**, a place that significantly shaped my academic foundation and personal growth. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering. My experience at AVM laid the groundwork for my future ambitions in the tech industry.\nAfter my time at AVM, I moved on to **Pace Junior Science College** for my high school education. Pace was a dynamic and challenging environment that pushed me to elevate my academic performance, particularly in the sciences. It not only prepared me for the highly competitive entrance exams for engineering colleges but also enabled me to excel in the rigorous demands of my bachelor's degree",
+      "I completed my schooling at **Arya Vidya Mandir**. I got a **90.17/100** in the **ICSE** board examination. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering.\nAfter my time at AVM, I moved on to **Pace Junior Science College** for my high school education. I scored **82.77/100** in my **HSC board examinations**. Pace was a dynamic and challenging environment that pushed me to elevate my academic performance, particularly in the sciences. It not only prepared me for the highly competitive JEE entrance exams for engineering colleges but also prepared for the rigorous demands of my bachelor's degree.",
     image: "/schools_logo.png",
     color: "#F5F5F5",
   },
