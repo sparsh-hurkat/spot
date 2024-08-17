@@ -144,9 +144,7 @@ const ProjectsContainer = () => {
                     ) : null}
                     <Grid xs item>
                       <Typography variant="h5">{project.title}</Typography>
-                      <Typography fontWeight="bolder">
-                        {project.date}
-                      </Typography>
+                      <Typography fontWeight={600}>{project.date}</Typography>
                       <Typography variant="button">
                         {project.linkPreText}
                       </Typography>

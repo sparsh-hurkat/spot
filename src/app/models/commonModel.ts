@@ -81,6 +81,21 @@ export const bars = [
 ];
 
 export const projectsModel = {
+  testez: [
+    {
+      title: "TestEZ",
+      date: "August 2024 - September 2024",
+      linkPreText: "Check it out on ",
+      link: "https://github.com/sparsh-hurkat/test-ez",
+      linkDisplayMessage: "Github",
+      imageConfig: {
+        src: "/test-ez.jpg",
+        alt: "TestEZ",
+      },
+      description:
+        "TestEZ is an online tool that generates custom, unique questions by analyzing any textbook or PDF you provide. This AI tool can assist professors in creating test papers. Built on the LangChain framework, TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.\n\nChallenges:-\n* Learning and implementing LangChain\n* Token optimization and Prompt engineering.\n* Creating text chunks, vector embedding and storing in a VectorDB.\n* Working out the user flow.",
+    },
+  ],
   spot: [
     {
       title: "This website(SPOT)",

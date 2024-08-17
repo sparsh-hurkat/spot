@@ -5,12 +5,19 @@ import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import CallIcon from "@mui/icons-material/Call";
 import StoreIcon from "@mui/icons-material/Store";
 import CarCrashIcon from "@mui/icons-material/CarCrash";
+import BackpackTwoToneIcon from '@mui/icons-material/BackpackTwoTone';
 import { Grid, Typography } from "@mui/material";
 
 export const projectsSlider = [
   {
-    key: "spot",
+    key: "testez",
     value: 100,
+    valueIcon: <BackpackTwoToneIcon />,
+    label: "September 2024",
+  },
+  {
+    key: "spot",
+    value: 85.6,
     valueIcon: (
       <>
         <CycloneIcon />
@@ -21,19 +28,19 @@ export const projectsSlider = [
   },
   {
     key: "calling",
-    value: 75,
+    value: 71.2,
     valueIcon: <CallIcon />,
     label: "Feb 2024",
   },
   {
     key: "bnpl",
-    value: 60,
+    value: 56.8,
     valueIcon: <StoreIcon />,
     label: "Nov 2023",
   },
   {
     key: "moneyview",
-    value: 40,
+    value: 42.6,
     valueIcon: (
       <img src="/moneyview_icon.png" alt="moneyview-icon" width={32}></img>
     ),
@@ -41,13 +48,13 @@ export const projectsSlider = [
   },
   {
     key: "drowsy",
-    value: 20,
+    value: 28.4,
     valueIcon: <CarCrashIcon />,
     label: "Nov 2020",
   },
   {
     key: "evoting",
-    value: 10,
+    value: 14.2,
     valueIcon: <HowToVoteIcon />,
     label: "May 2019",
   },
@@ -60,8 +67,18 @@ export const projectsSlider = [
 ];
 export const projectsSliderMobile = [
   {
-    key: "spot",
+    key: "testez",
     value: 100,
+    valueIcon: (
+      <Grid justifyContent="center" container>
+        <BackpackTwoToneIcon />
+        <Typography>September 2024</Typography>
+      </Grid>
+    )
+  },
+  {
+    key: "spot",
+    value: 85.6,
     valueIcon: (
       <Grid justifyContent="center" container>
         <CycloneIcon />
@@ -72,7 +89,7 @@ export const projectsSliderMobile = [
   },
   {
     key: "calling",
-    value: 75,
+    value: 71.2,
     valueIcon: (
       <Grid justifyContent="center" container>
         <CallIcon />
@@ -82,7 +99,7 @@ export const projectsSliderMobile = [
   },
   {
     key: "bnpl",
-    value: 60,
+    value: 56.8,
     valueIcon: (
       <Grid justifyContent="center" container>
         <StoreIcon />
@@ -92,7 +109,7 @@ export const projectsSliderMobile = [
   },
   {
     key: "moneyview",
-    value: 40,
+    value: 42.6,
     valueIcon: (
       <Grid justifyContent="center" container>
         <img src="/moneyview_icon.png" width="32px"></img>
@@ -102,7 +119,7 @@ export const projectsSliderMobile = [
   },
   {
     key: "drowsy",
-    value: 20,
+    value: 28.4,
     valueIcon: (
       <Grid justifyContent="center" container>
         <HowToVoteIcon />
@@ -112,7 +129,7 @@ export const projectsSliderMobile = [
   },
   {
     key: "evoting",
-    value: 10,
+    value: 14.2,
     valueIcon: (
       <Grid justifyContent="center" container>
         <HowToVoteIcon />
