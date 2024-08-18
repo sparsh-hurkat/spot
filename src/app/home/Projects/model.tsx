@@ -72,7 +72,7 @@ export const projectsSliderMobile = [
     valueIcon: (
       <Grid justifyContent="center" container>
         <BackpackTwoToneIcon />
-        <Typography>September 2024</Typography>
+        <Typography>Sept 2024</Typography>
       </Grid>
     )
   },
