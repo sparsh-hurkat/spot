@@ -83,8 +83,8 @@ export const bars = [
 export const projectsModel = {
   testez: [
     {
-      title: "TestEZ",
-      date: "August 2024 - September 2024",
+      title: "An AI Test Generator",
+      date: "August 2024 - Ongoing",
       linkPreText: "Check it out on ",
       link: "https://github.com/sparsh-hurkat/test-ez",
       linkDisplayMessage: "Github",
