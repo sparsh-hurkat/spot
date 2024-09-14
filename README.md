@@ -7,7 +7,7 @@ If you want to take see SPOT in actions, he is deployed on the vercel app https:
 
 If you want to take a peek into SPOT's hood, here you will be able to see what he is made of...
 
-![alt text](public/spot.png)
+<img src="public/spot.svg" width="200">
 
 SPOT is my virtual assistant, he is my AI chatbot customized to only answer questions related to me. He mostly has only my professional information, and restricted access to some of my personal information. The website is not only a chatbot, but also a well designed and comprehensive display of my projects, skills and experience. Everything a recruiter would want to see in a resume is here displayed here times 20.
 
