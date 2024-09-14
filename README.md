@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SPOT
 
-## Getting Started
+### Hi there! I'm Sparsh Hurkat
+Welcome to my garage!!
 
-First, run the development server:
+If you want to take see SPOT in actions, he is deployed on the vercel app https://sparshhurkat.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+If you want to take a peek into SPOT's hood, here you will be able to see what he is made of...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![alt text](public/spot.png)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+SPOT is my virtual assistant, he is my AI chatbot customized to only answer questions related to me. He mostly has only my professional information, and restricted access to some of my personal information. The website is not only a chatbot, but also a well designed and comprehensive display of my projects, skills and experience. Everything a recruiter would want to see in a resume is here displayed here times 20.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+There are 4 primary objective of this project:-
 
-## Learn More
+* To learn and implement NextJS & how to integrate an LLM into a website.
+*  To have an interactive portfolio/resume where recruiters can read about my life, skills and projects while simultaneously displaying a few of my skills in the website itself.
+* To design a cool user interface. I despised boring looking portfolios which were basically an expanded PDF. I am not a designer by profession but I wanted to see how good of a UI/UX I could pull off with this website.
+* And to hopefully update this website to keep track with all the projects I do in my life.
 
-To learn more about Next.js, take a look at the following resources:
+I also started learning about Langchains through the implementation of this project, so I will implement that in not only SPOT soon but also in my future projects.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+SPOT is built on NextJS with TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+He is powered by the Gemini API and is absolutely free of cost FOR NOW.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I have used MySQL with TiDB to save some website config and to save the questions and generated responses.
