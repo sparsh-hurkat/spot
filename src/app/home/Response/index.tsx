@@ -75,8 +75,8 @@ const Response = ({
         } else if (part.includes("THISISRESUMEKEY")) {
           const handleDownload = () => {
             const link = document.createElement("a");
-            link.href = "/Sparsh_Hurkat's_Resume_Aug_2024.pdf";
-            link.download = "Sparsh_Hurkat's_Resume_Aug_2024.pdf";
+            link.href = "/Sparsh_Hurkat's_Resume_Nov_2024.pdf";
+            link.download = "Sparsh_Hurkat's_Resume_Nov_2024.pdf";
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
