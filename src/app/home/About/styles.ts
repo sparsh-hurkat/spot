@@ -2,13 +2,14 @@ import { Theme } from "@mui/material";
 
 const styles = (theme: Theme) => {
   return {
-    projectsContainer: {
+    aboutContainer: {
       padding: "64px 96px",
       width: "100vw",
       justifyContent: "center",
       gap: "1",
-      backgroundColor: theme.palette.background.paper,
-      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.default,
+      color: theme.palette.text.primary,
+      marginBottom: "90px",
       [theme.breakpoints.down("md")]: {
         padding: "64px 32px",
       },
@@ -35,13 +36,18 @@ const styles = (theme: Theme) => {
       marginBottom: "64px",
       letterSpacing: "1px",
     },
-    projectImage: {
-      textAlign: "center",
-      height: "400px",
-      [theme.breakpoints.down("md")]: {
-        height: "300px",
-        marginBottom: "32px",
-      },
+
+    aboutContent: {
+      gap: "32px",
+      [theme.breakpoints.down("md")]: { flexDirection: "column" },
+    },
+
+    image: {
+      width: "100%",
+      height: "100%",
+      maxWidth: "450px",
+      maxHeight: "450px",
+      borderRadius: "12px",
     },
   };
 };

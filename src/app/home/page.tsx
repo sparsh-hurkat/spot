@@ -5,26 +5,23 @@ import ChatBox from "./ChatBox";
 import { useEffect, useState } from "react";
 import Response from "./Response";
 import SkillsContainer from "./Skills";
-import { useChat } from "ai/react";
 import useDidUpdateEffect from "../hooks/useDidUpdateEffect";
 import JourneyContainer from "./Journey";
 import ProjectsContainer from "./Projects";
+import AboutMeContainer from "./About";
+import useChat from "../hooks/useChat";
 
 const HomePage = () => {
   const [isResponseOpen, setResponseOpen] = useState(false);
   const [lastGeneratedResponse, setLastGeneratedResponse] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
 
-  const {
-    messages,
-    setMessages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    append,
-  } = useChat({
-    onFinish: (message) => setLastGeneratedResponse(message),
-  });
+  const { messages, setMessages, input, handleInputChange, handleSubmit } =
+    useChat({
+      onFinish: (message) => {
+        setLastGeneratedResponse(message);
+      },
+    });
 
   useEffect(() => {
     loadSuggestions();
@@ -86,10 +83,7 @@ const HomePage = () => {
         handleSubmit(event);
         break;
       case "SELECT_CARD":
-        append({
-          role: "user",
-          content: value,
-        });
+        handleSubmit(event, value);
         break;
       default:
         break;
@@ -114,6 +108,7 @@ const HomePage = () => {
         <JourneyContainer />
         <SkillsContainer />
         <ProjectsContainer />
+        <AboutMeContainer />
         <ChatBox
           handleSubmit={handleSubmitChat}
           input={input}

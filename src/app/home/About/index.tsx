@@ -4,36 +4,41 @@ import { useRef } from "react";
 import { useIntersection } from "../../hooks/useIntersection";
 import styles from "./styles";
 import useStyles from "@/app/hooks/useStyles";
-import BarChart from "@/app/components/barChart/barChart";
 import CustomTypography from "@/app/components/customTypography";
-import { bars, skillsLang, levels } from "./model";
+import Image from "next/image";
+import { aboutLang } from "./model";
 
-const SkillsContainer = () => {
+const AboutContainer = () => {
   const classes = useStyles(styles);
   const triggerRef = useRef(null);
   const isVisible = useIntersection(triggerRef);
   return (
-    <Grid id="skills" ref={triggerRef} container sx={classes.skillsContainer}>
+    <Grid id="about" ref={triggerRef} container sx={classes.aboutContainer}>
       <Grid container sx={classes.sectionLayout}>
         <Grid textAlign="center" item>
           {isVisible && (
             <TypeAnimation
               style={classes.typeAnimation}
-              sequence={["My Skills", 1000]}
+              sequence={["About Me", 1000]}
               speed={80}
             />
           )}
         </Grid>
         <Grid item>
-          <Grid sx={classes.skillsContent} container>
+          <Grid sx={classes.aboutContent} container>
             <Grid xs item>
-              <CustomTypography text={skillsLang.skillsContent1} />
+              <CustomTypography text={aboutLang.aboutContent} />
             </Grid>
             <Grid xs item>
-              <BarChart bars={bars} levels={levels} animate={isVisible} />
-            </Grid>
-            <Grid xs={12} item>
-              <CustomTypography text={skillsLang.skillsContent2} />
+              <Grid justifyContent="center" container>
+                <Image
+                  src="/sparsh.jpg"
+                  alt="Sparsh Hurkat"
+                  width={1250}
+                  height={1250}
+                  style={classes.image}
+                />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -42,4 +47,4 @@ const SkillsContainer = () => {
   );
 };
 
-export default SkillsContainer;
+export default AboutContainer;

@@ -12,8 +12,8 @@ import { useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import styles from "./styles";
 import CustomTypography from "@/app/components/customTypography";
-import { projectsModel } from "@/app/models/commonModel";
-import { projectsSlider, projectsSliderMobile } from "./model";
+import { projectsSlider, projectsSliderMobile } from "./sliderModel";
+import { projectsModel } from "./commonModel";
 import { keyframes } from "@emotion/react";
 
 const ProjectsContainer = () => {

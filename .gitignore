@@ -20,6 +20,7 @@ package-lock.json
 # misc
 .DS_Store
 *.pem
+/server_files/secure-connect-db-spot-non-vector.zip
 
 # debug
 npm-debug.log*

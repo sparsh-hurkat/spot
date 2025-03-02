@@ -29,85 +29,58 @@ const Response = ({
   const theme = useTheme();
 
   const appendRedirectionLinks = (text: (string | JSX.Element)[]) => {
-    // Replace "THISISSKILLSKEY" with a Link component
-    const formattedText = text.map((part, index) => {
-      if (typeof part === "string") {
-        if (part.includes("THISISSKILLSKEY")) {
-          return (
-            <React.Fragment key={`link-${index}`}>
-              {part.split("THISISSKILLSKEY").map((subPart, subIndex, array) => (
-                <React.Fragment key={subIndex}>
-                  {subPart}
-                  {subIndex !== array.length - 1 && (
-                    <Link
-                      style={{ color: theme.palette.success.main }}
-                      onClick={handleClose}
-                      href="#skills"
-                    >
-                      Click here to know more
-                    </Link>
-                  )}
-                </React.Fragment>
-              ))}
+    const keysToLinks: Record<string, { href: string; text: string }> = {
+      THISISSKILLSKEY: { href: "#skills", text: "Click here to know more" },
+      THISISPROJECTSKEY: { href: "#projects", text: "Click here to know more" },
+      THISISJOURNEYKEY: { href: "#journey", text: "Click here to know more" },
+      THISISABOUTKEY: { href: "#about", text: "Click here to know more" },
+    };
+  
+    const handleDownload = () => {
+      const link = document.createElement("a");
+      link.href = "/Sparsh_Hurkat's_Resume_Nov_2024.pdf";
+      link.download = "Sparsh_Hurkat's_Resume_Nov_2024.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+  
+    return text.map((part, index) => {
+      if (typeof part !== "string") return part;
+  
+      for (const key in keysToLinks) {
+        if (part.includes(key)) {
+          const { href, text } = keysToLinks[key];
+          return part.split(key).map((subPart, subIndex, array) => (
+            <React.Fragment key={`${index}-${subIndex}`}>
+              {subPart}
+              {subIndex !== array.length - 1 && (
+                <Link style={{ color: theme.palette.success.main }} onClick={handleClose} href={href}>
+                  {text}
+                </Link>
+              )}
             </React.Fragment>
-          );
-        } else if (part.includes("THISISPROJECTSKEY")) {
-          return (
-            <React.Fragment key={`link-${index}`}>
-              {part
-                .split("THISISPROJECTSKEY")
-                .map((subPart, subIndex, array) => (
-                  <React.Fragment key={subIndex}>
-                    {subPart}
-                    {subIndex !== array.length - 1 && (
-                      <Link
-                        style={{ color: theme.palette.success.main }}
-                        onClick={handleClose}
-                        href="#projects"
-                      >
-                        Click here to know more
-                      </Link>
-                    )}
-                  </React.Fragment>
-                ))}
-            </React.Fragment>
-          );
-        } else if (part.includes("THISISRESUMEKEY")) {
-          const handleDownload = () => {
-            const link = document.createElement("a");
-            link.href = "/Sparsh_Hurkat's_Resume_Nov_2024.pdf";
-            link.download = "Sparsh_Hurkat's_Resume_Nov_2024.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          };
-          return (
-            <React.Fragment key={`link-${index}`}>
-              {part.split("THISISRESUMEKEY").map((subPart, subIndex, array) => (
-                <React.Fragment key={subIndex}>
-                  {subPart}
-                  {subIndex !== array.length - 1 && (
-                    <Button
-                      variant="contained"
-                      style={{ color: theme.palette.success.main }}
-                      onClick={handleDownload}
-                    >
-                      Click here to download PDF
-                    </Button>
-                  )}
-                </React.Fragment>
-              ))}
-            </React.Fragment>
-          );
-        } else {
-          return part;
+          ));
         }
-      } else {
-        return part;
       }
+  
+      if (part.includes("THISISRESUMEKEY")) {
+        return part.split("THISISRESUMEKEY").map((subPart, subIndex, array) => (
+          <React.Fragment key={`${index}-${subIndex}`}>
+            {subPart}
+            {subIndex !== array.length - 1 && (
+              <Button variant="contained" style={{ color: theme.palette.success.main }} onClick={handleDownload}>
+                Click here to download PDF
+              </Button>
+            )}
+          </React.Fragment>
+        ));
+      }
+  
+      return part;
     });
-    return formattedText;
   };
+  
 
   return (
     <Dialog fullScreen open={isResponseOpen}>

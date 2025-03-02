@@ -5,7 +5,7 @@ import { useIntersection } from "../../hooks/useIntersection";
 import styles from "./styles";
 import useStyles from "@/app/hooks/useStyles";
 import Carousel from "@/app/components/carousel/carousel";
-import { journeyList } from "@/app/models/commonModel";
+import { journeyList } from "./model";
 
 const JourneyContainer = () => {
   const classes = useStyles(styles);

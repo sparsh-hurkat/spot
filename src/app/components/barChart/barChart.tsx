@@ -30,6 +30,10 @@ const BarChart = ({ bars, levels, animate }) => {
       borderColor: "#e14949",
       backgroundImage: "linear-gradient(#da6d6c, #ca4544)",
     },
+    purple: {
+      borderColor: "#a58ad0",
+      backgroundImage: "linear-gradient(#c2a8e3, #8d6bb8)",
+    },
   };
   const classes = useStyles(styles);
 

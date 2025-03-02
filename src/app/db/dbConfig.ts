@@ -1,23 +1,58 @@
-import { createConnection } from "mysql";
-import * as fs from "fs";
+import cassandra from "cassandra-driver";
+import dotenv from "dotenv";
+import path from "path";
+import fs from "fs";
+import os from "os";
 
-const options = {
-  host: process.env.TIDB_HOST || "127.0.0.1",
-  port: process.env.TIDB_PORT || 4000,
-  user: process.env.TIDB_USER || "root",
-  password: process.env.TIDB_PASSWORD || "",
-  database: process.env.TIDB_DATABASE || "test",
-  ssl:
-    process.env.TIDB_ENABLE_SSL === "true"
-      ? {
-          minVersion: "TLSv1.2",
-          ca: process.env.TIDB_CA_PATH
-            ? fs.readFileSync(process.env.TIDB_CA_PATH)
-            : undefined,
-        }
-      : null,
-};
+dotenv.config();
 
-export const connectToDB = () => {
-  return createConnection(options);
-};
+// Decode and write to a temporary file
+const secureBundleBase64 = process.env.ASTRA_DB_SECURE_BUNDLE || "";
+const secureBundlePath = path.join(os.tmpdir(), "secure-connect-database.zip");
+
+// Convert Base64 to Uint8Array
+const decodedBundle = Uint8Array.from(
+  Buffer.from(secureBundleBase64, "base64")
+);
+
+// Write to a temporary file
+try {
+  fs.writeFileSync(secureBundlePath, decodedBundle);
+} catch (err) {
+  throw new Error(err);
+}
+
+const client = new cassandra.Client({
+  cloud: { secureConnectBundle: secureBundlePath },
+  credentials: {
+    username: process.env.ASTRA_DB_CLIENT_ID,
+    password: process.env.ASTRA_DB_CLIENT_SECRET,
+  },
+  keyspace: process.env.ASTRA_DB_NAMESPACE, // Ensure keyspace is defined in .env
+});
+
+// Reuse the same Cassandra client to prevent multiple connections
+// const client = new cassandra.Client({
+//   cloud: { secureConnectBundle: process.env.SECURE_CONNECT_BUNDLE_PATH },
+//   credentials: {
+//     username: process.env.ASTRA_DB_CLIENT_ID,
+//     password: process.env.ASTRA_DB_CLIENT_SECRET,
+//   },
+//   keyspace: process.env.ASTRA_DB_NAMESPACE, // Ensure keyspace is defined in .env
+// });
+
+let isConnected = false;
+
+export async function connectToDB() {
+  if (!isConnected) {
+    try {
+      await client.connect();
+      isConnected = true;
+      console.log("Connected to AstraDB successfully!");
+    } catch (error) {
+      console.error("Failed to connect to AstraDB", error);
+      throw error;
+    }
+  }
+  return client;
+}

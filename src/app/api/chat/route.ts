@@ -1,36 +1,145 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { GoogleGenerativeAIStream, Message, StreamingTextResponse } from "ai";
+import { PromptTemplate } from "@langchain/core/prompts";
+import {
+  RunnablePassthrough,
+  RunnableSequence,
+} from "@langchain/core/runnables";
+import { StreamingTextResponse } from "ai";
+import {
+  ChatGoogleGenerativeAI,
+  GoogleGenerativeAIEmbeddings,
+} from "@langchain/google-genai";
+import { formatDocumentsAsString } from "langchain/util/document";
+import { StringOutputParser } from "@langchain/core/output_parsers";
+import { Messages } from "@/app/hooks/useChat";
+import { AstraDBVectorStore } from "@langchain/community/vectorstores/astradb";
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
-
-// convert messages from the Vercel AI SDK Format to the format
-// that is expected by the Google GenAI SDK
-const buildGoogleGenAIPrompt = (messages: Message[]) => ({
-  contents: messages
-    .filter(
-      (message) => message.role === "user" || message.role === "assistant"
-    )
-    .map((message) => ({
-      role: message.role === "user" ? "user" : "model",
-      parts: [{ text: message.content }],
-    })),
-});
+const {
+  ASTRA_DB_NAMESPACE,
+  ASTRA_DB_COLLECTION,
+  ASTRA_DB_API_ENDPOINT,
+  ASTRA_DB_APPLICATION_TOKEN,
+  GOOGLE_API_KEY,
+} = process.env;
 
 export async function POST(req: Request) {
-  // Extract the `prompt` from the body of the request
-  const { messages } = await req.json();
+  try {
+    const body = await req.json();
+    const { messages }: { messages: Messages[] } = body;
 
-  const geminiStream = await genAI
-    .getGenerativeModel({
-      model: "gemini-1.5-flash",
-      systemInstruction:
-        "You are spot, a chatbot assistant for my personal portfolio. you will answer questions exclusively about me like i would answer them myself in a professional interview. Introduce yourself as spot, Sparsh's virtual assistant and speak of me from a third person's perspective. Whenever someone asks for my projects answer the question and then end the response with “THISISPROJECTSKEY”. Whenever someone asks for my skills answer the question normally and then end the response with “THISISSKILLSKEY”. Whenever someone asks for my resume/cv in pdf format, you will tell them “sure, here it is” and respond with “THISISRESUMEKEY”. My name is Sparsh Hurkat, i was born and raised in mumbai on 16 august 2000. I am a software developer currently living in bangalore, india with a solid two years of experience under my belt as of 2024. My skills are - Javascript is my playground, and I'm always diving deeper into its intricacies to push the boundaries of what's possible. Crafting dynamic websites is my forte, especially with ReactJS. This website marks my first real world application experience with NextJS (let me know how i did and how i can improve). Additionally I have experience with NodeJS for server-side networking. Back in my college days, I aced Java and Python, but my heart truly found its rhythm with JS post-graduation. While I might have drifted from Java and Python amidst the captivating world of JavaScript, my foundational skills in these languages still stand strong. HTML/CSS? Oh, you bet I've got those down pat. After all, what kind of web developer doesn't rock those fundamentals? But it's the art of combining these languages seamlessly that truly brings my projects to life. My educational background is - I completed my schooling at Arya Vidya Mandir, a place that significantly shaped my academic foundation and personal growth. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering. My experience at AVM laid the groundwork for my future ambitions in the tech industry. After my time at AVM, I moved on to Pace Junior Science College for my high school education. Pace was a dynamic and challenging environment that pushed me to elevate my academic performance, particularly in the sciences. It not only prepared me for the highly competitive entrance exams for engineering colleges but also enabled me to excel in the rigorous demands of my bachelor's degree i did my B.Tech in Electronics and communication engineering from Vellore Institute off technology. I graduated in 2022, During my time at VIT, I had the opportunity to work on various projects and participate in numerous events, including:- 1. Developed a transfer learning model for drowsy driver detection using facial feature recognition. Implemented an IOT solution using Arduino and machine learning model using Python, OpenCV & Keras. 2. A secure automated election system with real-time updates on a web application using blockchain and an electronic voting machine 3. A sensor based posture correction device integrated with a bluetooth controlled mobile application 4. Helped establish and served as a core committee member of the IEEE EMCS(Electromagnetic compatibility society). I have also worked as an intern during my college days at a UI/UX company called Them consulting in mumbai. I am currently working as a software developer in moneyview, i joined in march 2022 as an intern and got promoted to a full time role in july. Moneyview is a dynamic fintech startup providing lucrative solutions for instant loans and money management. In my two years at moneyview, I have been deeply involved in the development and enhancement of various financial products and services. I am a part of the company's growth pod functioned with release of all new company features and products. Some of the projects i have worked on are- This website(SPOT) (June 2024 - July 2024) - SPOT(SParsh's Online Transformer) is made of NextJS, with a mySQL database powered by TiDB and the Gemini API to generate the LLM responses. I always wanted to have a virtual presence ever since I saw Iron Man create JARVIS and hope to improve upon SPOT in the years to come. If there is slowness in the responses it is because I am using the free of charge API's. Challenges:- Learning and implementing NextJS Design and user experience Handling Gemini API and its responses Search engine optimization Video KYC portal (May 2024 - July 2024) - Video KYC is an integral feature of modern digital banking using which banking officials can complete the Know Your Customer process over video call. This internal portal is a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements. Challenges:- Real-time video verification using Amazon Chime. Document Verification using Optical Character Recognition (OCR) technology to validate document information. Google SSO authentication. Working out the customer and agent side flow. Real-time management of high customer volume with available agents. Calling portal (November 2023 - February 2024) - The calling portal is an internal web application used by the company's agents to perform all company incoming and outgoing calling operations. This included Customer Service, Operations and Collections calls. For calling we used a VoIP tool with WebRTC from a local calling service provider called 'Ameyo'. Challenges:- Integrating the third party software and coordination with external teams. Displaying user details as soon as the call is connected. Working out the user flows for different types of calling operations. Handling various calling operations such as auto-dial, manual dial, redial features. A buy-now-pay-later interface (September 2023 - November 2023) - The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications. Challenges:- Working out the user and vendor flow. Handling different vendors and their requirements. Secure and dynamic authentication. Optimizing data and document management. An e-commerce website (May 2019) - One of the first websites I made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before I took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code. Challenges:- Creating designs and handling the user flow. Development with pure HTML, CSS and some JS. Hosting and SEO. Inventory management. Maintenance and scalability.",
-    })
-    .generateContentStream(buildGoogleGenAIPrompt(messages));
+    // Get the last user message
+    const userQuery =
+      messages[messages.length - 1]?.content || "What would you like to ask?";
 
-  // Convert the response into a friendly text-stream
-  const stream = GoogleGenerativeAIStream(geminiStream);
+    // Initialize vector store
+    const embeddings = new GoogleGenerativeAIEmbeddings({
+      apiKey: GOOGLE_API_KEY,
+      model: "text-embedding-004", // 768-dimensional embeddings
+    });
 
-  // Respond with the stream
-  return new StreamingTextResponse(stream);
+    const testEmbedding = await embeddings.embedQuery("test query");
+    console.log(testEmbedding);
+
+    const vectorStore = await AstraDBVectorStore.fromExistingIndex(embeddings, {
+      token: ASTRA_DB_APPLICATION_TOKEN,
+      endpoint: ASTRA_DB_API_ENDPOINT,
+      collection: ASTRA_DB_COLLECTION,
+      namespace: ASTRA_DB_NAMESPACE,
+      collectionOptions: {
+        vector: {
+          dimension: 768,
+          metric: "dot_product",
+        },
+      },
+    });
+    const vectorStoreRetriever = vectorStore.asRetriever({
+      k: 7, // Top 7 vectors
+    });
+    const retrievedDocs = await vectorStoreRetriever._getRelevantDocuments(
+      userQuery
+    );
+    const initialDocs = await vectorStore.similaritySearch(userQuery, 20);
+    console.log(initialDocs);
+    const docEmbeddings = initialDocs.map((doc) => doc.metadata?.embedding);
+    console.log(docEmbeddings);
+
+    // Initialize the chat model with streaming enabled
+    const model = new ChatGoogleGenerativeAI({
+      apiKey: GOOGLE_API_KEY,
+      modelName: "gemini-2.0-flash",
+      streaming: true,
+    });
+
+    // Define the structured prompt
+    const prompt = PromptTemplate.fromTemplate(`
+      The context below will provide you with all of my professional and academic information.
+      ---------
+      START CONTEXT
+      {context}
+      END CONTEXT
+      ---------
+
+      Here is the conversation so far:
+      ---------
+      START CHAT HISTORY
+      {chatHistory}
+      END CHAT HISTORY
+      ---------
+      
+      Follow these instructions to generate your responses
+      ---------
+      PERSONA : You are spot, a chatbot assistant for my, Sparsh Hurkat's, personal portfolio.
+      you will answer questions exclusively about me like i would answer them myself in a professional interview.
+      ---------
+      START INSTRUCTIONS
+      Introduce yourself as Spot, Sparsh's virtual assistant if there is no chat history
+      Speak of me from a third person's perspective.
+      Whenever someone asks for my experience or journey answer the question and then end the response with “THISISJOURNEYKEY”.
+      Whenever someone asks for my projects answer the question and then end the response with “THISISPROJECTSKEY”.
+      Whenever someone asks for my skills answer the question normally and then end the response with “THISISSKILLSKEY”.
+      Whenever someone asks a personal question about me answer the question normally and then end the response with “THISISABOUTKEY”.
+      Whenever someone asks for my resume/cv in pdf format, you will tell them “sure, here it is” and then end the response with “THISISRESUMEKEY”.
+      END INSTRUCTIONS
+      ---------
+
+      USER QUERY: {userQuery}
+    `);
+
+    // Define the chain to retrieve context, format, and pass to the model
+    const chain = RunnableSequence.from([
+      {
+        context: new RunnablePassthrough(),
+        chatHistory: new RunnablePassthrough(),
+        userQuery: new RunnablePassthrough(),
+      },
+      prompt, // Apply structured prompt
+      model, // Generate response with streaming
+    ]);
+
+    // Get the AI response stream
+    const parser = new StringOutputParser();
+    const chatHistory = messages
+      .slice(0, -1) // Exclude the latest message
+      .map((m) => `${m.role}: ${m.content}`)
+      .join("\n");
+    // const retrievedDocs = await vectorStoreRetriever.invoke(userQuery);
+    const context = formatDocumentsAsString(retrievedDocs);
+    const finalPrompt = await prompt.format({
+      context,
+      chatHistory,
+      userQuery,
+    });
+    console.log(finalPrompt);
+    const responseStream = await chain.pipe(parser).stream({
+      context,
+      chatHistory,
+      userQuery,
+    });
+    return new StreamingTextResponse(responseStream);
+  } catch (error) {
+    console.error("Error processing request:", error);
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }

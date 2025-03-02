@@ -33,6 +33,11 @@
     "**/*.ts",
     "**/*.tsx"
 , "src/app/layout.tsx", "src/app/page.tsx"  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "exclude": [
     "node_modules"
   ]
