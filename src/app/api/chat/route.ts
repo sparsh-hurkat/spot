@@ -36,9 +36,6 @@ export async function POST(req: Request) {
       model: "text-embedding-004", // 768-dimensional embeddings
     });
 
-    const testEmbedding = await embeddings.embedQuery("test query");
-    console.log(testEmbedding);
-
     const vectorStore = await AstraDBVectorStore.fromExistingIndex(embeddings, {
       token: ASTRA_DB_APPLICATION_TOKEN,
       endpoint: ASTRA_DB_API_ENDPOINT,
@@ -57,10 +54,6 @@ export async function POST(req: Request) {
     const retrievedDocs = await vectorStoreRetriever._getRelevantDocuments(
       userQuery
     );
-    const initialDocs = await vectorStore.similaritySearch(userQuery, 20);
-    console.log(initialDocs);
-    const docEmbeddings = initialDocs.map((doc) => doc.metadata?.embedding);
-    console.log(docEmbeddings);
 
     // Initialize the chat model with streaming enabled
     const model = new ChatGoogleGenerativeAI({
@@ -121,7 +114,7 @@ export async function POST(req: Request) {
       .slice(0, -1) // Exclude the latest message
       .map((m) => `${m.role}: ${m.content}`)
       .join("\n");
-    // const retrievedDocs = await vectorStoreRetriever.invoke(userQuery);
+
     const context = formatDocumentsAsString(retrievedDocs);
     const finalPrompt = await prompt.format({
       context,
