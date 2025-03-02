@@ -7,6 +7,7 @@ import useStyles from "@/app/hooks/useStyles";
 import CustomTypography from "@/app/components/customTypography";
 import Image from "next/image";
 import { aboutLang } from "./model";
+import Contact from "./contact";
 
 const AboutContainer = () => {
   const classes = useStyles(styles);
@@ -40,6 +41,7 @@ const AboutContainer = () => {
                 />
               </Grid>
             </Grid>
+            <Contact />
           </Grid>
         </Grid>
       </Grid>

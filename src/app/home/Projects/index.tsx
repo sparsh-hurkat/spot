@@ -148,7 +148,7 @@ const ProjectsContainer = () => {
                       <Typography variant="button">
                         {project.linkPreText}
                       </Typography>
-                      <Link href={project.link}>
+                      <Link target="_blank" href={project.link}>
                         <Typography
                           variant="button"
                           color={theme.palette.success.main}
