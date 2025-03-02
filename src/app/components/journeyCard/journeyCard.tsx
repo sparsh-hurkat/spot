@@ -7,9 +7,9 @@ import {
 } from "@mui/material";
 import useStyles from "../../hooks/useStyles";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { JourneyInterface } from "../../models/commonModel";
 import styles from "./styles";
 import CustomTypography from "../customTypography";
+import { JourneyInterface } from "@/app/home/Journey/model";
 
 const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
   const { journeyItem } = props;
