@@ -19,9 +19,10 @@ There are 4 primary objective of this project:-
 * And to hopefully update this website to keep track with all the projects I do in my life.
 
 I also started learning about Langchains through the implementation of this project, so I will implement that in not only SPOT soon but also in my future projects.
+UPDATE: SPOT works with Langchain as of 2025!!! All my personal and professional information on which SPOT is fine tuned on is in a markdown file in the server_files directory
 
 SPOT is built on NextJS with TypeScript
 
 He is powered by the Gemini API and is absolutely free of cost FOR NOW.
 
-I have used MySQL with TiDB to save some website config and to save the questions and generated responses.
+I have used Cassandra with AstraDB to save some website config and to save the questions and generated responses.
