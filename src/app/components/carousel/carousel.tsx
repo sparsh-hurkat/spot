@@ -6,7 +6,7 @@ import useStyles from "../../hooks/useStyles";
 import styles from "./styles";
 import useSwipe from "../../hooks/useSwipe";
 import dynamic from "next/dynamic";
-import { JourneyInterface } from "../../models/commonModel";
+import { JourneyInterface } from "@/app/home/Journey/model";
 
 const Carousel3d = dynamic(() => import("react-spring-3d-carousel"), {
   ssr: false,
