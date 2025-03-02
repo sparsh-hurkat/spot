@@ -51,7 +51,7 @@ After my time at AVM, I moved on to **Pace Junior Science College** for my high 
 One of the first websites i made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before i took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code.
 
 #### Challenges:
--
+
 - Creating designs and handling the user flow.
 - Development with pure HTML, CSS and some JS
 - Hosting and SEO.
@@ -62,7 +62,7 @@ One of the first websites i made was for a local e-commerce website called 'The 
 The project involved integrating an Arduino with biometric authentication, and a Solidity smart contract deployed on a private Ethereum blockchain. I used Web3.js to interface the blockchain, ensuring tamper-proof data storage and real-time election result verification. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.
 
 #### Challenges:
--
+
 - Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.
 - Creating an electronic voting machine using arduino and bluetooth module.
 - Learning Javascript concepts since i only knew html/css by this point.
@@ -71,7 +71,7 @@ The project involved integrating an Arduino with biometric authentication, and a
 I designed an IoT-enabled portable circuit mounted on lab safety glasses and integrated a facial feature detection model using OpenCV and Dlib, achieving an accuracy of 86%. In case fatigue was detected in the driver an alarm/buzzer would ring and using a bluetooth module and Twilio it would send out an alert SMS.
 
 #### Challenges:
--
+
 - Learning arduino software and hardware implementation.
 - Developing an IOT + wearable solution.
 - Handling the false positive scenarios
@@ -81,7 +81,7 @@ I designed an IoT-enabled portable circuit mounted on lab safety glasses and int
 I conducted a comparative study of four CNN architectures achieving a peak classification accuracy of 96% using ResNet50 on a dataset of 275 species. Interfaced this model with a Streamlit web application, allowing real-time identification.
 
 #### Challenges:
--
+
 - Conducting the literature survey
 - Dataset challenges
 - Real-time processing
@@ -91,7 +91,7 @@ I conducted a comparative study of four CNN architectures achieving a peak class
 The calling portal is an internal web application used by the company's agents to perform all company incoming and outgoing calling operations. This included Customer Service, Operations and Collections calls. For calling we used a VoIP tool with WebRTC from a local calling service provider called 'Ameyo'.
 
 #### Challenges:
--
+
 - Integrating the third party software and coordination with external teams
 - Displaying user details as soon as call is connected
 - Working out the user flows for different types of calling operations
@@ -101,7 +101,7 @@ The calling portal is an internal web application used by the company's agents t
 The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications.
 
 #### Challenges:
--
+
 - Working out the user and vendor flow
 - Handling different vendors and their requirements
 - Secure and dynamic authentication
@@ -124,7 +124,7 @@ Upgraded the main Moneyview website and blog website from Vanilla.js to Next.js 
 TestEZ is an online tool that generates custom, unique questions by analyzing any textbook or PDF you provide. This AI tool can assist professors in creating test papers. Built on the LangChain framework, TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.
 
 #### Challenges:
--
+
 - Learning and implementing LangChain
 - Token optimization and Prompt engineering.
 - Creating text chunks, vector embedding and storing in a VectorDB.
@@ -134,7 +134,7 @@ TestEZ is an online tool that generates custom, unique questions by analyzing an
 SPOT(**SP**arsh's **O**nline **T**ransformer) is made of NextJS, with a mySQL database powered by TiDB and the Gemini API to generate the LLM responses. I always wanted to have a virtual presence ever since i saw Iron Man create JARVIS and hope to improve upon SPOT in the years to come. If there is slowness in the responses it is because i am using the free of charge API's.
 
 #### Challenges:
--
+
 - Learning and implementing NextJS
 - Design and user experience
 - Handling Gemini API and its responses
@@ -144,7 +144,7 @@ SPOT(**SP**arsh's **O**nline **T**ransformer) is made of NextJS, with a mySQL da
 Video KYC is an integral feature of modern digital banking using which banking officials can complete the Know Your Customer process over video call. This internal portal is a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.
 
 #### Challenges:
--
+
 - Real-time video verification using Amazon Chime
 - Document Verification using Optical Character Recognition (OCR) technology to validate document information
 - Google SSO authentication

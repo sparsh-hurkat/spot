@@ -12,7 +12,7 @@ const convertProjectsModelToMarkdown = (projectsModel: ProjectsModel): string =>
         (project, i) =>
           `### Project ${index + i + 1}: ${project.title} (${project.date})\n` +
           project.description
-            .replace(/\n\nChallenges:-/, "\n\n#### Challenges:\n-")
+            .replace(/\n\nChallenges:-/, "\n\n#### Challenges:\n")
             .replace(/\n\*/g, "\n-")
       )
     )
