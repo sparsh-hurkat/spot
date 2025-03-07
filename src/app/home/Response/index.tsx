@@ -30,10 +30,10 @@ const Response = ({
 
   const appendRedirectionLinks = (text: (string | JSX.Element)[]) => {
     const keysToLinks: Record<string, { href: string; text: string }> = {
-      THISISSKILLSKEY: { href: "#skills", text: "Click here to know more" },
-      THISISPROJECTSKEY: { href: "#projects", text: "Click here to know more" },
-      THISISJOURNEYKEY: { href: "#journey", text: "Click here to know more" },
-      THISISABOUTKEY: { href: "#about", text: "Click here to know more" },
+      THISISSKILLSKEY: { href: "#skills", text: "Click here to know more about my skills" },
+      THISISPROJECTSKEY: { href: "#projects", text: "Click here to know more about my projects" },
+      THISISJOURNEYKEY: { href: "#journey", text: "Click here to know more about my journey" },
+      THISISABOUTKEY: { href: "#about", text: "Click here to know more about me" },
     };
   
     const handleDownload = () => {

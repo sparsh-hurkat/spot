@@ -28,18 +28,8 @@ const client = new cassandra.Client({
     username: process.env.ASTRA_DB_CLIENT_ID,
     password: process.env.ASTRA_DB_CLIENT_SECRET,
   },
-  keyspace: process.env.ASTRA_DB_NAMESPACE, // Ensure keyspace is defined in .env
+  keyspace: process.env.ASTRA_DB_NAMESPACE,
 });
-
-// Reuse the same Cassandra client to prevent multiple connections
-// const client = new cassandra.Client({
-//   cloud: { secureConnectBundle: process.env.SECURE_CONNECT_BUNDLE_PATH },
-//   credentials: {
-//     username: process.env.ASTRA_DB_CLIENT_ID,
-//     password: process.env.ASTRA_DB_CLIENT_SECRET,
-//   },
-//   keyspace: process.env.ASTRA_DB_NAMESPACE, // Ensure keyspace is defined in .env
-// });
 
 let isConnected = false;
 
