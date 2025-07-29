@@ -34,8 +34,9 @@ const Response = ({
       THISISPROJECTSKEY: { href: "#projects", text: "Click here to know more about my projects" },
       THISISJOURNEYKEY: { href: "#journey", text: "Click here to know more about my journey" },
       THISISABOUTKEY: { href: "#about", text: "Click here to know more about me" },
+      THISISMASTERSKEY: { href: "https://sparsh-hurkat.github.io/guide-to-masters/", text: "Click here to know more about my preparation for masters applications" },
     };
-  
+
     const handleDownload = () => {
       const link = document.createElement("a");
       link.href = "/Sparsh_Hurkat's_Resume_Mar_2025.pdf";
@@ -44,10 +45,10 @@ const Response = ({
       link.click();
       document.body.removeChild(link);
     };
-  
+
     return text.map((part, index) => {
       if (typeof part !== "string") return part;
-  
+
       for (const key in keysToLinks) {
         if (part.includes(key)) {
           const { href, text } = keysToLinks[key];
@@ -55,7 +56,7 @@ const Response = ({
             <React.Fragment key={`${index}-${subIndex}`}>
               {subPart}
               {subIndex !== array.length - 1 && (
-                <Link style={{ color: theme.palette.success.main }} onClick={handleClose} href={href}>
+                <Link style={{ color: theme.palette.success.main }} onClick={handleClose} href={href} target={href.startsWith("#") ? "_self" : "_blank"}>
                   {text}
                 </Link>
               )}
@@ -63,7 +64,7 @@ const Response = ({
           ));
         }
       }
-  
+
       if (part.includes("THISISRESUMEKEY")) {
         return part.split("THISISRESUMEKEY").map((subPart, subIndex, array) => (
           <React.Fragment key={`${index}-${subIndex}`}>
@@ -76,11 +77,11 @@ const Response = ({
           </React.Fragment>
         ));
       }
-  
+
       return part;
     });
   };
-  
+
 
   return (
     <Dialog fullScreen open={isResponseOpen}>
