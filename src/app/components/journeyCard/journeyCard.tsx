@@ -8,8 +8,8 @@ import {
 import useStyles from "../../hooks/useStyles";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import styles from "./styles";
-import CustomTypography from "../customTypography";
 import { JourneyInterface } from "@/app/home/Journey/model";
+import ReactMarkdown from 'react-markdown';
 
 const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
   const { journeyItem } = props;
@@ -39,7 +39,18 @@ const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
             </Grid>
           </AccordionSummary>
           <AccordionDetails sx={{ textAlign: "left" }}>
-            <CustomTypography sx={classes.descriptionText} text={journeyItem.description} />
+            <ReactMarkdown
+              components={{
+                p: ({node, ref, ...props}) => (
+                  <Typography sx={classes.descriptionText} component="p" {...props} />
+                ),
+                a: ({node, ...props}) => (
+                  <a style={{ color: '#1976d2' }} target="_blank" rel="noopener noreferrer" {...props} />
+                ),
+              }}
+            >
+              {journeyItem.description}
+            </ReactMarkdown>
           </AccordionDetails>
         </Accordion>
       </Grid>
