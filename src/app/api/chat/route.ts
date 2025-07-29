@@ -131,7 +131,7 @@ export async function POST(req: Request) {
     return new StreamingTextResponse(responseStream);
   } catch (error) {
     console.error("Error processing request:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+    return new Response(JSON.stringify({ error: "Internal Slumber Error: Since SPOT is free, it falls asleep every now and then... Try again in some time, SPOT will be back up!!" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
