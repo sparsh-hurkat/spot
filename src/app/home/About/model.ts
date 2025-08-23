@@ -1,3 +1,10 @@
 export const aboutLang = {
-  aboutContent: `I'm **Sparsh Hurkat**, a budding software developer hailing from Mumbai, currently residing in Bangalore.\nI have a deep love for **sports**. I've played basketball for 5 years and badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and football every now and then?\nI am an avid **traveller**, I love going to new places, eating different kinds of food, going on new adventures and making unforgettable memories\nI have a very **creative** side. I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to remote corners of the world will probably be a huge part of my retired life.\nMy love for art and coding landed me in the world of frontend development, a perfect blend of the 2 worlds.`,
+  aboutContent: `I'm **Sparsh Hurkat**, a software developer hailing from Mumbai, currently
+residing in Pittsburgh, PA.\nI have a deep love for **sports**. I've played basketball for 5 years and
+badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and
+football every now and then?\nI am an avid **traveller**, I love going to new places, eating different
+kinds of food, going on new adventures and making unforgettable memories\nI have a very **creative** side.
+I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to
+remote corners of the world will probably be a huge part of my retired life.\nMy love for art and coding
+landed me in the world of frontend development, a perfect blend of the 2 worlds.`,
 };

@@ -37,7 +37,7 @@ const styles = (theme: Theme) => {
       },
     },
     suggesionCardsContainer: {
-      marginTop: "104px",
+      marginTop: "80px",
       [theme.breakpoints.down("sm")]: {
         marginTop: "64px",
       },

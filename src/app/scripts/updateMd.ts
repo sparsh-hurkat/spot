@@ -91,16 +91,14 @@ const convertSectionsToMarkdown = (sections: any[]): string =>
 const convertMyMastersStoryToMarkdown = (story: string): string =>
   `## My Masters Story\n\n${story}\n\n-------`;
 
-const replaceSection = (
-  content: string,
-  sectionTitle: string,
-  newSection: string
-): string => {
+const replaceSection = (content: string, sectionTitle: string, newSection: string) => {
   console.log(`[LOG] Replacing section: ${sectionTitle}`);
-  return content.replace(
-    new RegExp(`## ${sectionTitle}[\s\S]*?(?=\n## |$)`),
-    newSection
-  );
+  const regex = new RegExp(`## ${sectionTitle}[\\s\\S]*?(?=\n## |$)`, 'i'); // case-insensitive
+  if (!regex.test(content)) {
+    console.warn(`[WARN] Section "${sectionTitle}" not found in content.`);
+    return content;
+  }
+  return content.replace(regex, newSection);
 };
 
 async function updateMarkdownFile(existingFilePath: string) {
@@ -113,10 +111,10 @@ async function updateMarkdownFile(existingFilePath: string) {
     const myMastersStory = await fetchMyMastersStory();
 
     const updates = {
-      Projects: convertProjectsModelToMarkdown(projectsModel),
-      Journey: convertJourneyListToMarkdown(journeyList),
-      Skills: convertSkillsToMarkdown(skillsLang),
       "About Me": convertAboutToMarkdown(aboutLang),
+      Skills: convertSkillsToMarkdown(skillsLang),
+      Journey: convertJourneyListToMarkdown(journeyList),
+      Projects: convertProjectsModelToMarkdown(projectsModel),
       "Guide to Masters": externalSections ? convertSectionsToMarkdown(externalSections) : '',
       "My Masters Story": myMastersStory ? convertMyMastersStoryToMarkdown(myMastersStory) : '',
     };

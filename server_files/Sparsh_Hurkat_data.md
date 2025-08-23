@@ -1,14 +1,24 @@
 # Sparsh Hurkat - Personal and Professional Background
 
 ## Personal Information
-My name is Sparsh Hurkat. I was born and raised in Mumbai on 16 August 2000. I am a software developer currently living in Bangalore, India, with a solid two years of experience under my belt as of 2024.
+My name is Sparsh Hurkat. I was born and raised in Mumbai on 16 August 2000. I am a software developer currently living in Pittsburgh, PA, with a solid three years of experience under my belt as of 2025.
+
+---------
+
 ## About Me
 
-I'm **Sparsh Hurkat**, a budding software developer hailing from Mumbai, currently residing in Bangalore.
-I have a deep love for **sports**. I've played basketball for 5 years and badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and football every now and then?
-I am an avid **traveller**, I love going to new places, eating different kinds of food, going on new adventures and making unforgettable memories
-I have a very **creative** side. I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to remote corners of the world will probably be a huge part of my retired life.
-My love for art and coding landed me in the world of frontend development, a perfect blend of the 2 worlds.
+I'm **Sparsh Hurkat**, a software developer hailing from Mumbai, currently
+residing in Pittsburgh, PA.
+I have a deep love for **sports**. I've played basketball for 5 years and
+badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and
+football every now and then?
+I am an avid **traveller**, I love going to new places, eating different
+kinds of food, going on new adventures and making unforgettable memories
+I have a very **creative** side.
+I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to
+remote corners of the world will probably be a huge part of my retired life.
+My love for art and coding
+landed me in the world of frontend development, a perfect blend of the 2 worlds.
 
 -------
 ## Skills
@@ -25,12 +35,12 @@ This website marks my first real world application experience with **Next.js** (
 ## Journey
 
 ### Master's at Carnegie Mellon University (Aug 2025 - Present)
-I am currently preparing to pursue a **Master's in Information Systems Management** at Carnegie Mellon University. 
-        
-To know how I prepared for the application process, check out my [blog](https://sparsh-hurkat.github.io/guide-to-masters/).
+I am currently preparing to pursue a **Master of Information Systems Management** at Carnegie Mellon University. 
 
-Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters now?
+  To know how I prepared for the application process, check out my [blog](https://sparsh-hurkat.github.io/guide-to-masters/).
 
+  Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters now?
+  
 
 ### Software developer at Moneyview (March 2022 - July 2025)
 **Moneyview** is a dynamic **FinTech** startup providing lucrative solutions for instant loans and money management. In my 3 years at moneyview, I have been deeply involved in the development and enhancement of various financial and technical products and services.
@@ -66,109 +76,121 @@ After my time at AVM, I moved on to **Pace Junior Science College** for my high 
 ### Project 1: An e-commerce website (May 2019)
 One of the first websites i made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before i took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code.
 
-#### Challenges:
-
-- Creating designs and handling the user flow.
+-*Challenges:**
+- Creating designs and handling the user flow
 - Development with pure HTML, CSS and some JS
-- Hosting and SEO.
+- Hosting and SEO
 - Inventory management
 - Maintenance and scalability
 
 ### Project 2: E-Voting system (January 2019 - April 2019)
 The project involved integrating an Arduino with biometric authentication, and a Solidity smart contract deployed on a private Ethereum blockchain. I used Web3.js to interface the blockchain, ensuring tamper-proof data storage and real-time election result verification. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.
 
-#### Challenges:
-
-- Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption.
-- Creating an electronic voting machine using arduino and bluetooth module.
+-*Challenges:**
+- Learning and implementing blockchain core concepts alongside crypographic techniques like SHA256 hashing and RSA encryption
+- Creating an electronic voting machine using arduino and bluetooth module
 - Learning Javascript concepts since i only knew html/css by this point.
 
 ### Project 2: Drowsy driver detection (Aug 2020 - Nov 2020)
 I designed an IoT-enabled portable circuit mounted on lab safety glasses and integrated a facial feature detection model using OpenCV and Dlib, achieving an accuracy of 86%. In case fatigue was detected in the driver an alarm/buzzer would ring and using a bluetooth module and Twilio it would send out an alert SMS.
 
-#### Challenges:
-
-- Learning arduino software and hardware implementation.
-- Developing an IOT + wearable solution.
+-*Challenges:**
+- Learning arduino software and hardware implementation
+- Developing an IOT + wearable solution
 - Handling the false positive scenarios
 - The literature survey for previous implementations.
 
 ### Project 3: Bird species identification (Sep 2021 - Dec 2021)
 I conducted a comparative study of four CNN architectures achieving a peak classification accuracy of 96% using ResNet50 on a dataset of 275 species. Interfaced this model with a Streamlit web application, allowing real-time identification.
 
-#### Challenges:
-
+-*Challenges:**
 - Conducting the literature survey
 - Dataset challenges
 - Real-time processing
 - Scalability and stability of application
 
-### Project 4: Calling portal (November 2023 - February 2024)
-The calling portal is an internal web application used by the company's agents to perform all company incoming and outgoing calling operations. This included Customer Service, Operations and Collections calls. For calling we used a VoIP tool with WebRTC from a local calling service provider called 'Ameyo'.
+### Project 4: UI/UX and Frontend Development (MV) (July 2022 - February 2023)
+Worked on the frontend development initiatives for Moneyview's main website,
+focusing on performance optimization and modern development practices.
+Redesigned and modernized the entire UI/UX with a standardized design system and a centralized component library.
 
-#### Challenges:
+-*Key Achievements:**
+- Learnt and implemented React and Typescript for scalable code and better type safety
+- Enhanced the Fetch API integration resulting in faster page load times
+- Established a centralized component library for consistent design across the platform
 
-- Integrating the third party software and coordination with external teams
-- Displaying user details as soon as call is connected
-- Working out the user flows for different types of calling operations
-- Handling various calling operations such as auto-dial, manual dial, redial features.
+### Project 5: Calling portal (MV) (November 2023 - February 2024)
+Developed and managed a comprehensive call management portal for all company-customer interactions,
+integrating VoIP tools with WebRTC technology.
 
-### Project 5: A buy-now-pay-later interface (September 2023 - November 2023)
-The BNPL(buy-now-pay-later) feature allows customers to split the cost of a purchase into smaller installments at a very small interest rate (often 0). This feature marked the company's debut in entirely new territory, venturing beyond its established expertise in personal loans. I created an internal portal for store vendors to view and manage user purchases and their corresponding loan applications.
+-*Key Achievements:**
+- Enabled an increase in agent count and an increase in monthly call volume
+- Successfully integrated VoIP software with WebRTC for real-time communication
+- Implemented real-time user detail display and call management features on a Typescript web app
+- Third-party API integration and coordination with external development teams
 
-#### Challenges:
+### Project 6: Merchant Portal (MV) (September 2023 - November 2023)
+I created a portal for store vendors partnered with the company to view and manage user purchases
+and their corresponding loan applications.
 
-- Working out the user and vendor flow
-- Handling different vendors and their requirements
-- Secure and dynamic authentication
-- Optimizing data and document management.
+-*Key Achievements:**
+- Acquired knowledge of large-scale data management and document processing systems
+- Implemented dynamic user and vendor flow management systems
 
-### Project 5: Cloud integration using SST.dev (March 2025 - Ongoing)
-Working as a backend developer to enhance the backend services of JIFY, a company acquired by Moneyview.
-Using SST.dev to build and deploy serverless lambda functions with Typescript on AWS.
+### Project 6: Backend Development (MV) (March 2025 - July 2025)
+Revamped the user onboarding flow for a fintech platform by building a serverless backend microservice
+using SST.dev and TypeScript on AWS (API Gateway, Lambda, DynamoDB), implementing secure APIs,
+scalable services, caching, and logging, which reduced user registration time.
 
-### Project 6: Upgraded to Next.js (December 2024 - February 2024)
-Upgraded the main Moneyview website and blog website from Vanilla.js to Next.js to enhance SEO and scalability. Leveraged reusable components to dynamically generate thousands of pages using a Content Management System (CMS). Optimized key APIs with Node.js, reducing latency and improving overall page performance.
-          
-  Challenges:-
-  * Learning and implementing Next.js concepts
-  * Improving web vitals score and page load speed
-  * Creating a dynamic CMS capable of handling all possible variants.
-  * Managing such a large-scale project
+-*Key Achievements:**
+- Reduced user registration time by over 5 minutes by streamlining backend services for the onboarding flow
+- Gained expertise in AWS cloud services and serverless architecture
+- Learned modern backend development practices and microservices patterns
+- Improved scalability and performance of backend services
 
-### Project 7: An AI Test Generator (August 2024 - October 2024)
-TestEZ is an online tool that generates custom, unique questions by analyzing any textbook or PDF you provide. This AI tool can assist professors in creating test papers. Built on the LangChain framework, TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.
+### Project 7: Upgraded to Next.js (MV) (December 2024 - February 2024)
+Upgraded the main Moneyview website and blog website from Vanilla.js to Next.js to
+enhance SEO and scalability. Leveraged reusable components to dynamically generate all website pages using a
+Content Management System (CMS). Optimized key APIs with Node.js, reducing latency
+and improving overall page performance.
 
-#### Challenges:
+-*Key Achievements:**
+- Learned and implementing Next.js concepts
+- Implemented RESTful APIs using Node.js and MongoDB for backend services
+- Improved web vitals score and page load speed
+- Created a dynamic CMS capable of handling all possible variants of pages
 
+### Project 8: An AI Test Generator (August 2024 - October 2024)
+TestEZ is an online tool that generates custom, unique questions by analyzing any textbook or PDF you
+provide. This AI tool can assist professors in creating test papers. Built on the LangChain framework,
+TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.
+
+-*Challenges:**
 - Learning and implementing LangChain
-- Token optimization and Prompt engineering.
-- Creating text chunks, vector embedding and storing in a VectorDB.
+- Token optimization and Prompt engineering
+- Creating text chunks, vector embedding and storing in a VectorDB
 - Working out the user flow.
 
-### Project 8: This website(SPOT) (June 2024 - July 2024)
-SPOT(**SP**arsh's **O**nline **T**ransformer) is made of NextJS, with a mySQL database powered by TiDB and the Gemini API to generate the LLM responses. I always wanted to have a virtual presence ever since i saw Iron Man create JARVIS and hope to improve upon SPOT in the years to come. If there is slowness in the responses it is because i am using the free of charge API's.
+### Project 9: This website(SPOT) (June 2024 - July 2024)
+SPOT(**SP**arsh's **O**nline **T**ransformer) is a RAG Agent Chatbot with LangChain under the hood,
+a NextJs exterior, an AstraDB Vector DB motor and Gemini API as the fuel. If there is slowness in the responses it is because SPOT is absolutely free of charge.
 
-#### Challenges:
-
-- Learning and implementing NextJS
-- Design and user experience
+-*Key Achievements:**
+- Learnt and implemented RAG using LangChain; fetches all my data from all my websites and my resume
+- Modern design and user experience
 - Handling Gemini API and its responses
-- Search engine optimization
+- Learning and implementing NextJS
 
-### Project 9: Video KYC portal (May 2024 - July 2024)
-Video KYC is an integral feature of modern digital banking using which banking officials can complete the Know Your Customer process over video call. This internal portal is a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.
+### Project 10: Video KYC portal (MV) (May 2024 - July 2024)
+Created a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.
 
-#### Challenges:
-
+-*Challenges:**
 - Real-time video verification using Amazon Chime
 - Document Verification using Optical Character Recognition (OCR) technology to validate document information
 - Google SSO authentication
-- Working out the customer and agent side flow
 - Real-time management of high customer volume with available agents
 
 -------
-
 ## Guide to Masters
 
 This blog is a practical, step-by-step guide for anyone planning to pursue a master’s abroad. It’s based on what I learned, what worked, what I wish I had done differently, and what I saw others do right or wrong.
@@ -204,9 +226,11 @@ Once you’re sure about doing a master’s, the next step is deciding where.
 ### 🛠 Tools I Used for University Selection
 - [US News Rankings](https://www.usnews.com/best-graduate-schools/top-science-schools/computer-science-rankings)
 - [CS Metrics](https://csmetrics.net/)
-- [CS Rankings](https://csrankings.org/#/index?all&us) – Based on publication output and research area
+- [CS Rankings](https://csrankings.org/#/index?all&us) : Based on publication output and research area
+
 Here's the template I used to compare universities: [University selection template](https://docs.google.com/spreadsheets/d/1c2sNT01AdKO2GC46NAa2T7uA9bRvNHEETUoTOzhPVYY/edit?usp=sharing)
-- Reach out to alumni on Linkedin (here’s mine: [https://linkedin.com/in/sparsh-hurkat](https://linkedin.com/in/sparsh-hurkat))
+
+Reach out to alumni on Linkedin (here’s mine: [https://linkedin.com/in/sparsh-hurkat](https://linkedin.com/in/sparsh-hurkat))
 
 ### Step 2: Taking GRE & TOEFL
 ### When to Take the GRE & TOEFL
@@ -451,9 +475,7 @@ I also carried an extensive folder of documents, most of which the officer didn�
 - Dress smart, speak clearly, and don’t try to memorize — just know your facts.
 
 -------
-
 ## My Masters Story
-
 
 I never imagined I’d be pursuing a master’s degree, let alone at Carnegie Mellon University — one of the best in the world for computer science. But life, as it turns out, has a strange way of bringing you full circle.
 If you're an aspiring engineer reading this, I hope my story helps you in some small way — whether you're at a crossroads, doubting your choices, or just looking for clarity in the noise.

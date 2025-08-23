@@ -4,6 +4,7 @@ import {
   AccordionSummary,
   Grid,
   Typography,
+  useTheme,
 } from "@mui/material";
 import useStyles from "../../hooks/useStyles";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -14,6 +15,7 @@ import ReactMarkdown from 'react-markdown';
 const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
   const { journeyItem } = props;
   const classes = useStyles(styles);
+  const theme = useTheme();
   return (
     <Grid sx={classes.journeyCardBox} item>
       <Grid sx={classes.journeyCardContainer} container>
@@ -41,11 +43,11 @@ const JourneyCard = (props: { journeyItem: JourneyInterface }) => {
           <AccordionDetails sx={{ textAlign: "left" }}>
             <ReactMarkdown
               components={{
-                p: ({node, ref, ...props}) => (
+                p: ({ node, ref, ...props }) => (
                   <Typography sx={classes.descriptionText} component="p" {...props} />
                 ),
-                a: ({node, ...props}) => (
-                  <a style={{ color: '#1976d2' }} target="_blank" rel="noopener noreferrer" {...props} />
+                a: ({ node, ...props }) => (
+                  <a style={{ color: theme.palette.success.main }} target="_blank" rel="noopener noreferrer" {...props} />
                 ),
               }}
             >

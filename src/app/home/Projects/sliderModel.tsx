@@ -26,21 +26,15 @@ export const projectsSlider: ProjectsSlider[] = [
   },
   {
     key: "moneyviewcms",
-    value: 85.6,
+    value: 85.7,
     valueIcon: (
       <Image src="/nextjs-icon.png" alt="aws" width={32} height={32} />
     ),
     label: "Dec 2024",
   },
   {
-    key: "testez",
-    value: 71.2,
-    valueIcon: <BackpackTwoToneIcon />,
-    label: "Oct 2024",
-  },
-  {
     key: "spot",
-    value: 56.8,
+    value: 71.4,
     valueIcon: (
       <>
         <CycloneIcon />
@@ -51,7 +45,7 @@ export const projectsSlider: ProjectsSlider[] = [
   },
   {
     key: "2023",
-    value: 42.6,
+    value: 57.1,
     valueIcon: (
       <>
         <CallIcon />
@@ -61,14 +55,22 @@ export const projectsSlider: ProjectsSlider[] = [
     label: "2023",
   },
   {
+    key: "2022",
+    value: 42.8,
+    valueIcon: (
+      <Image src="/react-logo.png" alt="aws" width={24} height={24} />
+    ),
+    label: "2022",
+  },
+  {
     key: "2021",
-    value: 28.4,
+    value: 28.5,
     valueIcon: <FlutterDashIcon />,
     label: "2021",
   },
   {
     key: "2020",
-    value: 14.2,
+    value: 14.3,
     valueIcon: <CarCrashIcon />,
     label: "2020",
   },
@@ -98,7 +100,7 @@ export const projectsSliderMobile: ProjectsSlider[] = [
   },
   {
     key: "moneyviewcms",
-    value: 85.6,
+    value: 85.7,
     valueIcon: (
       <Grid justifyContent="center" container>
         <Image src="/nextjs-icon.png" alt="aws" width={32} height={32} />
@@ -107,18 +109,8 @@ export const projectsSliderMobile: ProjectsSlider[] = [
     ),
   },
   {
-    key: "testez",
-    value: 71.2,
-    valueIcon: (
-      <Grid justifyContent="center" container>
-        <BackpackTwoToneIcon />
-        <Typography>Oct 2024</Typography>
-      </Grid>
-    ),
-  },
-  {
     key: "spot",
-    value: 56.8,
+    value: 71.4,
     valueIcon: (
       <Grid justifyContent="center" container>
         <CycloneIcon />
@@ -129,7 +121,7 @@ export const projectsSliderMobile: ProjectsSlider[] = [
   },
   {
     key: "2023",
-    value: 42.6,
+    value: 57.1,
     valueIcon: (
       <Grid justifyContent="center" container>
         <Grid flexWrap="nowrap" container>
@@ -141,8 +133,18 @@ export const projectsSliderMobile: ProjectsSlider[] = [
     ),
   },
   {
+    key: "2022",
+    value: 42.8,
+    valueIcon: (
+      <Grid justifyContent="center" container>
+        <Image src="/react-logo.png" alt="aws" width={24} height={24} />
+        <Typography>2022</Typography>
+      </Grid>
+    ),
+  },
+  {
     key: "2021",
-    value: 28.4,
+    value: 28.5,
     valueIcon: (
       <Grid justifyContent="center" container>
         <FlutterDashIcon />
@@ -152,7 +154,7 @@ export const projectsSliderMobile: ProjectsSlider[] = [
   },
   {
     key: "2020",
-    value: 14.2,
+    value: 14.3,
     valueIcon: (
       <Grid justifyContent="center" container>
         <HowToVoteIcon />

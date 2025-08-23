@@ -1,6 +1,7 @@
 import { useIntersection } from "@/app/hooks/useIntersection";
 import useStyles from "@/app/hooks/useStyles";
 import {
+  Box,
   Grid,
   Link,
   Slider,
@@ -10,8 +11,8 @@ import {
 } from "@mui/material";
 import { useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
+import ReactMarkdown from "react-markdown";
 import styles from "./styles";
-import CustomTypography from "@/app/components/customTypography";
 import { projectsSlider, projectsSliderMobile } from "./sliderModel";
 import { projectsModel } from "./commonModel";
 import { keyframes } from "@emotion/react";
@@ -52,7 +53,7 @@ const ProjectsContainer = () => {
           {isVisible && (
             <TypeAnimation
               style={classes.typeAnimation}
-              sequence={["Recent Projects", 1000]}
+              sequence={["My Projects", 1000]}
               speed={80}
             />
           )}
@@ -60,46 +61,39 @@ const ProjectsContainer = () => {
         <Grid item>
           <Grid gap={6} container>
             <Grid justifyContent="center" container>
-              <Typography variant="h6" sx={{ marginBottom: "54px" }}>
-                Slide to explore
-              </Typography>
+              <Grid sx={{ marginBottom: "54px" }} item>
+                <Typography variant="h6" sx={classes.timelineHeader}>
+                  Explore my projects through the years
+                </Typography>
+                {isDownSm ? (
+                  <Typography sx={classes.mobileTimelineLabel}>
+                    {projectsSlider.find((item) => item.value === sliderValue)?.label}
+                  </Typography>
+                ) : null}
+              </Grid>
               <Slider
-                aria-label="Restricted values"
+                aria-label="Project timeline"
                 defaultValue={100}
                 valueLabelFormat={(value) => {
-                  const slider = isDownSm
-                    ? projectsSliderMobile
-                    : projectsSlider;
-                  return slider.find((item) => item.value === value).valueIcon;
+                  const slider = isDownSm ? projectsSlider : projectsSlider;
+                  const item = slider.find((item) => item.value === value);
+                  return (
+                    <Grid container style={classes.sliderValueLabel}>
+                      <Grid container style={classes.sliderValueIconContainer}>
+                        {item?.valueIcon}
+                      </Grid>
+                    </Grid>
+                  );
                 }}
                 value={sliderValue}
                 onChange={handleSliderChange}
                 step={null}
                 valueLabelDisplay="on"
                 marks={isDownSm ? projectsSliderMobile : projectsSlider}
-                sx={{
-                  width: "90%",
-                  [theme.breakpoints.down("sm")]: { width: "80%" },
-                  "& .MuiSlider-thumb": {
-                    color: theme.palette.background.default,
-                    borderRadius: "5px",
-                    width: "15px",
-                    height: "25px",
-                  },
-                  "& .MuiSlider-track": {
-                    color: theme.palette.background.default,
-                  },
-                  "& .MuiSlider-rail": {
-                    color: theme.palette.primary.light,
-                  },
-                  "& .MuiSlider-valueLabel": {
-                    backgroundColor: theme.palette.background.default,
-                    color: theme.palette.text.secondary,
-                    paddingTop: "12px",
-                  },
-                }}
+                sx={classes.slider}
               />
             </Grid>
+
             <Grid container gap={4}>
               {projectsModel[
                 projectsSlider.find((item) => item.value === selectedProject)
@@ -108,56 +102,59 @@ const ProjectsContainer = () => {
                 return (
                   <Grid
                     className={direction ? `slide-${direction}` : ""}
-                    sx={{
-                      transition: "transform 1s, opacity 1s",
-                      "&.slide-right": {
-                        animation: `${keyframes`
-                        0% { transform: translateX(0); opacity: 1; }
-                        50% { transform: translateX(25%); opacity: 0; }
-                        51% { transform: translateX(-50%); opacity: 0; }
-                        100% { transform: translateX(0); opacity: 1; }
-                      `} 0.4s`,
-                      },
-                      "&.slide-left": {
-                        animation: `${keyframes`
-                        0% { transform: translateX(0); opacity: 1; }
-                        50% { transform: translateX(-25%); opacity: 0; }
-                        51% { transform: translateX(50%); opacity: 0; }
-                        100% { transform: translateX(0); opacity: 1; }
-                      `} 0.4s`,
-                      },
-                    }}
                     key={index}
                     container
+                    sx={classes.projectCard}
                   >
                     {project.imageConfig ? (
-                      <Grid sx={classes.projectImage} xs item>
-                        <img
-                          style={{
-                            borderRadius: "20px",
-                          }}
-                          height="100%"
+                      <Grid sx={classes.projectImageContainer} xs item>
+                        <Box
+                          component="img"
                           src={project.imageConfig.src}
                           alt={project.imageConfig.alt}
+                          sx={classes.projectImage}
                         />
                       </Grid>
                     ) : null}
-                    <Grid xs item>
-                      <Typography variant="h5">{project.title}</Typography>
-                      <Typography fontWeight={600}>{project.date}</Typography>
-                      <Typography variant="button">
-                        {project.linkPreText}
-                      </Typography>
-                      <Link target="_blank" href={project.link}>
+                    <Grid sx={{ marginLeft: { xs: 0, sm: "16px" } }} xs md={project.imageConfig ? 8 : 12} item>
+                      <Grid container style={classes.projectHeader}>
                         <Typography
-                          variant="button"
-                          color={theme.palette.success.main}
+                          variant="h5"
+                          sx={classes.projectTitle}
                         >
-                          {project.linkDisplayMessage}
+                          {project.title}
                         </Typography>
-                      </Link>
-                      <Grid sx={{ marginBottom: "12px" }}></Grid>
-                      <CustomTypography text={project.description} />
+                        <Typography
+                          variant="caption"
+                          sx={classes.projectDateBadge}
+                        >
+                          {project.date}
+                        </Typography>
+                      </Grid>
+
+                      {project.link && project.linkDisplayMessage && (
+                        <Grid container style={classes.projectLinkContainer}>
+                          <Typography variant="button" sx={classes.projectLinkText}>
+                            {project.linkPreText}
+                          </Typography>
+                          <Link target="_blank" href={project.link}>
+                            <Typography
+                              variant="button"
+                              color={theme.palette.success.main}
+                              sx={classes.projectLink}
+                            >
+                              {project.linkDisplayMessage} →
+                            </Typography>
+                          </Link>
+                        </Grid>
+                      )}
+
+                      <Typography
+                        component="div"
+                        sx={classes.projectDescription}
+                      >
+                        <ReactMarkdown>{project.description}</ReactMarkdown>
+                      </Typography>
                     </Grid>
                   </Grid>
                 );
@@ -165,8 +162,8 @@ const ProjectsContainer = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Grid>
+      </Grid >
+    </Grid >
   );
 };
 

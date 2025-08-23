@@ -27,7 +27,7 @@ export const bars = [
   },
   {
     label: "AWS",
-    height: "average",
+    height: "80px",
     color: "purple",
   },
 ];

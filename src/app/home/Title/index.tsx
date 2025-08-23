@@ -36,11 +36,13 @@ const TitleContainer = ({ suggestions, handleSelectCard }) => {
         </Grid>
       </Grid>
       <Grid sx={classes.suggesionCardsContainer} item>
+        <Typography sx={{ ...classes.topHeader, textAlign: "center", fontSize: "12px", marginBottom: "16px" }}>{"Ask me something like..."}</Typography>
         <SuggestionCards
           handleSelectCard={handleSelectCard}
           suggestions={suggestions}
         />
         <Grid sx={{ textAlign: "center", marginTop: "20px" }} item>
+          <Typography sx={{ ...classes.topHeader, fontSize: "12px" }}>{"or scroll down to read more"}</Typography>
           <KeyboardArrowDownIcon
             color="primary"
             onClick={scrollToNextSection}

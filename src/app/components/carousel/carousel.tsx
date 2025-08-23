@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { config } from "react-spring";
 import JourneyCard from "../journeyCard/journeyCard";
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import useStyles from "../../hooks/useStyles";
 import styles from "./styles";
 import useSwipe from "../../hooks/useSwipe";
@@ -14,6 +14,7 @@ const Carousel3d = dynamic(() => import("react-spring-3d-carousel"), {
 
 const Carousel = (props: { journeyList: JourneyInterface[] }) => {
   const classes = useStyles(styles);
+  const theme = useTheme();
   const swipeHandlers = useSwipe({
     onSwipedLeft: () => setGoToSlide(goToSlide + 1),
     onSwipedRight: () => setGoToSlide(goToSlide - 1),
@@ -35,7 +36,7 @@ const Carousel = (props: { journeyList: JourneyInterface[] }) => {
         slides={cards}
         goToSlide={goToSlide}
         goToSlideDelay={0}
-        offsetRadius={2}
+        offsetRadius={theme.breakpoints.down("sm") ? 1 : 2}
         showNavigation={false}
         animationConfig={config.gentle}
       />
