@@ -6,16 +6,13 @@ import os from "os";
 
 dotenv.config();
 
-// Decode and write to a temporary file
 const secureBundleBase64 = process.env.ASTRA_DB_SECURE_BUNDLE || "";
 const secureBundlePath = path.join(os.tmpdir(), "secure-connect-database.zip");
 
-// Convert Base64 to Uint8Array
 const decodedBundle = Uint8Array.from(
   Buffer.from(secureBundleBase64, "base64")
 );
 
-// Write to a temporary file
 try {
   fs.writeFileSync(secureBundlePath, decodedBundle);
 } catch (err) {

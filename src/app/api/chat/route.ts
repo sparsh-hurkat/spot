@@ -60,7 +60,7 @@ export async function POST(req: Request) {
 
     const validatorModel = new ChatGoogleGenerativeAI({
       apiKey: GOOGLE_API_KEY,
-      modelName: "gemini-2.0-flash",
+      modelName: "gemini-2.0-flash-lite",
     });
 
     // Validate chat history and current user query

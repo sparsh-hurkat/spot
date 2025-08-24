@@ -5,7 +5,6 @@ import ChatBox from "./ChatBox";
 import { useEffect, useState } from "react";
 import Response from "./Response";
 import SkillsContainer from "./Skills";
-import useDidUpdateEffect from "../hooks/useDidUpdateEffect";
 import JourneyContainer from "./Journey";
 import ProjectsContainer from "./Projects";
 import AboutMeContainer from "./About";
@@ -13,44 +12,45 @@ import useChat from "../hooks/useChat";
 
 const HomePage = () => {
   const [isResponseOpen, setResponseOpen] = useState(false);
-  const [lastGeneratedResponse, setLastGeneratedResponse] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
 
-  const { messages, setMessages, input, handleInputChange, handleSubmit } =
-    useChat({
-      onFinish: (message) => {
-        setLastGeneratedResponse(message);
-      },
-    });
+  const { sessionId, messages, setMessages, input, handleInputChange, handleSubmit } =
+    useChat();
 
   useEffect(() => {
     loadSuggestions();
   }, []);
-
-  useDidUpdateEffect(() => {
-    if (!!lastGeneratedResponse) {
-      saveResponse(messages.at(-2)?.content, lastGeneratedResponse);
-      setLastGeneratedResponse(null);
-    }
-  }, [lastGeneratedResponse]);
 
   const loadSuggestions = async () => {
     const suggestionsData = await fetchSuggestions();
     setSuggestions(suggestionsData);
   };
 
-  const saveResponse = async (query, response) => {
+  const saveChatHistory = async (chatHistory) => {
+    const qaArray: string[] = [];
+    for (let i = 0; i < chatHistory.length; i++) {
+      const msg = chatHistory[i];
+      if (msg.role === "user") {
+        qaArray.push(msg.content);
+        const nextMsg = chatHistory[i + 1];
+        if (nextMsg && nextMsg.role === "assistant") {
+          qaArray.push(nextMsg.content);
+        }
+      }
+    }
+
     await fetch("/api/save-response", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        query,
-        response,
+        sessionId,
+        chatHistory: qaArray,
       }),
     });
   };
+
 
   const fetchSuggestions = async () => {
     try {
@@ -72,6 +72,9 @@ const HomePage = () => {
   };
 
   const handleClose = () => {
+    if (messages.length > 0) {
+      saveChatHistory(messages);
+    }
     setResponseOpen(false);
     setMessages([]);
   };

@@ -7,8 +7,8 @@ export interface Messages {
   content: string;
 }
 
-const useChat = (props) => {
-  const { onFinish } = props;
+const useChat = () => {
+  const [sessionId] = useState(uuidv4());
   const [messages, setMessages] = useState<Messages[]>([]);
   const [input, setInput] = useState("");
 
@@ -90,10 +90,9 @@ const useChat = (props) => {
 
   // Function to update assistant's message
   const updateAssistantMessage = (message: string) => {
-    onFinish(message);
     setMessages((prevMessages) =>
       prevMessages
-        .filter((msg) => msg.id !== "loading") // Remove loader
+        .filter((msg) => msg.id !== "loading")
         .concat({
           id: uuidv4(),
           role: "assistant",
@@ -103,6 +102,7 @@ const useChat = (props) => {
   };
 
   return {
+    sessionId,
     messages,
     setMessages,
     input,

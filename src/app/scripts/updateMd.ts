@@ -5,14 +5,13 @@ import { aboutLang } from "../home/About/model";
 import fs from "fs/promises";
 import fetch from "node-fetch";
 
-// Fetch and parse external constants.js from GitHub
 async function fetchExternalSections() {
   const url = "https://raw.githubusercontent.com/sparsh-hurkat/guide-to-masters/main/src/constants.js";
   console.log(`[LOG] Fetching external sections from: ${url}`);
   const response = await fetch(url);
   if (!response.ok) throw new Error("Failed to fetch constants.js");
   const jsContent = await response.text();
-  // Extract the exported sections array
+
   const match = jsContent.match(/export const sections = (\[[\s\S]*?\]);/);
   if (match) {
     const arrLiteral = match[1];
@@ -25,14 +24,12 @@ async function fetchExternalSections() {
   return null;
 }
 
-// Fetch and parse myStoryMarkdown from external constants.js
 async function fetchMyMastersStory() {
   const url = "https://raw.githubusercontent.com/sparsh-hurkat/guide-to-masters/main/src/constants.js";
   console.log(`[LOG] Fetching myMastersStory from: ${url}`);
   const response = await fetch(url);
   if (!response.ok) throw new Error("Failed to fetch constants.js");
   const jsContent = await response.text();
-  // Extract the exported myStoryMarkdown string
   const match = jsContent.match(/export const myStoryMarkdown = `([\s\S]*?)`;/);
   if (match) {
     const story = match[1];
@@ -79,7 +76,6 @@ const convertSkillsToMarkdown = (lang: {
 const convertAboutToMarkdown = (lang: { aboutContent: string }): string =>
   `## About Me\n\n${lang.aboutContent}\n\n-------`;
 
-// Convert the external sections array to Markdown
 const convertSectionsToMarkdown = (sections: any[]): string =>
   `## Guide to Masters\n\n` +
   sections.map(
@@ -87,13 +83,12 @@ const convertSectionsToMarkdown = (sections: any[]): string =>
   ).join('\n\n') +
   `\n\n-------`;
 
-// Convert myMastersStory to Markdown section
 const convertMyMastersStoryToMarkdown = (story: string): string =>
   `## My Masters Story\n\n${story}\n\n-------`;
 
 const replaceSection = (content: string, sectionTitle: string, newSection: string) => {
   console.log(`[LOG] Replacing section: ${sectionTitle}`);
-  const regex = new RegExp(`## ${sectionTitle}[\\s\\S]*?(?=\n## |$)`, 'i'); // case-insensitive
+  const regex = new RegExp(`## ${sectionTitle}[\\s\\S]*?(?=\n## |$)`, 'i');
   if (!regex.test(content)) {
     console.warn(`[WARN] Section "${sectionTitle}" not found in content.`);
     return content;
@@ -105,9 +100,8 @@ async function updateMarkdownFile(existingFilePath: string) {
   try {
     let content = await fs.readFile(existingFilePath, "utf8");
 
-    // Fetch and parse external sections
     const externalSections = await fetchExternalSections();
-    // Fetch and parse myMastersStory
+
     const myMastersStory = await fetchMyMastersStory();
 
     const updates = {

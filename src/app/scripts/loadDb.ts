@@ -5,7 +5,6 @@ import { TaskType } from "@google/generative-ai";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { MarkdownTextSplitter } from "@langchain/textsplitters";
 
-// Retrieve necessary environment variables
 const {
   ASTRA_DB_NAMESPACE,
   ASTRA_DB_COLLECTION,
@@ -16,9 +15,7 @@ const {
 
 let vectorStore: AstraDBVectorStore | null = null;
 
-// Main seeding function
 export async function seedCollection() {
-  // Your sample data to seed into the vector store
   const loader = new TextLoader("server_files/Sparsh_Hurkat_data.md");
   const document = await loader.load();
 
@@ -28,7 +25,6 @@ export async function seedCollection() {
   });
   const chunks = await splitter.splitDocuments(document);
 
-  // 2. Initialize your embeddings
   const embeddings = new GoogleGenerativeAIEmbeddings({
     apiKey: GOOGLE_API_KEY,
     model: "text-embedding-004", // 768-dimensional embeddings
@@ -36,8 +32,6 @@ export async function seedCollection() {
     title: "Document title",
   });
 
-  // 3. Create (or connect to) the collection and add documents.
-  // This call will create the collection if it doesn't exist, and then insert the document vectors.
   vectorStore = await AstraDBVectorStore.fromDocuments(chunks, embeddings, {
     token: ASTRA_DB_APPLICATION_TOKEN,
     endpoint: ASTRA_DB_API_ENDPOINT,
@@ -60,7 +54,6 @@ export const getVectorStore = () => {
   return vectorStore;
 };
 
-// Run the seeding script
 seedCollection().catch((err) => {
   console.error("Error seeding collection:", err);
 });

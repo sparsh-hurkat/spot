@@ -3,26 +3,34 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const client = await connectToDB(); // Ensure the client is connected
+    const client = await connectToDB();
+    const body = await request.json();
+    const { sessionId, chatHistory } = body;
 
-    let body = await request.json();
-    const { query, response } = body;
+    if (!sessionId || !Array.isArray(chatHistory) || chatHistory.length === 0) {
+      return NextResponse.json({
+        status: "ERROR",
+        error: "Invalid request: sessionId and chatHistory are required",
+      });
+    }
 
-    // Convert timestamp to ISO format for Cassandra
+    const chatHistoryJSON = JSON.stringify(chatHistory);
     const istDate = new Date().toISOString();
 
-    // Insert data into AstraDB
+    // Use sessionId for consistency, update if exists
     const insertQuery = `
-      INSERT INTO spot (id, messages, responses, date) 
-      VALUES (uuid(), ?, ?, ?);
+      INSERT INTO spot (id, chat_history, date)
+      VALUES (?, ?, ?);
     `;
 
-    await client.execute(insertQuery, [query, response, istDate], {
+    await client.execute(insertQuery, [sessionId, chatHistoryJSON, istDate], {
       prepare: true,
     });
 
     return NextResponse.json({ status: "SUCCESS" });
-  } catch (error) {
-    return NextResponse.json({ error: error.message, status: "ERROR" });
+  } catch (error: any) {
+    console.error("Error inserting into spot:", error);
+    return NextResponse.json({ status: "ERROR", error: error.message });
   }
 }
+
