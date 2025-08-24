@@ -15,7 +15,21 @@ const {
   GOOGLE_API_KEY,
 } = process.env;
 
-// Unified validation function for history or current query
+function withTimeout<T>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(errorMessage)), ms);
+    promise
+      .then((res) => {
+        clearTimeout(timer);
+        resolve(res);
+      })
+      .catch((err) => {
+        clearTimeout(timer);
+        reject(err);
+      });
+  });
+}
+
 async function validateMessages(messages: Messages[] | Messages, validatorModel: ChatGoogleGenerativeAI) {
   const msgs = Array.isArray(messages) ? messages : [messages];
   const validatedMessages: Messages[] = [];
@@ -63,10 +77,18 @@ export async function POST(req: Request) {
       modelName: "gemini-2.0-flash-lite",
     });
 
-    // Validate chat history and current user query
-    const safeHistory = await validateMessages(messages.slice(0, -1), validatorModel);
+    const safeHistory = await withTimeout(
+      validateMessages(messages.slice(0, -1), validatorModel),
+      15000, // 15 seconds
+      "VALIDATOR_TIMEOUT"
+    );
+
     const currentQuery = messages[messages.length - 1];
-    const validatedQuery = await validateMessages(currentQuery, validatorModel);
+    const validatedQuery = await withTimeout(
+      validateMessages(currentQuery, validatorModel),
+      15000,
+      "VALIDATOR_TIMEOUT"
+    );
 
     if (validatedQuery.length === 0) {
       return new Response(
@@ -155,18 +177,29 @@ export async function POST(req: Request) {
     const parser = new StringOutputParser();
     const context = formatDocumentsAsString(retrievedDocs);
 
-    const responseStream = await chain.pipe(parser).stream({
-      context,
-      chatHistory,
-      userQuery,
-    });
+    const responseStream = await withTimeout(
+      chain.pipe(parser).stream({
+        context,
+        chatHistory,
+        userQuery,
+      }),
+      15000, // 15 seconds
+      "RESPONSE_TIMEOUT"
+    );
 
     return new StreamingTextResponse(responseStream);
-  } catch (error) {
+
+  } catch (error: any) {
     console.error("Error processing request:", error);
-    return new Response(
-      "Internal Slumber Error: Since SPOT is free, it falls asleep every now and then... Try again in some time, SPOT will be back up!!",
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+
+    let message =
+      "Internal Slumber Error: Since SPOT is free, it falls asleep every now and then... Try again in some time, SPOT will be back up!!";
+
+    if (error.message === "VALIDATOR_TIMEOUT" || error.message === "RESPONSE_TIMEOUT") {
+      message =
+        "SPOT is busy with too many requests. Please try again later!!";
+    }
+
+    return new Response(message, { status: 500, headers: { "Content-Type": "application/json" } });
   }
 }
