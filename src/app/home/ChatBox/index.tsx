@@ -20,6 +20,7 @@ const ChatBox = ({ handleSubmit, input, handleInputChange }) => {
           onChange={handleInputChange}
           sx={classes.textfield}
           placeholder="Ask me anything"
+          multiline
           InputProps={{
             endAdornment: (
               <SendIcon onClick={(e) => handleSubmit("SUBMIT_FORM", e)} />
