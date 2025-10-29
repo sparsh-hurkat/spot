@@ -16,6 +16,49 @@ export interface ProjectsModel {
 }
 
 export const projectsModel: ProjectsModel = {
+  jobtracker: [
+    {
+      title: "Browser Extension to Track Job Applications",
+      date: "October 2025",
+      linkPreText: "Check it out on ",
+      link: "https://github.com/sparsh-hurkat/job-application-tracker",
+      linkDisplayMessage: "Github",
+      imageConfig: {
+        src: "/jobtracker.png",
+        alt: "JobTracker",
+      },
+      description:
+        `Built a browser extension to track how many job applications I submit everyday.
+
+**Key Achievements:**
+* Helps me organize my applications across different websites
+* Able to share my stats with my friends
+* A great idea for socializing among graduate students. Can be developed further to
+include social media elements or have a daily reward structure`,
+    },
+  ],
+  pacman: [
+    {
+      title: "Gamifying Grocery Shopping (HackCMU 2025)",
+      date: "September 2025",
+      linkPreText: "Check it out on ",
+      link: "https://github.com/sparsh-hurkat/grocery",
+      linkDisplayMessage: "Github",
+      imageConfig: {
+        src: "/pacman.png",
+        alt: "PacMan",
+      },
+      description:
+        `Participated in the 24-hour HackCMU 2025 to gamify usually serious/monotonous activity. Engineered a way to 
+track user movement through the aisles of a grocery store using gyroscope, magnetometer & pedometer.
+User position is overlayed as a 3D Pac man figure with the floor plan of the grocery store as the game map
+and the user's ToDo List items as the power pellets which gives a bonus score.
+
+**Key Achievements:**
+* Utilized sensor data and not GPS to accurately track user position in an indoor environment
+* Designed an interactive 3D pac man game which mimics the user movement`,
+    },
+  ],
   sst: [
     {
       title: "Backend Development (MV)",
@@ -180,7 +223,7 @@ Redesigned and modernized the entire UI/UX with a standardized design system and
 * Established a centralized component library for consistent design across the platform`,
     },
   ],
-  "2021": [
+  "2019-2021": [
     {
       title: "Bird species identification",
       date: "Sep 2021 - Dec 2021",
@@ -192,8 +235,6 @@ Redesigned and modernized the entire UI/UX with a standardized design system and
       description:
         "I conducted a comparative study of four CNN architectures achieving a peak classification accuracy of 96% using ResNet50 on a dataset of 275 species. Interfaced this model with a Streamlit web application, allowing real-time identification.\n\n**Challenges:**\n* Conducting the literature survey\n* Dataset challenges\n* Real-time processing\n* Scalability and stability of application",
     },
-  ],
-  "2020": [
     {
       title: "Drowsy driver detection",
       date: "Aug 2020 - Nov 2020",
@@ -211,8 +252,6 @@ Redesigned and modernized the entire UI/UX with a standardized design system and
 * Handling the false positive scenarios
 * The literature survey for previous implementations.`,
     },
-  ],
-  "2019": [
     {
       title: "An e-commerce website",
       date: "May 2019",
@@ -247,5 +286,5 @@ Redesigned and modernized the entire UI/UX with a standardized design system and
 * Creating an electronic voting machine using arduino and bluetooth module
 * Learning Javascript concepts since i only knew html/css by this point.`,
     },
-  ],
+  ]
 };
