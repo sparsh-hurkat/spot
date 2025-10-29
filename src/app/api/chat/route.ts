@@ -74,7 +74,7 @@ export async function POST(req: Request) {
 
     const validatorModel = new ChatGoogleGenerativeAI({
       apiKey: GOOGLE_API_KEY,
-      modelName: "gemini-2.0-flash-lite",
+      model: "gemini-2.0-flash-lite",
     });
 
     const safeHistory = await withTimeout(
