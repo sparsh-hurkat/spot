@@ -36,7 +36,7 @@ export async function seedCollection() {
     token: ASTRA_DB_APPLICATION_TOKEN,
     endpoint: ASTRA_DB_API_ENDPOINT,
     collection: ASTRA_DB_COLLECTION,
-    namespace: ASTRA_DB_NAMESPACE,
+    keyspace: ASTRA_DB_NAMESPACE,
     collectionOptions: {
       vector: {
         dimension: 768,
