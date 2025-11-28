@@ -16,25 +16,26 @@ export interface ProjectsModel {
 }
 
 export const projectsModel: ProjectsModel = {
-  jobtracker: [
+  spotlify: [
     {
-      title: "Browser Extension to Track Job Applications",
-      date: "October 2025",
+      title: "Spotlify - A Job Hunt Agent",
+      date: "November 2025",
       linkPreText: "Check it out on ",
-      link: "https://github.com/sparsh-hurkat/job-application-tracker",
+      link: "https://github.com/sparsh-hurkat/spotlify",
       linkDisplayMessage: "Github",
       imageConfig: {
-        src: "/jobtracker.png",
-        alt: "JobTracker",
+        src: "/spotlify-logo.png",
+        alt: "Spotlify",
       },
       description:
-        `Built a browser extension to track how many job applications I submit everyday.
+        `Spotlify is an intelligent career assistant that helps you craft the perfect resume, write compelling cover letters,
+and ace application questions using AI-powered RAG (Retrieval Augmented Generation) technology.
 
 **Key Achievements:**
-* Helps me organize my applications across different websites
-* Able to share my stats with my friends
-* A great idea for socializing among graduate students. Can be developed further to
-include social media elements or have a daily reward structure`,
+* Possesses an extensive knowledge base of my profile and retrieves relevant information for different job applications
+* Developed an MCP-based agentic workflow
+* Optimized data retrieval accuracy
+* Utilized React19 and Pincone VectorDB`,
     },
   ],
   pacman: [
@@ -56,7 +57,7 @@ and the user's ToDo List items as the power pellets which gives a bonus score.
 
 **Key Achievements:**
 * Utilized sensor data and not GPS to accurately track user position in an indoor environment
-* Designed an interactive 3D pac man game which mimics the user movement`,
+* Designed an interactive pac man game which mimics the user movement`,
     },
   ],
   sst: [

@@ -22,10 +22,10 @@ const sliderLength = 7;
 
 export const projectsSlider: ProjectsSlider[] = [
   {
-    key: "jobtracker",
+    key: "spotlify",
     value: 100 / sliderLength * 7,
     valueIcon: <WorkIcon />,
-    label: "Oct 2025",
+    label: "Nov 2025",
   },
   {
     key: "pacman",
@@ -94,12 +94,12 @@ export const projectsSlider: ProjectsSlider[] = [
 
 export const projectsSliderMobile: ProjectsSlider[] = [
   {
-    key: "jobtracker",
+    key: "spotlify",
     value: 100 / sliderLength * 7,
     valueIcon: (
       <Grid justifyContent="center" container>
         <WorkIcon />
-        <Typography>Oct 2025</Typography>
+        <Typography>Nov 2025</Typography>
       </Grid>
     ),
   },
