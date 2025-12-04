@@ -35,7 +35,7 @@ and ace job application questions using RAG (Retrieval Augmented Generation).
 * Possesses an extensive knowledge base of my profile and retrieves relevant information for different job applications
 * Developed an MCP-based agentic workflow
 * Optimized data retrieval accuracy
-* Utilized React19 and Pincone VectorDB`,
+* Utilized React19 and Pinecone VectorDB`,
     },
   ],
   pacman: [
