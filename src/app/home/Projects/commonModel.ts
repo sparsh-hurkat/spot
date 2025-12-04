@@ -28,8 +28,8 @@ export const projectsModel: ProjectsModel = {
         alt: "Spotlify",
       },
       description:
-        `Spotlify is an intelligent career assistant that helps you craft the perfect resume, write compelling cover letters,
-and ace application questions using AI-powered RAG (Retrieval Augmented Generation) technology.
+        `Spotlify is an intelligent career assistant that helps me craft the perfect resume, write compelling cover letters,
+and ace job application questions using RAG (Retrieval Augmented Generation).
 
 **Key Achievements:**
 * Possesses an extensive knowledge base of my profile and retrieves relevant information for different job applications

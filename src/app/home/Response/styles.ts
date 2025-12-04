@@ -3,10 +3,8 @@ import { Theme } from "@mui/material";
 const styles = (theme: Theme) => {
   return {
     closeIconPosition: {
-      position: "absolute",
-      right: "12px",
-      top: "12px",
       cursor: "pointer",
+      color: theme.palette.text.secondary
     },
     dialogContent: {
       overflow: "hidden",

@@ -85,7 +85,7 @@ const Response = ({
 
   return (
     <Dialog fullScreen open={isResponseOpen}>
-      <CloseIcon onClick={handleClose} sx={classes.closeIconPosition} />
+
       <Grid sx={classes.dialogTitle} container>
         <Grid sx={classes.dialogBox} item>
           <Typography variant="h5">{"Hey!! I am Spot"}</Typography>
@@ -93,6 +93,7 @@ const Response = ({
             {"Sparsh's virtual assistant"}
           </Typography>
         </Grid>
+        <CloseIcon onClick={handleClose} sx={classes.closeIconPosition} />
       </Grid>
       <DialogContent sx={classes.dialogContent}>
         <Grid sx={{ justifyContent: "center" }} container>

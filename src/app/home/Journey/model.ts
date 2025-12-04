@@ -10,11 +10,11 @@ export const journeyList: JourneyInterface[] = [
   {
     name: "Master's at Carnegie Mellon University",
     duration: "Aug 2025 - Present",
-    description: `I am currently preparing to pursue a **Master of Information Systems Management** at Carnegie Mellon University. 
+    description: `I am currently pursuing a **Master of Information Systems Management** at Carnegie Mellon University. 
 
   To know how I prepared for the application process, check out my [blog](https://sparsh-hurkat.github.io/guide-to-masters/).
 
-  Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters now?
+  Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters at this point in my life?
   `,
     image: "/cmu_logo.png",
     color: "#C61130",

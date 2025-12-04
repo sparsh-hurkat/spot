@@ -44,8 +44,9 @@ const TitleContainer = ({ suggestions, handleSelectCard }) => {
         <Grid sx={{ textAlign: "center", marginTop: "20px" }} item>
           <Typography sx={{ ...classes.topHeader, fontSize: "12px" }}>{"or scroll down to read more"}</Typography>
           <KeyboardArrowDownIcon
-            color="primary"
+            color="success"
             onClick={scrollToNextSection}
+            fontSize="large"
           />
         </Grid>
       </Grid>
