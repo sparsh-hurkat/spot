@@ -27,6 +27,11 @@ const ChatBox = ({ handleSubmit, input, handleInputChange }) => {
             ),
           }}
           autoComplete="off"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              handleSubmit("SUBMIT_FORM", e);
+            }
+          }}
         />
       </Box>
       <Grid sx={{ width: "100%", textAlign: "center" }} item>
