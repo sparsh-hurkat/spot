@@ -59,7 +59,7 @@ const styles = (theme: Theme) => {
       alignItems: "center",
       justifyContent: "space-between",
       width: "100%",
-      maxWidth: "800px",
+      maxWidth: "900px",
       marginBottom: "20px",
       gap: "16px",
       [theme.breakpoints.down("sm")]: {
@@ -71,13 +71,12 @@ const styles = (theme: Theme) => {
     searchInput: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       fontSize: "13px",
-      // backgroundColor: theme.palette.background.paper,
       borderRadius: "6px",
       color: theme.palette.text.secondary,
       "& .MuiOutlinedInput-root": {
         height: "36px",
         "& fieldset": {
-          borderColor: theme.palette.primary.main
+          borderColor: theme.palette.primary.main,
         },
         "&:hover fieldset": {
           borderColor: so.tagBorder,
@@ -142,17 +141,95 @@ const styles = (theme: Theme) => {
       },
     },
 
+    // ── Content row: tabs + grid ──
+    contentRow: {
+      display: "flex",
+      gap: "24px",
+      width: "100%",
+      maxWidth: "900px",
+      [theme.breakpoints.down("md")]: {
+        flexDirection: "column" as const,
+        gap: "16px",
+      },
+    },
+
+    categoryTabs: {
+      display: "flex",
+      flexDirection: "column" as const,
+      gap: "2px",
+      flexShrink: 0,
+      width: "160px",
+      borderRight: `1px solid ${theme.palette.primary.light}`,
+      paddingRight: "16px",
+      [theme.breakpoints.down("md")]: {
+        flexDirection: "row" as const,
+        width: "100%",
+        borderRight: "none",
+        borderBottom: `1px solid ${theme.palette.primary.light}`,
+        paddingRight: 0,
+        paddingBottom: "12px",
+        overflowX: "auto" as const,
+        gap: "4px",
+      },
+    },
+
+    categoryTab: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      fontSize: "13px",
+      fontWeight: 400,
+      textTransform: "none" as const,
+      color: theme.palette.text.primary,
+      backgroundColor: "transparent",
+      padding: "8px 12px",
+      borderRadius: "6px",
+      minWidth: "auto",
+      justifyContent: "space-between",
+      whiteSpace: "nowrap" as const,
+      "&:hover": {
+        backgroundColor: "rgba(255,255,255,0.05)",
+      },
+    },
+
+    categoryTabActive: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      fontSize: "13px",
+      fontWeight: 600,
+      textTransform: "none" as const,
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.paper,
+      padding: "8px 12px",
+      borderRadius: "6px",
+      minWidth: "auto",
+      justifyContent: "space-between",
+      whiteSpace: "nowrap" as const,
+      "&:hover": {
+        backgroundColor: theme.palette.background.paper,
+      },
+    },
+
+    categoryTabText: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      fontSize: "13px",
+      fontWeight: "inherit",
+    },
+
+    categoryTabCount: {
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      fontSize: "11px",
+      color: so.mutedText,
+      marginLeft: "8px",
+    },
+
     tagsGrid: {
       display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
+      gridTemplateColumns: "repeat(3, 1fr)",
       gap: "16px",
-      width: "100%",
-      maxWidth: "800px",
+      flex: 1,
       [theme.breakpoints.down("md")]: {
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(3, 1fr)",
       },
       [theme.breakpoints.down("sm")]: {
-        gridTemplateColumns: "1fr",
+        gridTemplateColumns: "repeat(2, 1fr)",
       },
     },
 
@@ -189,7 +266,7 @@ const styles = (theme: Theme) => {
     tagQuestions: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       fontSize: "12px",
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
     },
   };
 };

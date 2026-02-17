@@ -7,7 +7,7 @@ import { useRef, useState, useMemo } from "react";
 import { useIntersection } from "../../hooks/useIntersection";
 import styles from "./styles";
 import useStyles from "@/app/hooks/useStyles";
-import { skillTags, SortMode } from "./model";
+import { skillTags, skillCategories, SkillCategory, SortMode } from "./model";
 
 const SkillsContainer = () => {
   const classes = useStyles(styles);
@@ -15,6 +15,7 @@ const SkillsContainer = () => {
   const isVisible = useIntersection(triggerRef);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("popular");
+  const [selectedCategory, setSelectedCategory] = useState<SkillCategory>("Featured");
 
   const filteredAndSorted = useMemo(() => {
     let tags = [...skillTags];
@@ -23,6 +24,10 @@ const SkillsContainer = () => {
       tags = tags.filter((t) =>
         t.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
+    } else if (selectedCategory === "Featured") {
+      tags = tags.filter((t) => t.featured);
+    } else if (selectedCategory !== "All") {
+      tags = tags.filter((t) => t.category === selectedCategory);
     }
 
     switch (sortMode) {
@@ -38,14 +43,21 @@ const SkillsContainer = () => {
     }
 
     return tags;
-  }, [searchQuery, sortMode]);
+  }, [searchQuery, sortMode, selectedCategory]);
+
+  const getCategoryCount = (cat: SkillCategory) =>
+    cat === "All"
+      ? skillTags.length
+      : cat === "Featured"
+        ? skillTags.filter((t) => t.featured).length
+        : skillTags.filter((t) => t.category === cat).length;
 
   const sortOptions: SortMode[] = ["popular", "name", "new"];
 
   return (
     <Grid id="skills" ref={triggerRef} container sx={classes.skillsContainer}>
       {/* Header */}
-      <Box sx={{ width: "100%", maxWidth: "800px", marginBottom: "32px" }}>
+      <Box sx={{ width: "100%", maxWidth: "900px", marginBottom: "32px" }}>
         <Box sx={classes.headerRow}>
           <Box
             component="img"
@@ -95,20 +107,42 @@ const SkillsContainer = () => {
         </Box>
       </Box>
 
-      {/* Tags grid */}
-      <Box sx={classes.tagsGrid}>
-        {filteredAndSorted.map((tag) => (
-          <Box key={tag.name} sx={classes.tagCard}>
-            <Box sx={classes.tagPill}>
-              <Typography sx={classes.tagPillText}>{tag.name}</Typography>
-            </Box>
-            <Box sx={classes.tagMeta}>
-              <Typography sx={classes.tagQuestions}>
-                {tag.questions} questions
+      {/* Main content: tabs + grid */}
+      <Box sx={classes.contentRow}>
+        {/* Category tabs - vertical on desktop, horizontal on mobile */}
+        <Box sx={classes.categoryTabs}>
+          {skillCategories.map((cat) => (
+            <Button
+              key={cat}
+              disableRipple
+              onClick={() => setSelectedCategory(cat)}
+              sx={selectedCategory === cat ? classes.categoryTabActive : classes.categoryTab}
+            >
+              <Typography component="span" sx={classes.categoryTabText}>
+                {cat}
               </Typography>
+              <Typography component="span" sx={classes.categoryTabCount}>
+                {getCategoryCount(cat)}
+              </Typography>
+            </Button>
+          ))}
+        </Box>
+
+        {/* Tags grid */}
+        <Box sx={classes.tagsGrid}>
+          {filteredAndSorted.map((tag) => (
+            <Box key={tag.name} sx={classes.tagCard}>
+              <Box sx={classes.tagPill}>
+                <Typography sx={classes.tagPillText}>{tag.name}</Typography>
+              </Box>
+              <Box sx={classes.tagMeta}>
+                <Typography sx={classes.tagQuestions}>
+                  {tag.questions} questions
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Grid>
   );

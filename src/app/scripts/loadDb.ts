@@ -4,6 +4,7 @@ import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { TaskType } from "@google/generative-ai";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { MarkdownTextSplitter } from "@langchain/textsplitters";
+import { DataAPIClient } from "@datastax/astra-db-ts";
 
 const {
   ASTRA_DB_NAMESPACE,
@@ -16,6 +17,16 @@ const {
 let vectorStore: AstraDBVectorStore | null = null;
 
 export async function seedCollection() {
+  // Delete old collection if it exists (dimension mismatch)
+  const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN!);
+  const db = client.db(ASTRA_DB_API_ENDPOINT!, { keyspace: ASTRA_DB_NAMESPACE });
+  try {
+    await db.dropCollection(ASTRA_DB_COLLECTION!);
+    console.log(`Dropped existing collection: ${ASTRA_DB_COLLECTION}`);
+  } catch {
+    console.log("No existing collection to drop, creating fresh.");
+  }
+
   const loader = new TextLoader("server_files/Sparsh_Hurkat_data.md");
   const document = await loader.load();
 
@@ -24,10 +35,11 @@ export async function seedCollection() {
     chunkOverlap: 100,
   });
   const chunks = await splitter.splitDocuments(document);
+  console.log(`Split into ${chunks.length} chunks.`);
 
   const embeddings = new GoogleGenerativeAIEmbeddings({
     apiKey: GOOGLE_API_KEY,
-    model: "text-embedding-004", // 768-dimensional embeddings
+    model: "gemini-embedding-001",
     taskType: TaskType.RETRIEVAL_DOCUMENT,
     title: "Document title",
   });
@@ -39,7 +51,7 @@ export async function seedCollection() {
     keyspace: ASTRA_DB_NAMESPACE,
     collectionOptions: {
       vector: {
-        dimension: 768,
+        dimension: 3072,
         metric: "dot_product",
       },
     },

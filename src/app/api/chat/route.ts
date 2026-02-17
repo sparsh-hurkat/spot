@@ -46,7 +46,7 @@ export async function POST(req: Request) {
 
     const embeddings = new GoogleGenerativeAIEmbeddings({
       apiKey: GOOGLE_API_KEY!,
-      model: "text-embedding-004",
+      model: "gemini-embedding-001",
     });
 
     const vectorStore = await AstraDBVectorStore.fromExistingIndex(embeddings, {
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
       endpoint: ASTRA_DB_API_ENDPOINT!,
       collection: ASTRA_DB_COLLECTION!,
       keyspace: ASTRA_DB_NAMESPACE!,
-      collectionOptions: { vector: { dimension: 768, metric: "dot_product" } },
+      collectionOptions: { vector: { dimension: 3072, metric: "dot_product" } },
     });
 
     const retriever = vectorStore.asRetriever({ k: 7 });
