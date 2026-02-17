@@ -1,6 +1,6 @@
 import { JourneyInterface, journeyList } from "../home/Journey/model";
-import { projectsModel, ProjectsModel } from "../home/Projects/commonModel";
-import { skillsLang } from "../home/Skills/model";
+import { allProjects, ProjectData } from "../home/Projects/commonModel";
+import { skillTags } from "../home/Skills/model";
 import { aboutLang } from "../home/About/model";
 import fs from "fs/promises";
 import fetch from "node-fetch";
@@ -40,20 +40,48 @@ async function fetchMyMastersStory() {
   return null;
 }
 
-const convertProjectsModelToMarkdown = (projectsModel: ProjectsModel): string =>
-  `## Projects\n\n` +
-  Object.entries(projectsModel)
-    .flatMap(([category, projects], index) =>
-      projects.map(
-        (project, i) =>
-          `### Project ${index + i + 1}: ${project.title} (${project.date})\n` +
-          project.description
-            .replace(/\n\nChallenges:-/, "\n\n#### Challenges:\n")
-            .replace(/\n\*/g, "\n-")
-      )
-    )
-    .join("\n\n") +
-  `\n\n-------`;
+const convertProjectsModelToMarkdown = (
+  allProjects: ProjectData[]
+): string => {
+  let projectNumber = 1;
+
+  // group by sectionTitle
+  const grouped = allProjects.reduce<Record<string, ProjectData[]>>(
+    (acc, project) => {
+      if (!acc[project.sectionTitle]) {
+        acc[project.sectionTitle] = [];
+      }
+      acc[project.sectionTitle].push(project);
+      return acc;
+    },
+    {}
+  );
+
+  return (
+    `## Projects\n\n` +
+    Object.entries(grouped)
+      .map(([section, projects]) => {
+        const sectionMarkdown =
+          `### ${section}\n\n` +
+          projects
+            .map((project) => {
+              const markdown =
+                `#### Project ${projectNumber++}: ${project.title} (${project.date})\n` +
+                project.description
+                  .replace(/\n\nChallenges:-/, "\n\n#### Challenges:\n")
+                  .replace(/\n\*/g, "\n-");
+
+              return markdown;
+            })
+            .join("\n\n");
+
+        return sectionMarkdown;
+      })
+      .join("\n\n") +
+    `\n\n-------`
+  );
+};
+
 
 const convertJourneyListToMarkdown = (
   journeyList: JourneyInterface[]
@@ -67,11 +95,12 @@ const convertJourneyListToMarkdown = (
     .join("\n\n") +
   `\n\n-------`;
 
-const convertSkillsToMarkdown = (lang: {
-  skillsContent1: string;
-  skillsContent2: string;
-}): string =>
-  `## Skills\n\n${lang.skillsContent1}\n\n${lang.skillsContent2}\n\n-------`;
+const convertSkillsToMarkdown = (
+  tags: { name: string; questions: number }[]
+): string =>
+  `## Skills\n\n` +
+  tags.map((t) => `- **${t.name}** (${t.questions} questions)`).join("\n") +
+  `\n\n-------`;
 
 const convertAboutToMarkdown = (lang: { aboutContent: string }): string =>
   `## About Me\n\n${lang.aboutContent}\n\n-------`;
@@ -106,9 +135,9 @@ async function updateMarkdownFile(existingFilePath: string) {
 
     const updates = {
       "About Me": convertAboutToMarkdown(aboutLang),
-      Skills: convertSkillsToMarkdown(skillsLang),
+      Skills: convertSkillsToMarkdown(skillTags),
       Journey: convertJourneyListToMarkdown(journeyList),
-      Projects: convertProjectsModelToMarkdown(projectsModel),
+      Projects: convertProjectsModelToMarkdown(allProjects),
       "Guide to Masters": externalSections ? convertSectionsToMarkdown(externalSections) : '',
       "My Masters Story": myMastersStory ? convertMyMastersStoryToMarkdown(myMastersStory) : '',
     };

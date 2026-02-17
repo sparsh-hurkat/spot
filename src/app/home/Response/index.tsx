@@ -39,8 +39,8 @@ const Response = ({
 
     const handleDownload = () => {
       const link = document.createElement("a");
-      link.href = "/Sparsh_Hurkat's_Resume_Dec_2025.pdf";
-      link.download = "Sparsh_Hurkat's_Resume_Dec_2025.pdf";
+      link.href = "/Sparsh_Hurkat_Resume_SWE.pdf";
+      link.download = "Sparsh_Hurkat_Resume_SWE.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

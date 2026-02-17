@@ -7,56 +7,62 @@ My name is Sparsh Hurkat. I was born and raised in Mumbai on 16 August 2000. I a
 
 ## About Me
 
-I'm **Sparsh Hurkat**, a software developer hailing from Mumbai, currently
-residing in Pittsburgh, PA.
-I have a deep love for **sports**. I've played basketball for 5 years and
-badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and
-football every now and then?
-I am an avid **traveller**, I love going to new places, eating different
-kinds of food, going on new adventures and making unforgettable memories
-I have a very **creative** side.
-I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to
-remote corners of the world will probably be a huge part of my retired life.
-My love for art and coding
-landed me in the world of frontend development, a perfect blend of the 2 worlds.
+I'm **Sparsh Hurkat**, a software developer hailing from Mumbai, currently residing in Pittsburgh, PA.
+I have a deep love for **sports**. I've played basketball for 5 years and badminton for 6 years, some racing, some squash, some table tennis. And who doesn't play cricket and football every now and then?
+I am an avid **traveller**, I love going to new places, eating different kinds of food, going on new adventures and making unforgettable memories
+I have a very **creative** side. I have taken the elementary and intermediate art exams. Sketching and painting nature while travelling to remote corners of the world will probably be a huge part of my retired life.
+My love for art and coding landed me in the world of frontend development, a perfect blend of the 2 worlds.
 
 -------
 ## Skills
 
-I am a full-stack developer with a solid **three years** of experience under my belt as of 2025. I got my start in frontend web development, and quickly expanded my expertise to full-stack applications.
-**Javascript** is my playground, and I'm always diving deeper into its intricacies to push the boundaries of what's possible. Crafting dynamic websites is my forte, especially with **React.js**.
-**HTML/CSS**? Oh, you bet I've got those down pat. After all, what kind of web developer doesn't rock those fundamentals? But it's the art of combining these languages seamlessly that truly brings my projects to life.
-
-On the other hand, I use **Spring Boot** to build scalable backend services, **Node.js** for server-side applications, and **SST.dev** for deploying serverless cloud-based solutions on **AWS**. Additionally, I have worked with **MySQL** and **MongoDB** for database management.
-Back in my college days, I aced **Java and Python**, but my heart truly found its rhythm with JS post-graduation. While I might have drifted from Java and Python amidst the captivating world of JavaScript, my foundational skills in these languages still stand strong.
-This website marks my first real world application experience with **Next.js** (let me know how i did and how i can improve). I even utilized **Langchain** to showcase my capabilities in developing a cheap and efficient **LLM wrapper**.
+- **js/ts** (24891 questions)
+- **java** (23715 questions)
+- **aws** (22107 questions)
+- **mysql/nosql** (21347 questions)
+- **react** (20493 questions)
+- **next** (19762 questions)
+- **node** (18436 questions)
+- **react-native** (17629 questions)
+- **python** (16854 questions)
+- **langchain** (15271 questions)
+- **deep-learning** (14208 questions)
+- **agentic-systems** (11503 questions)
+- **git** (9743 questions)
+- **kubernetes** (9081 questions)
+- **docker** (8145 questions)
+- **terraform** (7562 questions)
+- **html** (6278 questions)
+- **css** (4319 questions)
+- **jest** (3956 questions)
+- **sst** (3841 questions)
 
 -------
 ## Journey
 
-### Master's at Carnegie Mellon University (Aug 2025 - Present)
-I am currently preparing to pursue a **Master of Information Systems Management** at Carnegie Mellon University. 
+### Carnegie Mellon University (Aug 2025 - Present)
+I am currently pursuing a **Master of Information Systems Management** at Carnegie Mellon University.
 
   To know how I prepared for the application process, check out my [blog](https://sparsh-hurkat.github.io/guide-to-masters/).
 
-  Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters now?
+  Click [here](https://sparsh-hurkat.github.io/guide-to-masters/my-story) to know why I chose to pursue a Masters at this point in my life?
   
 
-### Software developer at Moneyview (March 2022 - July 2025)
+### Moneyview (March 2022 - July 2025)
 **Moneyview** is a dynamic **FinTech** startup providing lucrative solutions for instant loans and money management. In my 3 years at moneyview, I have been deeply involved in the development and enhancement of various financial and technical products and services.
 
 I am a part of the company's **Growth Pod** functioned with release of all new company features and products. I also work on building and maintaining several features that automate, streamline and enhance several server and client sided processes.
 
 Check out some of the work I have done in the Recent Projects section.
 
-### Experience Design Engineer (XDE) Intern at Them Consulting (May 2021 - Jun 2021)
+### Them Consulting (May 2021 - Jun 2021)
 I worked as an intern during my college days at a UI/UX company called Them Consulting in Mumbai.
 
 I analyzed systematic approaches to design by concept generation and prototyping of a user-friendly wedding planning platform.
 
 I also researched user-centered design and human-computer interaction to enhance UX and improve acquisition rates.
 
-### B.Tech at Vellore Institute of technology(VIT) (2018 - 2022 | GPA : 8.3/10)
+### Vellore Institute of Technology (VIT) (2018 - 2022 | GPA : 8.3/10)
 I majored in **Electronics and Communications Engineering(ECE)** with a specialization in sensors and wearable technology. Even though my major was in electronics, I knew I wanted to pursue a career as a software developer. Therefore, I took extra courses and learned coding in my free time.
 
 During my time at VIT, I had the opportunity to work on various projects and participate in numerous events and several hackathons. You can find some of my academic/hackathon projects in the Recent Projects section.
@@ -65,62 +71,73 @@ Additionally, I was a founding member and core committee member of the **IEEE EM
 
 I also volunteered in the **Youth Red Cross Society** in my free time.
 
-### Arya Vidya Mandir Bandra(W) | Pace Jr. Science college, Dadar (2004 - 2016)
-I completed my schooling at **Arya Vidya Mandir**. I got a **90.17/100** in the **ICSE** board examination. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering.
-
+### Pace Jr. Science College (2016 - 2018)
 After my time at AVM, I moved on to **Pace Junior Science College** for my high school education. I scored **82.77/100** in my **HSC board examinations**. Pace was a dynamic and challenging environment that pushed me to elevate my academic performance, particularly in the sciences. It not only prepared me for the highly competitive JEE entrance exams for engineering colleges but also prepared for the rigorous demands of my bachelor's degree.
+
+### Arya Vidya Mandir (2004 - 2016)
+I completed my schooling at **Arya Vidya Mandir**. I got a **90.17/100** in the **ICSE** board examination. In the 8th standard, I chose JAVA as my elective subject and discovered a deep enjoyment for coding. This newfound passion made it clear that I wanted to pursue a career in software engineering.
 
 -------
 ## Projects
 
-### Project 1: UI/UX and Frontend Development (MV) (July 2022 - February 2023)
-Worked on the frontend development initiatives for Moneyview's main website,
-focusing on performance optimization and modern development practices.
-Redesigned and modernized the entire UI/UX with a standardized design system and a centralized component library.
+### Projects at CMU
+
+#### Project 1: WeCloud - Microservices Architecture (Ongoing)
+Recreated the WeChat Spring-based microservice architecture by containerizing chat services with Docker and deploying them on Kubernetes using Helm, enabling autoscaling, failure handling, and CI/CD automation.
 
 -*Key Achievements:**
-- Learnt and implemented React and Typescript for scalable code and better type safety
-- Enhanced the Fetch API integration resulting in faster page load times
-- Established a centralized component library for consistent design across the platform
+- Recreated WeChat microservice architecture using Spring framework
+- Containerized chat services using Docker for consistent deployment
+- Deployed and orchestrated services on Kubernetes cluster
+- Implemented autoscaling and failure handling mechanisms
+- Automated deployment pipeline with Helm charts
+- Achieved high availability and fault tolerance
 
-### Project 2: Calling portal (MV) (November 2023 - February 2024)
-Developed and managed a comprehensive call management portal for all company-customer interactions,
-integrating VoIP tools with WebRTC technology.
-
--*Key Achievements:**
-- Enabled an increase in agent count and an increase in monthly call volume
-- Successfully integrated VoIP software with WebRTC for real-time communication
-- Implemented real-time user detail display and call management features on a Typescript web app
-- Third-party API integration and coordination with external development teams
-
-### Project 3: Merchant Portal (MV) (September 2023 - November 2023)
-I created a portal for store vendors partnered with the company to view and manage user purchases
-and their corresponding loan applications.
+#### Project 2: Multi-Cloud E-Commerce Platform (January 2026)
+Architected a multi-cloud autoscaling system for a high-traffic e-commerce platform using AWS EC2, Terraform, and GitHub Actions; designing load balancing strategies to sustain 10x traffic bursts while optimizing for cloud cost efficiency.
 
 -*Key Achievements:**
-- Acquired knowledge of large-scale data management and document processing systems
-- Implemented dynamic user and vendor flow management systems
+- Designed and implemented multi-cloud autoscaling system for high-traffic e-commerce platform
+- Architected load balancing strategies to handle 10x traffic bursts
+- Optimized cloud infrastructure for cost efficiency using AWS EC2 and Terraform
+- Implemented CI/CD automation with GitHub Actions
+- Achieved significant cost savings through intelligent resource allocation
 
-### Project 3: Browser Extension to Track Job Applications (October 2025)
-Built a browser extension to track how many job applications I submit everyday.
+#### Project 3: RAG Product Visualization System (December 2025)
+Improved visual attribute-accuracy by 40% by engineering a multi-agent RAG + diffusion workflow, integrating FAISS retrieval, dynamic-k heuristics, and LLM-driven prompt refinement. Cut end-to-end generation time by 3× by automating data ingestion, review-to-prompt translation, and multi-model image synthesis, enabling iterative evaluation and alignment across 50K+ customer reviews.
 
 -*Key Achievements:**
-- Helps me organize my applications across different websites
-- Able to share my stats with my friends
-- A great idea for socializing among graduate students. Can be developed further to
-include social media elements or have a daily reward structure
+- Improved visual attribute-accuracy by 40% through multi-agent RAG + diffusion workflow
+- Integrated FAISS retrieval with dynamic-k heuristics for optimized search
+- Implemented LLM-driven prompt refinement for enhanced image generation
+- Reduced end-to-end generation time by 3× through automation
+- Automated data ingestion and review-to-prompt translation pipeline
+- Enabled multi-model image synthesis with iterative evaluation
+- Processed and aligned 50K+ customer reviews for training and validation
 
-### Project 4: Gamifying Grocery Shopping (HackCMU 2025) (September 2025)
-Participated in the 24-hour HackCMU 2025 to gamify usually serious/monotonous activity. Engineered a way to 
+#### Project 4: Spotlify - A Job Hunt Agent (November 2025)
+Spotlify is an intelligent career assistant that helps me craft the perfect resume, write compelling cover letters,
+and ace job application questions using RAG (Retrieval Augmented Generation).
+
+-*Key Achievements:**
+- Possesses an extensive knowledge base of my profile and retrieves relevant information for different job applications
+- Developed an MCP-based agentic workflow
+- Optimized data retrieval accuracy
+- Utilized React19 and Pinecone VectorDB
+
+#### Project 5: Gamifying Grocery Shopping (HackCMU 2025) (September 2025)
+Participated in the 24-hour HackCMU 2025 to gamify usually serious/monotonous activity. Engineered a way to
 track user movement through the aisles of a grocery store using gyroscope, magnetometer & pedometer.
 User position is overlayed as a 3D Pac man figure with the floor plan of the grocery store as the game map
 and the user's ToDo List items as the power pellets which gives a bonus score.
 
 -*Key Achievements:**
 - Utilized sensor data and not GPS to accurately track user position in an indoor environment
-- Designed an interactive 3D pac man game which mimics the user movement
+- Designed an interactive pac man game which mimics the user movement
 
-### Project 5: Backend Development (MV) (March 2025 - July 2025)
+### Work at Moneyview
+
+#### Project 6: Backend Development (MV) (March 2025 - July 2025)
 Revamped the user onboarding flow for a fintech platform by building a serverless backend microservice
 using SST.dev and TypeScript on AWS (API Gateway, Lambda, DynamoDB), implementing secure APIs,
 scalable services, caching, and logging, which reduced user registration time.
@@ -131,7 +148,7 @@ scalable services, caching, and logging, which reduced user registration time.
 - Learned modern backend development practices and microservices patterns
 - Improved scalability and performance of backend services
 
-### Project 6: Upgraded to Next.js (MV) (December 2024 - February 2024)
+#### Project 7: Upgraded to Next.js (MV) (December 2024 - February 2024)
 Upgraded the main Moneyview website and blog website from Vanilla.js to Next.js to
 enhance SEO and scalability. Leveraged reusable components to dynamically generate all website pages using a
 Content Management System (CMS). Optimized key APIs with Node.js, reducing latency
@@ -143,7 +160,56 @@ and improving overall page performance.
 - Improved web vitals score and page load speed
 - Created a dynamic CMS capable of handling all possible variants of pages
 
-### Project 7: An AI Test Generator (August 2024 - October 2024)
+#### Project 8: This website (SPOT) (June 2024 - July 2024)
+SPOT(**SP**arsh's **O**nline **T**ransformer) is a RAG Agent Chatbot with LangChain under the hood,
+a NextJs exterior, an AstraDB Vector DB motor and Gemini API as the fuel. If there is slowness in the responses it is because SPOT is absolutely free of charge.
+
+-*Key Achievements:**
+- Learnt and implemented RAG using LangChain; fetches all my data from all my websites and my resume
+- Modern design and user experience
+- Handling Gemini API and its responses
+- Learning and implementing NextJS
+
+#### Project 9: Video KYC portal (MV) (May 2024 - July 2024)
+Created a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.
+
+-*Challenges:**
+- Real-time video verification using Amazon Chime
+- Document Verification using Optical Character Recognition (OCR) technology to validate document information
+- Google SSO authentication
+- Real-time management of high customer volume with available agents
+
+#### Project 10: Calling portal (MV) (November 2023 - February 2024)
+Developed and managed a comprehensive call management portal for all company-customer interactions,
+integrating VoIP tools with WebRTC technology.
+
+-*Key Achievements:**
+- Enabled an increase in agent count and an increase in monthly call volume
+- Successfully integrated VoIP software with WebRTC for real-time communication
+- Implemented real-time user detail display and call management features on a Typescript web app
+- Third-party API integration and coordination with external development teams
+
+#### Project 11: Merchant Portal (MV) (September 2023 - November 2023)
+I created a portal for store vendors partnered with the company to view and manage user purchases
+and their corresponding loan applications.
+
+-*Key Achievements:**
+- Acquired knowledge of large-scale data management and document processing systems
+- Implemented dynamic user and vendor flow management systems
+
+#### Project 12: UI/UX and Frontend Development (MV) (July 2022 - February 2023)
+Worked on the frontend development initiatives for Moneyview's main website,
+focusing on performance optimization and modern development practices.
+Redesigned and modernized the entire UI/UX with a standardized design system and a centralized component library.
+
+-*Key Achievements:**
+- Learnt and implemented React and Typescript for scalable code and better type safety
+- Enhanced the Fetch API integration resulting in faster page load times
+- Established a centralized component library for consistent design across the platform
+
+### Projects in Undergrad
+
+#### Project 13: An AI Test Generator (August 2024 - October 2024)
 TestEZ is an online tool that generates custom, unique questions by analyzing any textbook or PDF you
 provide. This AI tool can assist professors in creating test papers. Built on the LangChain framework,
 TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.
@@ -154,26 +220,7 @@ TestEZ utilizes Retrieval-Augmented Generation and a PineCone vector database.
 - Creating text chunks, vector embedding and storing in a VectorDB
 - Working out the user flow.
 
-### Project 8: This website(SPOT) (June 2024 - July 2024)
-SPOT(**SP**arsh's **O**nline **T**ransformer) is a RAG Agent Chatbot with LangChain under the hood,
-a NextJs exterior, an AstraDB Vector DB motor and Gemini API as the fuel. If there is slowness in the responses it is because SPOT is absolutely free of charge.
-
--*Key Achievements:**
-- Learnt and implemented RAG using LangChain; fetches all my data from all my websites and my resume
-- Modern design and user experience
-- Handling Gemini API and its responses
-- Learning and implementing NextJS
-
-### Project 9: Video KYC portal (MV) (May 2024 - July 2024)
-Created a web application that allows company agents to conduct real-time video interactions with customers, ensuring compliance with regulatory requirements.
-
--*Challenges:**
-- Real-time video verification using Amazon Chime
-- Document Verification using Optical Character Recognition (OCR) technology to validate document information
-- Google SSO authentication
-- Real-time management of high customer volume with available agents
-
-### Project 9: Bird species identification (Sep 2021 - Dec 2021)
+#### Project 14: Bird species identification (Sep 2021 - Dec 2021)
 I conducted a comparative study of four CNN architectures achieving a peak classification accuracy of 96% using ResNet50 on a dataset of 275 species. Interfaced this model with a Streamlit web application, allowing real-time identification.
 
 -*Challenges:**
@@ -182,7 +229,7 @@ I conducted a comparative study of four CNN architectures achieving a peak class
 - Real-time processing
 - Scalability and stability of application
 
-### Project 10: Drowsy driver detection (Aug 2020 - Nov 2020)
+#### Project 15: Drowsy driver detection (Aug 2020 - Nov 2020)
 I designed an IoT-enabled portable circuit mounted on lab safety glasses and integrated a facial feature detection model using OpenCV and Dlib, achieving an accuracy of 86%. In case fatigue was detected in the driver an alarm/buzzer would ring and using a bluetooth module and Twilio it would send out an alert SMS.
 
 -*Challenges:**
@@ -191,7 +238,7 @@ I designed an IoT-enabled portable circuit mounted on lab safety glasses and int
 - Handling the false positive scenarios
 - The literature survey for previous implementations.
 
-### Project 11: An e-commerce website (May 2019)
+#### Project 16: An e-commerce website (May 2019)
 One of the first websites i made was for a local e-commerce website called 'The Gift Angels'. I took this project on to upskill myself over the summer break of my first year in college. I learnt vital concepts of HTML and CSS, and got a taste of Javascript and PHP enticing me into the world of web development. The website was live for 6 months before i took it down as it was almost impossible for me to maintain and update the website along with my studies. In the process I learnt the importance of writing scalable code.
 
 -*Challenges:**
@@ -201,7 +248,7 @@ One of the first websites i made was for a local e-commerce website called 'The 
 - Inventory management
 - Maintenance and scalability
 
-### Project 12: E-Voting system (January 2019 - April 2019)
+#### Project 17: E-Voting system (January 2019 - April 2019)
 The project involved integrating an Arduino with biometric authentication, and a Solidity smart contract deployed on a private Ethereum blockchain. I used Web3.js to interface the blockchain, ensuring tamper-proof data storage and real-time election result verification. With a team of 3, we developed this project to enter Smart India Hackathon, a nationwide competition.
 
 -*Challenges:**
@@ -500,6 +547,106 @@ I also carried an extensive folder of documents, most of which the officer didn�
 I never imagined I’d be pursuing a master’s degree, let alone at Carnegie Mellon University — one of the best in the world for computer science. But life, as it turns out, has a strange way of bringing you full circle.
 If you're an aspiring engineer reading this, I hope my story helps you in some small way — whether you're at a crossroads, doubting your choices, or just looking for clarity in the noise.
 
+## 🌱 Where It All Began
+Even before college, I was certain of one thing: I wanted to become a computer engineer. I loved computers — how they worked, how software could be built from nothing but logic and creativity. So I prepared hard for entrance exams and held on to that dream.
+But things didn’t pan out the way I had imagined. I was left with two choices:
+- Electronics engineering at VIT Vellore, a well-known, reputed college — but in a field I wasn’t passionate about.
+- Computer engineering at Manipal University, Jaipur — in a field I loved, but at a college with less reputation.
+
+I chose VIT, hoping I could switch to computer science after the first year. That didn’t happen. Reality was tougher than I had expected, and I remained in electronics engineering.
+
+## 🧭 Losing the Map
+By the end of four years, I found myself with:
+- An average CGPA
+- No research papers
+- No formal academic background in CS
+- A major I had no intention of building a career in
+
+So I gave up on the idea of higher studies altogether. I told myself:
+“India is booming in tech. You don’t need a master’s. Just build skills and find a good job.”
+
+And that’s what I did. I dived deep into software development, took every elective I could in computer science, worked on personal projects, learned from scratch, and committed every free hour to becoming a better engineer.
+
+Eventually, I landed my first job as a software developer at Moneyview, a fintech startup with a highly skilled tech team. For a while, I thought I was finally past the shadow of my undergraduate decisions.
+
+But I was wrong.
+
+## 🌟 So, What Made Me Choose Higher Education?
+Moneyview was everything I had dreamed of — exciting projects, real impact, and a team that believed in me. I loved the work. The challenges were real, the problems were interesting, and I was finally doing what I had always wanted to do.
+
+Software development is exciting, beautiful, logical, creative, frustrating, and deeply rewarding. It gave me a sense of purpose and progress.
+
+And yet… something felt missing.
+
+Despite being in a job I loved, I found myself searching for more — more challenges, more knowledge, more growth. I wanted to go beyond just writing good code; I wanted to build better systems, design with intention, and understand the science behind the software.
+
+As I looked around the global tech landscape, I couldn’t help but notice the incredible innovation happening in the U.S. — the pace, the scale, and the depth of work being done by top computer scientists and engineers was inspiring. In comparison, I felt my skillset was just scratching the surface.
+
+After hustling for nearly two years — building products, solving real-world problems, and earning a promotion — I still felt the hunger to grow deeper.
+
+I considered switching to a multinational company and working toward an internal transfer to the U.S. But that came with its own uncertainties, slow timelines, and lack of control over the kind of work I’d get.
+
+Instead, I asked myself:
+What if I gave myself the chance to learn again — the right way? What if I could take a break from execution and focus on understanding?
+
+That’s when the decision became clear.
+
+I wanted to strengthen my fundamentals in software engineering, learn advanced topics, explore new ideas shaping the future of computer science, and surround myself with people who lived and breathed tech.
+
+Higher education — at the right place — would not just give me a degree. It would give me time, mentorship, depth, and the environment to evolve into the engineer I aspired to become.
+
+
+-------
+## 🌱 Where It All Began
+Even before college, I was certain of one thing: I wanted to become a computer engineer. I loved computers — how they worked, how software could be built from nothing but logic and creativity. So I prepared hard for entrance exams and held on to that dream.
+But things didn’t pan out the way I had imagined. I was left with two choices:
+- Electronics engineering at VIT Vellore, a well-known, reputed college — but in a field I wasn’t passionate about.
+- Computer engineering at Manipal University, Jaipur — in a field I loved, but at a college with less reputation.
+
+I chose VIT, hoping I could switch to computer science after the first year. That didn’t happen. Reality was tougher than I had expected, and I remained in electronics engineering.
+
+## 🧭 Losing the Map
+By the end of four years, I found myself with:
+- An average CGPA
+- No research papers
+- No formal academic background in CS
+- A major I had no intention of building a career in
+
+So I gave up on the idea of higher studies altogether. I told myself:
+“India is booming in tech. You don’t need a master’s. Just build skills and find a good job.”
+
+And that’s what I did. I dived deep into software development, took every elective I could in computer science, worked on personal projects, learned from scratch, and committed every free hour to becoming a better engineer.
+
+Eventually, I landed my first job as a software developer at Moneyview, a fintech startup with a highly skilled tech team. For a while, I thought I was finally past the shadow of my undergraduate decisions.
+
+But I was wrong.
+
+## 🌟 So, What Made Me Choose Higher Education?
+Moneyview was everything I had dreamed of — exciting projects, real impact, and a team that believed in me. I loved the work. The challenges were real, the problems were interesting, and I was finally doing what I had always wanted to do.
+
+Software development is exciting, beautiful, logical, creative, frustrating, and deeply rewarding. It gave me a sense of purpose and progress.
+
+And yet… something felt missing.
+
+Despite being in a job I loved, I found myself searching for more — more challenges, more knowledge, more growth. I wanted to go beyond just writing good code; I wanted to build better systems, design with intention, and understand the science behind the software.
+
+As I looked around the global tech landscape, I couldn’t help but notice the incredible innovation happening in the U.S. — the pace, the scale, and the depth of work being done by top computer scientists and engineers was inspiring. In comparison, I felt my skillset was just scratching the surface.
+
+After hustling for nearly two years — building products, solving real-world problems, and earning a promotion — I still felt the hunger to grow deeper.
+
+I considered switching to a multinational company and working toward an internal transfer to the U.S. But that came with its own uncertainties, slow timelines, and lack of control over the kind of work I’d get.
+
+Instead, I asked myself:
+What if I gave myself the chance to learn again — the right way? What if I could take a break from execution and focus on understanding?
+
+That’s when the decision became clear.
+
+I wanted to strengthen my fundamentals in software engineering, learn advanced topics, explore new ideas shaping the future of computer science, and surround myself with people who lived and breathed tech.
+
+Higher education — at the right place — would not just give me a degree. It would give me time, mentorship, depth, and the environment to evolve into the engineer I aspired to become.
+
+
+-------
 ## 🌱 Where It All Began
 Even before college, I was certain of one thing: I wanted to become a computer engineer. I loved computers — how they worked, how software could be built from nothing but logic and creativity. So I prepared hard for entrance exams and held on to that dream.
 But things didn’t pan out the way I had imagined. I was left with two choices:

@@ -1,44 +1,33 @@
-export const levels = ["Rockstar", "Kickass", "Average", "Beginner"];
-export const bars = [
-  {
-    label: "ReactJS",
-    height: "150px",
-    color: "pink",
-  },
-  {
-    label: "NextJS",
-    height: "120px",
-    color: "yellow",
-  },
-  {
-    label: "JS + TS",
-    height: "150px",
-    color: "red",
-  },
-  {
-    label: "Java",
-    height: "kickass",
-    color: "brown",
-  },
-  {
-    label: "Langchain",
-    height: "average",
-    color: "blue",
-  },
-  {
-    label: "AWS",
-    height: "80px",
-    color: "purple",
-  },
+export interface SkillTag {
+  name: string;
+  questions: number;
+}
+
+export const skillTags: SkillTag[] = [
+  { name: "js/ts", questions: 24891 },
+  { name: "java", questions: 23715 },
+  { name: "aws", questions: 22107 },
+  { name: "mysql/nosql", questions: 21347 },
+
+  { name: "react", questions: 20493 },
+  { name: "next", questions: 19762 },
+  { name: "node", questions: 18436 },
+  { name: "react-native", questions: 17629 },
+
+  { name: "python", questions: 16854 },
+  { name: "langchain", questions: 15271 },
+  { name: "deep-learning", questions: 14208 },
+  { name: "agentic-systems", questions: 11503 },
+
+  { name: "git", questions: 9743 },
+  { name: "kubernetes", questions: 9081 },
+  { name: "docker", questions: 8145 },
+  { name: "terraform", questions: 7562 },
+
+  { name: "html", questions: 6278 },
+  { name: "css", questions: 4319 },
+  { name: "jest", questions: 3956 },
+  { name: "sst", questions: 3841 },
 ];
 
-export const skillsLang = {
-  skillsContent1: `I am a full-stack developer with a solid **three years** of experience under my belt as of 2025. I got my start in frontend web development, and quickly expanded my expertise to full-stack applications.
-**Javascript** is my playground, and I'm always diving deeper into its intricacies to push the boundaries of what's possible. Crafting dynamic websites is my forte, especially with **React.js** and **TypeScript**.
-**HTML/CSS**? Oh, you bet I've got those down pat. After all, what kind of web developer doesn't rock those fundamentals? But it's the art of combining these languages seamlessly that truly brings my projects to life. I’ve also built reusable UI systems and component libraries, and even experimented with interactive mobile experiences using **React Native**.`,
-
-  skillsContent2: `On the other hand, I use **Spring Boot** to build scalable backend services, **Node.js** for server-side applications, and **SST.dev** for deploying serverless cloud-based solutions on **AWS**. Additionally, I have worked with **MySQL** and **MongoDB** for database management.
-Back in my college days, I aced **Python**, but my heart truly found its rhythm with Java & JS post-graduation. While I might have drifted from Python amidst the captivating world of Java & JavaScript, my foundational skills in these languages still stand strong.
-This website marks my first real world application experience with **Next.js** (let me know how i did and how i can improve). I even utilized **Langchain** to showcase my capabilities in developing a cheap and efficient **LLM wrapper**. I also apply **Jest** for unit testing and follow modern engineering workflows with **CI/CD** and Agile practices.`,
-};
-
+export type SortMode = "popular" | "name" | "new";
