@@ -8,6 +8,7 @@ import SkillsContainer from "./Skills";
 import JourneyContainer from "./Journey";
 import ProjectsContainer from "./Projects";
 import AboutMeContainer from "./About";
+import AnnouncementContainer from "./Announcement";
 import useChat from "../hooks/useChat";
 
 const HomePage = () => {
@@ -108,9 +109,11 @@ const HomePage = () => {
           suggestions={suggestions}
           handleSelectCard={handleSubmitChat}
         />
+        <AnnouncementContainer />
         <JourneyContainer />
-        <SkillsContainer />
         <ProjectsContainer />
+        <SkillsContainer />
+
         <AboutMeContainer />
         <Box sx={{ pointerEvents: isResponseOpen ? "none" : "auto" }}>
           <ChatBox
