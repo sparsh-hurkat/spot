@@ -32,7 +32,7 @@ const SkillsContainer = () => {
 
     switch (sortMode) {
       case "popular":
-        tags.sort((a, b) => b.questions - a.questions);
+        tags.sort((a, b) => b.level - a.level);
         break;
       case "name":
         tags.sort((a, b) => a.name.localeCompare(b.name));
@@ -135,10 +135,11 @@ const SkillsContainer = () => {
               <Box sx={classes.tagPill}>
                 <Typography sx={classes.tagPillText}>{tag.name}</Typography>
               </Box>
-              <Box sx={classes.tagMeta}>
-                <Typography sx={classes.tagQuestions}>
-                  {tag.questions} questions
-                </Typography>
+              <Box sx={classes.levelRow}>
+                <Box sx={classes.levelTrack}>
+                  <Box sx={{ ...classes.levelFill, width: `${tag.level}%` }} />
+                </Box>
+                <Typography sx={classes.levelLabel}>{tag.level}%</Typography>
               </Box>
             </Box>
           ))}

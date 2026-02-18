@@ -1,21 +1,13 @@
-import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import React, { useRef, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Dialog from "@mui/material/Dialog";
+import Button from "@mui/material/Button";
 import useStyles from "@/app/hooks/useStyles";
 import styles from "./styles";
-import ChatBox from "../ChatBox";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import CycloneIcon from "@mui/icons-material/Cyclone";
 import { formatCustomTypography } from "@/app/components/customTypography";
 import Link from "next/link";
+import { Messages } from "@/app/hooks/useChat";
 
 const Response = ({
   input,
@@ -24,9 +16,43 @@ const Response = ({
   messages,
   isResponseOpen,
   handleClose,
+}: {
+  input: string;
+  handleInputChange: (e: any) => void;
+  handleSubmit: (type: string, event: any, value?: string) => void;
+  messages: Messages[];
+  isResponseOpen: boolean;
+  handleClose: () => void;
 }) => {
   const classes = useStyles(styles);
-  const theme = useTheme();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const isLoading = messages.some((m) => m.id === "loading");
+
+  // Focus hidden textarea when dialog opens and not loading
+  useEffect(() => {
+    if (isResponseOpen && !isLoading) {
+      const timer = setTimeout(() => textareaRef.current?.focus(), 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isResponseOpen, isLoading]);
+
+  // Auto-scroll to bottom when messages or input changes
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTop = contentRef.current.scrollHeight;
+    }
+  }, [messages, input]);
+
+  const now = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+  const loginDate = `${days[now.getDay()]} ${months[now.getMonth()]} ${String(now.getDate()).padStart(2, " ")} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
   const appendRedirectionLinks = (text: (string | JSX.Element)[]) => {
     const keysToLinks: Record<string, { href: string; text: string }> = {
@@ -34,7 +60,10 @@ const Response = ({
       THISISPROJECTSKEY: { href: "#projects", text: "Click here to know more about my projects" },
       THISISJOURNEYKEY: { href: "#journey", text: "Click here to know more about my journey" },
       THISISABOUTKEY: { href: "#about", text: "Click here to know more about me" },
-      THISISMASTERSKEY: { href: "https://sparsh-hurkat.github.io/guide-to-masters/", text: "Click here to know more about my preparation for masters applications" },
+      THISISMASTERSKEY: {
+        href: "https://sparsh-hurkat.github.io/guide-to-masters/",
+        text: "Click here to know more about my preparation for masters applications",
+      },
     };
 
     const handleDownload = () => {
@@ -56,7 +85,12 @@ const Response = ({
             <React.Fragment key={`${index}-${subIndex}`}>
               {subPart}
               {subIndex !== array.length - 1 && (
-                <Link style={{ color: theme.palette.success.main }} onClick={handleClose} href={href} target={href.startsWith("#") ? "_self" : "_blank"}>
+                <Link
+                  style={{ color: "#4ec94e" }}
+                  onClick={handleClose}
+                  href={href}
+                  target={href.startsWith("#") ? "_self" : "_blank"}
+                >
                   {text}
                 </Link>
               )}
@@ -70,7 +104,18 @@ const Response = ({
           <React.Fragment key={`${index}-${subIndex}`}>
             {subPart}
             {subIndex !== array.length - 1 && (
-              <Button variant="contained" style={{ color: theme.palette.success.main }} onClick={handleDownload}>
+              <Button
+                variant="text"
+                sx={{
+                  color: "#4ec94e",
+                  fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace",
+                  fontSize: "13px",
+                  textTransform: "none",
+                  padding: "0 4px",
+                  minWidth: "unset",
+                }}
+                onClick={handleDownload}
+              >
                 Click here to download PDF
               </Button>
             )}
@@ -82,65 +127,137 @@ const Response = ({
     });
   };
 
+  const focusTerminal = () => {
+    if (!isLoading) textareaRef.current?.focus();
+  };
 
   return (
-    <Dialog fullScreen open={isResponseOpen}>
+    <Dialog sx={classes.terminalDialog} open={isResponseOpen}>
+      {/* Hidden textarea — captures all keyboard input */}
+      <textarea
+        ref={textareaRef}
+        value={input}
+        onChange={handleInputChange}
+        readOnly={isLoading}
+        onKeyDown={(e) => {
+          if (isLoading) return;
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSubmit("SUBMIT_FORM", e);
+          }
+        }}
+        style={{
+          position: "fixed",
+          opacity: 0,
+          width: 1,
+          height: 1,
+          top: 0,
+          left: 0,
+          pointerEvents: "none",
+        }}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck={false}
+      />
 
-      <Grid sx={classes.dialogTitle} container>
-        <Grid sx={classes.dialogBox} item>
-          <Typography variant="h5">{"Hey!! I am Spot"}</Typography>
-          <Typography variant="body2">
-            {"Sparsh's virtual assistant"}
-          </Typography>
-        </Grid>
-        <CloseIcon onClick={handleClose} sx={classes.closeIconPosition} />
-      </Grid>
-      <DialogContent sx={classes.dialogContent}>
-        <Grid sx={{ justifyContent: "center" }} container>
-          <Grid sx={classes.responseContainer} item>
-            <Grid sx={classes.responseBox} container>
-              {messages.map((m) => {
-                const formattedText = formatCustomTypography(m.content);
-                const formattedTextWithLink =
-                  appendRedirectionLinks(formattedText);
+      <Box sx={classes.pageWrapper} onClick={focusTerminal}>
+        <Box sx={classes.terminalWindow}>
+          {/* macOS Title Bar */}
+          <Box sx={classes.terminalTitleBar}>
+            <Box sx={classes.trafficLights}>
+              <Box
+                sx={classes.dotRed}
+                onClick={(e) => { e.stopPropagation(); handleClose(); }}
+                title="Close"
+              />
+              <Box sx={classes.dotYellow} title="Minimize" />
+              <Box sx={classes.dotGreen} title="Maximize" />
+            </Box>
+            <Typography sx={classes.terminalTitle}>spot — bash — 80×24</Typography>
+            <Box sx={{ width: "60px" }} />
+          </Box>
+
+          {/* Terminal Content */}
+          <Box ref={contentRef} sx={classes.terminalContent}>
+            <Typography sx={classes.loginMessage}>
+              Last login: {loginDate} on ttys002
+            </Typography>
+
+            {messages.map((m) => {
+              const isLoadingMessage = m.id === "loading";
+
+              if (m.role === "user") {
                 return (
-                  <Grid item key={m.id}>
-                    {m.role === "user" ? (
-                      <Grid
-                        sx={{ alignItems: "center", gap: "12px" }}
-                        container
-                      >
-                        <AccountCircleIcon />
-                        <Typography fontWeight="bold">You</Typography>
-                      </Grid>
-                    ) : (
-                      <Grid
-                        sx={{ alignItems: "center", gap: "12px" }}
-                        container
-                      >
-                        <CycloneIcon />
-                        <Typography fontWeight="bold">Spot</Typography>
-                      </Grid>
-                    )}
-                    <Grid sx={{ paddingLeft: "36px" }} container>
-                      <Typography sx={{ whiteSpace: "pre-wrap" }}>
-                        {formattedTextWithLink}
+                  <Box key={m.id} sx={classes.messageBlock}>
+                    <Box sx={classes.promptLine}>
+                      <Typography component="span" sx={classes.promptYou}>
+                        you@root-user
                       </Typography>
-                    </Grid>
-                  </Grid>
+                      <Typography component="span" sx={classes.promptPath}>
+                        {" ~ "}
+                      </Typography>
+                      <Typography component="span" sx={classes.promptSymbol}>
+                        {" % "}
+                      </Typography>
+                      <Typography component="span" sx={classes.promptInput}>
+                        {m.content}
+                      </Typography>
+                    </Box>
+                  </Box>
                 );
-              })}
-            </Grid>
-          </Grid>
-        </Grid>
-      </DialogContent>
-      <DialogActions>
-        <ChatBox
-          input={input}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-        />
-      </DialogActions>
+              }
+
+              // Assistant message
+              return (
+                <Box key={m.id} sx={classes.messageBlock}>
+                  {/* spot@sparsh-hurkat label line */}
+                  <Box sx={classes.promptLine}>
+                    <Typography component="span" sx={classes.promptSpot}>
+                      spot@sparsh-hurkat
+                    </Typography>
+                    <Typography component="span" sx={classes.promptPath}>
+                      {" ~ "}
+                    </Typography>
+                    <Typography component="span" sx={classes.promptSymbol}>
+                      {"% "}
+                    </Typography>
+                  </Box>
+                  {/* Thinking animation or response content */}
+                  {isLoadingMessage ? (
+                    <Typography component="span" sx={classes.thinkingText}>
+                      Thinking
+                    </Typography>
+                  ) : (
+                    <Typography sx={classes.assistantOutput}>
+                      {appendRedirectionLinks(formatCustomTypography(m.content))}
+                    </Typography>
+                  )}
+                </Box>
+              );
+            })}
+
+            {/* Live typing prompt — only shown when not loading */}
+            {!isLoading && (
+              <Box sx={classes.promptLine}>
+                <Typography component="span" sx={classes.promptYou}>
+                  you@root-user
+                </Typography>
+                <Typography component="span" sx={classes.promptPath}>
+                  {" ~ "}
+                </Typography>
+                <Typography component="span" sx={classes.promptSymbol}>
+                  {"% "}
+                </Typography>
+                <Typography component="span" sx={classes.promptInput}>
+                  {input}
+                </Typography>
+                <Box sx={classes.cursor} />
+              </Box>
+            )}
+          </Box>
+        </Box>
+      </Box>
     </Dialog>
   );
 };

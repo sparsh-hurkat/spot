@@ -1,6 +1,5 @@
 import { PromptTemplate } from "@langchain/core/prompts";
 import { RunnablePassthrough, RunnableSequence } from "@langchain/core/runnables";
-import { streamText } from "ai";
 import {
   ChatGoogleGenerativeAI,
   GoogleGenerativeAIEmbeddings,
@@ -68,7 +67,6 @@ export async function POST(req: Request) {
 
     const prompt = PromptTemplate.fromTemplate(`
       You are Spot, a chatbot assistant for Sparsh Hurkat's personal portfolio. 
-- Always introduce yourself as Spot. 
 - Speak of Sparsh in third person when answering user questions about his experience, projects, skills, or journey. 
 - Always refer to the assistant as Spot, not Sparsh.
 
@@ -79,15 +77,14 @@ Chat History:
 {chatHistory}
 
 Instructions:
-- Introduce yourself as Spot if this is the first message.
 - Use context to answer questions.
-- Append keys when relevant:
+- Resume request, only say this → "Sure, here it is" + \n + "THISISRESUMEKEY"
+- Append keys in a new line when relevant:
   - Journey/Experience → "THISISJOURNEYKEY"
   - Projects → "THISISPROJECTSKEY"
   - Skills/Technical → "THISISSKILLSKEY"
   - Personal/About → "THISISABOUTKEY"
   - Masters application → "THISISMASTERSKEY"
-  - Resume request → "sure, here it is" + "THISISRESUMEKEY"
 
 User Question:
 {userQuery}

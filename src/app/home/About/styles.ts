@@ -34,7 +34,6 @@ const styles = (theme: Theme) => {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      zIndex: 10,
     },
     toolbarLeft: {
       display: "flex",

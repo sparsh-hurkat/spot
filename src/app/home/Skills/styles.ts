@@ -240,6 +240,7 @@ const styles = (theme: Theme) => {
       display: "flex",
       flexDirection: "column" as const,
       gap: "12px",
+      height: "64px"
     },
 
     tagPill: {
@@ -257,16 +258,32 @@ const styles = (theme: Theme) => {
       fontWeight: 400,
     },
 
-    tagMeta: {
+    levelRow: {
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-between",
+      gap: "8px",
     },
 
-    tagQuestions: {
+    levelTrack: {
+      flex: 1,
+      height: "4px",
+      backgroundColor: "rgba(255,255,255,0.08)",
+      borderRadius: "2px",
+      overflow: "hidden",
+    },
+
+    levelFill: {
+      height: "100%",
+      backgroundColor: so.tagText,
+      borderRadius: "2px",
+    },
+
+    levelLabel: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      fontSize: "12px",
-      color: theme.palette.text.primary,
+      fontSize: "11px",
+      color: so.mutedText,
+      minWidth: "28px",
+      textAlign: "right" as const,
     },
   };
 };

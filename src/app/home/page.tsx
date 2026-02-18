@@ -1,5 +1,5 @@
 "use client";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import TitleContainer from "./Title";
 import ChatBox from "./ChatBox";
 import { useEffect, useState } from "react";
@@ -112,11 +112,13 @@ const HomePage = () => {
         <SkillsContainer />
         <ProjectsContainer />
         <AboutMeContainer />
-        <ChatBox
-          handleSubmit={handleSubmitChat}
-          input={input}
-          handleInputChange={handleInputChange}
-        />
+        <Box sx={{ pointerEvents: isResponseOpen ? "none" : "auto" }}>
+          <ChatBox
+            handleSubmit={handleSubmitChat}
+            input={input}
+            handleInputChange={handleInputChange}
+          />
+        </Box>
       </Grid>
     </Grid>
   );
