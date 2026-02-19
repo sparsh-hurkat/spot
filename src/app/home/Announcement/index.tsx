@@ -96,7 +96,7 @@ const AnnouncementContainer = () => {
               <AttachFileIcon sx={classes.attachIcon} />
               <Box sx={classes.attachInfo}>
                 <Typography sx={classes.attachName}>
-                  Sparsh_Hurkat_Resume_SWE.pdf
+                  My_Resume.pdf
                 </Typography>
                 <Typography sx={classes.attachSize}>Resume · PDF</Typography>
               </Box>
