@@ -8,6 +8,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import DownloadIcon from "@mui/icons-material/Download";
 import useStyles from "@/app/hooks/useStyles";
 import styles from "./styles";
+import { announcementContent } from "./model";
 
 const REPLY_HREF =
   "mailto:sparsh@cmu.edu?subject=Hi%20Sparsh%2C%0A%0Ajust%20checked%20out%20your%20website";
@@ -43,7 +44,7 @@ const AnnouncementContainer = () => {
             sx={classes.gmailIcon}
           />
           <Typography sx={classes.subjectLine}>
-            [URGENT] Seeking SWE Internship — Summer 2026 🚀
+            {announcementContent.subject}
           </Typography>
           <StarBorderIcon sx={classes.iconBtn} />
         </Box>
@@ -55,7 +56,7 @@ const AnnouncementContainer = () => {
             <Box sx={classes.senderTopRow}>
               <Typography sx={classes.senderName}>Sparsh Hurkat</Typography>
               <Typography sx={classes.senderEmailText}>
-                &lt;sparsh@cmu.edu&gt;
+                &lt;{announcementContent.from}&gt;
               </Typography>
               <Box sx={{ flex: 1 }} />
               <Typography sx={classes.dateText}>{dateStr}</Typography>
@@ -63,7 +64,7 @@ const AnnouncementContainer = () => {
               <ReplyIcon sx={classes.iconBtnSm} />
               <MoreVertIcon sx={classes.iconBtnSm} />
             </Box>
-            <Typography sx={classes.recipientText}>to recruiters</Typography>
+            <Typography sx={classes.recipientText}>to {announcementContent.to}</Typography>
           </Box>
         </Box>
 

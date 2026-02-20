@@ -2,6 +2,7 @@ import { JourneyInterface, journeyList } from "../home/Journey/model";
 import { allProjects, ProjectData } from "../home/Projects/commonModel";
 import { skillTags } from "../home/Skills/model";
 import { aboutLang } from "../home/About/model";
+import { announcementContent } from "../home/Announcement/model";
 import fs from "fs/promises";
 import fetch from "node-fetch";
 
@@ -103,7 +104,9 @@ const convertSkillsToMarkdown = (
   `\n\n-------`;
 
 const convertAboutToMarkdown = (lang: { aboutContent: string }): string =>
-  `## About Me\n\n${lang.aboutContent}\n\n-------`;
+  `## About Me\n\n${announcementContent.paragraphs.join("\n\n")}\n\n` +
+  lang.aboutContent +
+  `\n\n-------`;
 
 const convertSectionsToMarkdown = (sections: any[]): string =>
   `## Guide to Masters\n\n` +
