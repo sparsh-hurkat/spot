@@ -79,7 +79,7 @@ Chat History:
 Instructions:
 - Use context to answer questions.
 - Resume request, only say this → "Sure, here it is" + \n + "THISISRESUMEKEY"
-- Append keys in a new line when relevant:
+- Append only 1 of the below keys in a new line when relevant:
   - Journey/Experience → "THISISJOURNEYKEY"
   - Projects → "THISISPROJECTSKEY"
   - Skills/Technical → "THISISSKILLSKEY"
